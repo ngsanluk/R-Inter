@@ -3,17 +3,153 @@ title: "R Notebook - Day 1"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter* (Mac) or *Ctrl+Shift+Enter* (Windows). 
+# WHAT IS A MARKDOWN?
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. 
+When you execute code within the notebook, the results appear beneath the code. 
+Try executing this chunk by 
+clicking the *Run* button within the chunk 
+or 
+placing your cursor inside it and pressing 
+*Cmd+Shift+Enter* (Mac) or *Ctrl+Shift+Enter* (Windows). 
 
 ```{r}
 plot(cars)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I* (Mac) or *Ctrl+Alt+I* (Windows).
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* (Mac) or *Ctrl+Shift+K* (Windows) to preview the HTML file). 
+# ADD A NEW CHUNK
+Click the *Insert Chunk* button on the toolbar
+or 
+Press *Cmd+Option+I* (Mac) or *Ctrl+Alt+I* (Windows)
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+name <- "Peter"
+address <- "Hong Kong"
+name
+address
+```
 
+
+
+# ON SAVING A NOTEBOOK
+When you save the notebook, an HTML file containing the code and output will be saved alongside it.
+Click the *Preview* button 
+or 
+Press *Cmd+Shift+K* (Mac) or *Ctrl+Shift+K* (Windows) to preview the HTML.
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. 
+Instead, the output of the chunk when it was last run in the editor is displayed.
+
+
+# NOTEBOOK or MARKDOWN?
+They are pretty much equivalent.  Only different by adding different options.
+If you are primarily doing analysis in the Notebook environment, choose *Notebook*. 
+If you are primarily aiming to create a PDF or Word document, choose *R Markdown* file.
+
+
+# MARKDOWN SYNTAX
+* Empahsis
+* Headers
+* List
+* Link
+
+
+# MORE ON MARKDOWN
+Reach out to: Help -> Markdown Quick Reference
+
+
+# LOAD LIBRARIES
+```{r}
+library(tidyverse)
+```
+
+
+# HELP IN RSTUDIO
+Open Help -> R Help
+
+Help on installed packages:
+Choose: *Reference ->  Packages*
+Explore built-in datasets
+
+```{r}
+r = 1:10
+r
+```
+
+
+# PACKAGES AND PACKAGE MANAGER
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(datasets, pacman, rio, tidyverse)
+?p_data
+p_data(datasets) # many datasets included
+p_data(rio) # no datasets found
+p_data(tidyverse) # no datasets found
+p_data(ggplot2)
+p_data(tidyr)
+p_data(stringr)
+p_data(forcats)
+p_data(dplyr)
+
+```
+
+# SHORTCUTS
+Run a linke: *Cmd+Enter* (Mac) or *Ctrl+Enter* (Windows). 
+Run a chunk: *Cmd+Option+I* (Mac) or *Ctrl+Alt+I* (Windows)
+Run and stay at current line: *Option+Enter* (Mac) or *Alt+Enter* (Windows)
+Move a line / some lines: *Option+Up/Down* (Mac) or *Alt+Up/Down* (Windows)
+Delete current line: *Cmd+D* (Mac) or *Ctrl+D* (Windows)
+Insert Pipe Operator: *Shift+Ctrl+M* (Mac) or *Shift+Ctrl+M* (Windows)
+
+
+# COMMAND PIPING: %>%
+print()
+
+
+# COMPOUND ASSIGNMENT, Tibble & 
+as_tibble()
+
+
+# print() vs. view() FUNCTION
+```{r}
+view(iris)
+iris %>% view()
+```
+
+# filter() & str_detect() FUNCTIONS
+
+# toJSON(pretty = T)
+
+
+# NAME REPAIRING
+```{r}
+select(
+  NewName = OldName
+)
+```
+
+# rdata and save() save_rds
+
+
+# ggplot2: GRAMMER & GRAPHICS
+
+# ggsave()
+
+# qplot
+```{r}
+browseURL("https://ggplot2.tidyverse.org/")
+browseURL("https://exts.ggplot2.tidyverse.org/")
+```
+
+# data.table & httr & fread()
+
+# figshare.com
+
+# unnest() 
+
+# CATEGORICAL VARIABLES
+
+# FILTERING & SUB-GROUPS
+
+# RECODING DATA
