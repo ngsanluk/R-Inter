@@ -273,8 +273,8 @@ Data Tidying Data Visualization
 
 # WHAT IS DATA WRANGLING?
 
+## Reading CSV File - allownance.csv
 ```{r}
-
 allowance = read_csv("./data/allowance.csv")
 typeof(allowance)
 class(allowance)
@@ -305,6 +305,13 @@ class(graduates)
 print(graduates)
 ```
 
+## Reading Excel File
+```{r}
+s = import("./data/Students.xlsx") %>% 
+  as_tibble() %>% 
+  print()
+```
+
 
 ## Displaying Tibble In Place
 
@@ -323,6 +330,8 @@ graduates %>%
   view()
 ```
 
+
+# ADVANCED TIBBLE PROCESSING 
 
 ## Extracting Columns
 ```{r}
@@ -370,16 +379,6 @@ graduates %>%
 ```
 
 
-## mutating
-
-```{r}
-graduates2 <- graduates %>%
-  mutate(AcademicYear=as.factor(AcademicYear),
-          LevelOfStudy=as.factor(LevelOfStudy), 
-          ProgrammeCategory=as.factor(ProgrammeCategory),
-          Sex=as.factor(Sex))
-```
-
 
 ## Getting Distinct Values: unique()
 
@@ -388,6 +387,7 @@ Use unique() function to display a list of distinct values of a column.
 ```{r}
 AcademicYear = graduates$AcademicYear %>% 
   unique()
+print(AcademicYear)
 
 LevelOfStudy = graduates$LevelOfStudy %>% 
   unique() %>% 
@@ -414,7 +414,7 @@ ByLevelAndProgramme %>%  tally() # counting number of row in each group
 
 ```
 
-## retrieving group keys
+## Retrieving Group Keys
 ```{r}
 ByLevelAndProgramme %>% group_keys() %>% 
 ByLevelAndProgramme %>% group_keys() %>% .[1,] # getting the first row
@@ -440,28 +440,34 @@ ByLevelAndProgramme %>%
   )
 ```
 
-
-## Compoung Assignment
-
-# toJSON(pretty = T)
-
-## Name Repairing
+## mutate() function
+Add / remove and change columns
 
 ```{r}
-select(
-  NewName = OldName
-)
+graduates2 = graduates %>%
+  mutate(HeadcountX100 = Headcount*100) # create a new column named HeadcountX10
+
+graduates2 = graduates %>%
+  mutate(Headcount = Headcount*100) # Replace the existing column with x100new value
+
+graduates2 = graduates2 %>%
+  mutate(Headcount = Headcount/100) # Replace the existing tibble to save memory consumption
+
 ```
 
-## rdata and save() save_rds
 
-## ggsave()
+## Rename a Column
 
 ```{r}
-browseURL("https://ggplot2.tidyverse.org/")
-browseURL("https://exts.ggplot2.tidyverse.org/")
+library(magrittr)
+allowance = read_csv("./data/allowance.csv")
+allowance %<>% # assignment pipe %<>% is used to update a value
+  rename(AssessmentYear = Assessment_Year) %>% 
+  rename(MarriedPerson = Married_Person)
 ```
 
-## data.table & httr & fread()
+
+
+## httr & fread()
 
 ## figshare.com

@@ -101,3 +101,15 @@ ggplot(data=graduates) +
     geom_bar(mapping=aes(x=AcademicYear, fill=ProgrammeCategory))
 
 ```
+
+
+
+
+```{r}
+browseURL("https://ggplot2.tidyverse.org/")
+browseURL("https://exts.ggplot2.tidyverse.org/")
+```
+
+
+
+## ggsave()
