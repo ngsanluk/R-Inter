@@ -3,153 +3,465 @@ title: "R Notebook - Day 1"
 output: html_notebook
 ---
 
+------------------------------------------------------------------------
 
-# WHAT IS A MARKDOWN?
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. 
-When you execute code within the notebook, the results appear beneath the code. 
-Try executing this chunk by 
-clicking the *Run* button within the chunk 
-or 
-placing your cursor inside it and pressing 
-*Cmd+Shift+Enter* (Mac) or *Ctrl+Shift+Enter* (Windows). 
+# WHAT IS R MARKDOWN / R NOTEBOOK?
 
-```{r}
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook.\
+When you execute code within the notebook, the results appear beneath the code. It's an experience of coding environment and descriptive note taking TWO-in-ONE.
+
+## To Run a Chunk of R Codes
+
+Try executing the following chunk by\
+clicking the **Run** button within the chunk\
+
+or place your cursor inside a chunk of codes and press\
+**Cmd+Shift+Enter** (Mac) or **Ctrl+Shift+Enter** (Windows).
+
+```{r print range of numbers}
+r = 10:19
+print(r)
+```
+
+```{r plot car datasets}
 plot(cars)
 ```
 
+## To Add a New Chunk of Codes
 
-# ADD A NEW CHUNK
-Click the *Insert Chunk* button on the toolbar
-or 
-Press *Cmd+Option+I* (Mac) or *Ctrl+Alt+I* (Windows)
+Click the **Insert Chunk** button on the toolbar\
+or\
+Press **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
-```{r}
-name <- "Peter"
-address <- "Hong Kong"
-name
-address
+```{r simple r variables declaration}
+name <- "Sunny" # assigning "Sunny" to variable 'name'
+address = "Hong Kong" # assigning "Hong Kong" to variable address
+print(name) # use print() function to show a variable
+address # or just directly type the variable name to show it's value
 ```
 
+## On Saving a Notebook
 
+When you save the notebook, an HTML file containing the code and output will be saved alongside it. Click the **Preview** button or Press **Cmd+Shift+K** (Mac) or **Ctrl+Shift+K** (Windows) to preview the HTML.
 
-# ON SAVING A NOTEBOOK
-When you save the notebook, an HTML file containing the code and output will be saved alongside it.
-Click the *Preview* button 
-or 
-Press *Cmd+Shift+K* (Mac) or *Ctrl+Shift+K* (Windows) to preview the HTML.
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike **Knit**, **Preview** does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. 
-Instead, the output of the chunk when it was last run in the editor is displayed.
-
-
-# NOTEBOOK or MARKDOWN?
-They are pretty much equivalent.  Only different by adding different options.
-If you are primarily doing analysis in the Notebook environment, choose *Notebook*. 
-If you are primarily aiming to create a PDF or Word document, choose *R Markdown* file.
-
+------------------------------------------------------------------------
 
 # MARKDOWN SYNTAX
-* Empahsis
-* Headers
-* List
-* Link
 
+R Markdown is an easy-to-write plain text format for creating dynamic documents and reports.
 
-# MORE ON MARKDOWN
-Reach out to: Help -> Markdown Quick Reference
+## italic text:
 
+*italic text*
 
-# LOAD LIBRARIES
-```{r}
-library(tidyverse)
+## bold text:
+
+**bold text**
+
+## line break:
+
+line 1 (followed by an empty line)
+
+line 2 (add a back slash)\
+
+## headings:
+
+\# Heading 1
+
+\## Heading 2
+
+\### Header 3
+
+## lists:
+
+-   item 1\
+-   item 2\
+-   item 3
+
+## link:
+
+[Google](https://www.google.com)
+
+## image:
+
+![Apple Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png)
+
+------------------------------------------------------------------------
+
+# PRACTICING MARKDOWN SYNTAX
+
+Use the following markdown playground to practice markdown syntax
+
+```{r markdown playground}
+browseURL("https://dillinger.io/")
 ```
 
+------------------------------------------------------------------------
 
-# HELP IN RSTUDIO
-Open Help -> R Help
+## R Markdown Formats & Options
 
-Help on installed packages:
-Choose: *Reference ->  Packages*
-Explore built-in datasets
+Press the **gear** icon next to **Preview** button.\
+You will see the document in the format of rendered markdown.\
+Let's give it a try.\
 
-```{r}
-r = 1:10
-r
+## R MARKDOWN OUTPUT
+
+Press **Preview** button to see preview of default output.\
+Press the **Down** arrow next to **Preview** button to choose a file format to knit.
+
+## Use Notebook or Markdown?
+
+They are pretty much equivalent or at least converatble.\
+Only different by automatic added mark-down options at begining of document.
+
+If you are primarily doing analysis in the Notebook environment, choose **Notebook**.
+
+If you are primarily aiming to create a PDF or Word document, choose **R Markdown** file.
+
+## More on Markdown
+
+Reach out to:\
+**Help** - **Markdown Quick Reference or browse**
+
+Or open the following page
+
+```{r browse rmarkdown lesson}
+browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 ```
 
+------------------------------------------------------------------------
 
-# PACKAGES AND PACKAGE MANAGER
+# INSTALL & LOAD PACKAGE
+
+Using a 3rd-party library in R will involve 1. Install the require package using **install.packages()** function. (This is only required once.) 2. Load the library when you need the feature for your projects/codes using **library()** function. (This is required in every project you need tidyverse)
+
+## Install and Load Tidyverse
+
+The codes for this intermediate workshop heavily depends on **tidyverse** packages. tidyvers is a collections of libraries that are widely used by R data scientist. It includes popular data wrangling libraries such as **tidyr**, **tibble**, **readr**, **ggplot2**, **stringr**.
+
+## To install tidyverse, run the statement below
+
+```{r install tidyverse}
+install.packages("tidyverse")
+```
+
+## To load/activate tidyverse, run the statement below
+
+```{r load tidyverse}
+library("tidyverse")
+
+```
+
+More about tidyverse, open the following page
+
+```{r browse tidyverse}
+browseURL("https://www.tidyverse.org/")
+```
+
+## Package Manager: pacman
+
+pacman: this 3rd-party Package Manager makes your package management a lot easier.
+
+Run the following statements to install **pacman** and use **pacman::p_load** to download/load required 3rd-party packages. Now we've combined package downloading and activating in one place. (Previously two-steps task)
+
 ```{r}
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(datasets, pacman, rio, tidyverse)
+if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
+pacman::p_load(datasets, pacman, rio, tidyverse) # Load required packages.  If they are NOT already downloaded, download them automatically.
+```
+
+Some handy functions come with **pacman**
+
+```{r}
 ?p_data
 p_data(datasets) # many datasets included
-p_data(rio) # no datasets found
-p_data(tidyverse) # no datasets found
+p_data(rio) # it will show no datasets found
+p_data(tidyverse) # it will show no datasets found
 p_data(ggplot2)
 p_data(tidyr)
 p_data(stringr)
 p_data(forcats)
 p_data(dplyr)
-
 ```
 
-# SHORTCUTS
-Run a linke: *Cmd+Enter* (Mac) or *Ctrl+Enter* (Windows). 
-Run a chunk: *Cmd+Option+I* (Mac) or *Ctrl+Alt+I* (Windows)
-Run and stay at current line: *Option+Enter* (Mac) or *Alt+Enter* (Windows)
-Move a line / some lines: *Option+Up/Down* (Mac) or *Alt+Up/Down* (Windows)
-Delete current line: *Cmd+D* (Mac) or *Ctrl+D* (Windows)
-Insert Pipe Operator: *Shift+Ctrl+M* (Mac) or *Shift+Ctrl+M* (Windows)
+# PIPING: %\>%
 
+## Why Piping?
 
-# COMMAND PIPING: %>%
-print()
+nested function is difficult to read and therefore usually makes the codes difficult to maintain.
 
+The following nested function call is difficult to read
 
-# COMPOUND ASSIGNMENT, Tibble & 
-as_tibble()
-
-
-# print() vs. view() FUNCTION
 ```{r}
-view(iris)
-iris %>% view()
+text = "1234.56789"
+round(sqrt(as.double(text)),2) # nested function calling starts with the inner most function. as.double() is called first. sqrt() is called second. round is called last.
 ```
 
-# filter() & str_detect() FUNCTIONS
+Using piping `%\>%` makes the codes a lot easier to understand Each previous expression will be used as *the first parameter* for the next function call
+
+```{r}
+text %>% 
+  as.double() %>% 
+  sqrt() %>% 
+  round(2)
+```
+
+## More Examples on Piping
+
+```{r regular function call}
+subset(iris,
+       Sepal.Length > 5,
+       select = c(Species, Sepal.Length)
+       )
+```
+
+```{r piping the functions call}
+iris %>% 
+  filter(Sepal.Length>5.0) %>% 
+  select(Species, Sepal.Length) 
+```
+
+------------------------------------------------------------------------
+
+# HELP IN RSTUDIO
+
+## Help Menu
+
+Open Help - R Help
+
+## Help on Installed Packages
+
+Choose: **Reference -\> Packages** Explore built-in datasets
+
+------------------------------------------------------------------------
+
+# KEYBOARD SHORTCUTS
+
+## Run a line of code:
+
+**Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows)\
+
+## Run a chunk of code:
+
+**Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)\
+
+## Run and stay at current line:
+
+**Option+Enter** (Mac) or **Alt+Enter** (Windows)\
+
+## Move a line / some lines up/down:
+
+**Option+Up/Down** (Mac) or **Alt+Up/Down** (Windows)\
+
+## Delete current line:
+
+**Cmd+D** (Mac) or **Ctrl+D** (Windows)\
+
+## Insert Pipe Operator:
+
+**Shift+Ctrl+M** (Mac) or **Shift+Ctrl+M** (Windows)\
+
+
+
+# R DATA PROCESSING WORKFLOW / EXPLORING
+
+Data Tidying Data Visualization
+
+------------------------------------------------------------------------
+
+
+# WHAT IS DATA WRANGLING?
+
+```{r}
+
+allowance = read_csv("./data/allowance.csv")
+typeof(allowance)
+class(allowance)
+print(allowance)
+```
+
+------------------------------------------------------------------------
+
+# USING TIBBLE
+
+## What is Tibble
+
+Instead of using the built-in data-frame, we will use tibble.\
+Tibble is a new data structure to replace data-frame.\
+Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to factors for easier data analysis.\
+
+Tibbles are one of the unifying features of the tidyverse. (Most other R packages use regular data frames)
+You can convert a data frame to a tibble by using **as_tibble()**
+
+## Reading CSV as tibble
+
+Use read_csv()
+
+```{r}
+graduates = read_csv("data/graduates.csv")
+typeof(graduates)
+class(graduates)
+print(graduates)
+```
+
+
+## Displaying Tibble In Place
+
+Use print() function to display data in place (right underneath the statement)
+
+```{r}
+print(graduates)
+```
+
+## Viewing Tibble in Separate Tab
+
+Use view() function to open a separate tab to preview the data. Data will be shown as a separate tab.
+
+```{r}
+graduates %>% 
+  view()
+```
+
+
+## Extracting Columns
+```{r}
+graduates$AcademicYear # selecting single column.
+
+graduates %>% 
+  select(AcademicYear, Sex, Headcount) # select multiple columns. return a tibble.
+```
+## Extracting Rows & Columns by Piping
+```{r}
+graduates[1,] # extracting the first row
+graduates %>% .[1,] # extracting the first row by piping
+
+graduates[,1] # extracting the first column
+graduates %>% .[,1] # extracting the first column by piping
+
+graduates %>% .[1:3,] # extracting the row #1 to #3 by piping
+graduates %>% .[,1:3] # extracting the column #1 to #3 by piping
+```
+
+
+
+## More on Subset Columns
+```{r}
+browseURL("https://dplyr.tidyverse.org/reference/select.html")
+```
+
+
+
+## Filtering
+
+filter() & str_detect() FUNCTIONS
+
+```{r}
+graduates %>% # using piping to chain up multiple function calls.
+  filter(AcademicYear=="2019/20") # filtering based on one condition
+
+graduates %>% 
+  filter(LevelOfStudy=="Taught Postgraduate")
+
+graduates %>% 
+  filter(LevelOfStudy=="Taught Postgraduate", 
+  ProgrammeCategory=="Business and Management") # filtering based on two conditions
+
+```
+
+
+## mutating
+
+```{r}
+graduates2 <- graduates %>%
+  mutate(AcademicYear=as.factor(AcademicYear),
+          LevelOfStudy=as.factor(LevelOfStudy), 
+          ProgrammeCategory=as.factor(ProgrammeCategory),
+          Sex=as.factor(Sex))
+```
+
+
+## Getting Distinct Values: unique()
+
+Use unique() function to display a list of distinct values of a column.
+
+```{r}
+AcademicYear = graduates$AcademicYear %>% 
+  unique()
+
+LevelOfStudy = graduates$LevelOfStudy %>% 
+  unique() %>% 
+  print()
+
+ProgrammeCategory = graduates$ProgrammeCategory %>% 
+  unique() %>% 
+  print()
+
+```
+
+
+## group_by()
+```{r}
+ByLevelOfStudy = graduates %>% group_by(LevelOfStudy)
+print(ByLevelOfStudy)
+ByLevelOfStudy %>%  tally() # counting number of row in each group
+```
+
+## group_by() with multiple variable
+```{r}
+ByLevelAndProgramme = graduates %>% group_by(LevelOfStudy, ProgrammeCategory)
+ByLevelAndProgramme %>%  tally() # counting number of row in each group
+
+```
+
+## retrieving group keys
+```{r}
+ByLevelAndProgramme %>% group_keys() %>% 
+ByLevelAndProgramme %>% group_keys() %>% .[1,] # getting the first row
+ByLevelAndProgramme %>% group_keys() %>% .[1:5,] # getting row #1 .. #5
+ByLevelAndProgramme %>% group_keys() %>% .[,1] # getting first column
+```
+
+## Which Rows Each Group Contains
+```{r}
+ByLevelAndProgramme %>% group_rows() %>% head()
+```
+
+
+
+## summarise()
+Compute summary for each group
+```{r}
+ByLevelAndProgramme %>% 
+  summarise(
+    n = n(),
+    AverageHeadcount = round(mean(Headcount)),
+    TotalHeadcount = sum(Headcount)
+  )
+```
+
+
+## Compoung Assignment
 
 # toJSON(pretty = T)
 
+## Name Repairing
 
-# NAME REPAIRING
 ```{r}
 select(
   NewName = OldName
 )
 ```
 
-# rdata and save() save_rds
+## rdata and save() save_rds
 
+## ggsave()
 
-# ggplot2: GRAMMER & GRAPHICS
-
-# ggsave()
-
-# qplot
 ```{r}
 browseURL("https://ggplot2.tidyverse.org/")
 browseURL("https://exts.ggplot2.tidyverse.org/")
 ```
 
-# data.table & httr & fread()
+## data.table & httr & fread()
 
-# figshare.com
-
-# unnest() 
-
-# CATEGORICAL VARIABLES
-
-# FILTERING & SUB-GROUPS
-
-# RECODING DATA
+## figshare.com

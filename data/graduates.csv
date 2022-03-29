@@ -1,0 +1,602 @@
+﻿AcademicYear,LevelOfStudy,ProgrammeCategory,Sex,Headcount
+2009/10,Sub-degree,Arts and Humanities,M,158
+2009/10,Sub-degree,Arts and Humanities,F,475
+2009/10,Sub-degree,Business and Management,M,73
+2009/10,Sub-degree,Business and Management,F,227
+2009/10,Sub-degree,Education,M,122
+2009/10,Sub-degree,Education,F,581
+2009/10,Sub-degree,Engineering and Technology,M,507
+2009/10,Sub-degree,Engineering and Technology,F,505
+2009/10,Sub-degree,"Medicine, Dentistry and Health",M,23
+2009/10,Sub-degree,"Medicine, Dentistry and Health",F,91
+2009/10,Sub-degree,Sciences,M,124
+2009/10,Sub-degree,Sciences,F,168
+2009/10,Sub-degree,Social Sciences,M,36
+2009/10,Sub-degree,Social Sciences,F,91
+2009/10,Undergraduate,Arts and Humanities,M,659
+2009/10,Undergraduate,Arts and Humanities,F,1788
+2009/10,Undergraduate,Business and Management,M,1861
+2009/10,Undergraduate,Business and Management,F,2314
+2009/10,Undergraduate,Education,M,148
+2009/10,Undergraduate,Education,F,579
+2009/10,Undergraduate,Engineering and Technology,M,2152
+2009/10,Undergraduate,Engineering and Technology,F,1016
+2009/10,Undergraduate,"Medicine, Dentistry and Health",M,432
+2009/10,Undergraduate,"Medicine, Dentistry and Health",F,769
+2009/10,Undergraduate,Sciences,M,1814
+2009/10,Undergraduate,Sciences,F,1010
+2009/10,Undergraduate,Social Sciences,M,897
+2009/10,Undergraduate,Social Sciences,F,1705
+2009/10,Taught Postgraduate,Arts and Humanities,M,39
+2009/10,Taught Postgraduate,Arts and Humanities,F,70
+2009/10,Taught Postgraduate,Business and Management,M,5
+2009/10,Taught Postgraduate,Business and Management,F,6
+2009/10,Taught Postgraduate,Education,M,518
+2009/10,Taught Postgraduate,Education,F,848
+2009/10,Taught Postgraduate,Engineering and Technology,M,62
+2009/10,Taught Postgraduate,Engineering and Technology,F,75
+2009/10,Taught Postgraduate,"Medicine, Dentistry and Health",M,41
+2009/10,Taught Postgraduate,"Medicine, Dentistry and Health",F,55
+2009/10,Taught Postgraduate,Sciences,M,37
+2009/10,Taught Postgraduate,Sciences,F,60
+2009/10,Taught Postgraduate,Social Sciences,M,96
+2009/10,Taught Postgraduate,Social Sciences,F,180
+2009/10,Research Postgraduate,Arts and Humanities,M,82
+2009/10,Research Postgraduate,Arts and Humanities,F,108
+2009/10,Research Postgraduate,Business and Management,M,53
+2009/10,Research Postgraduate,Business and Management,F,77
+2009/10,Research Postgraduate,Education,M,12
+2009/10,Research Postgraduate,Education,F,26
+2009/10,Research Postgraduate,Engineering and Technology,M,347
+2009/10,Research Postgraduate,Engineering and Technology,F,143
+2009/10,Research Postgraduate,"Medicine, Dentistry and Health",M,136
+2009/10,Research Postgraduate,"Medicine, Dentistry and Health",F,166
+2009/10,Research Postgraduate,Sciences,M,373
+2009/10,Research Postgraduate,Sciences,F,202
+2009/10,Research Postgraduate,Social Sciences,M,82
+2009/10,Research Postgraduate,Social Sciences,F,124
+2010/11,Sub-degree,Arts and Humanities,M,126
+2010/11,Sub-degree,Arts and Humanities,F,444
+2010/11,Sub-degree,Business and Management,M,103
+2010/11,Sub-degree,Business and Management,F,331
+2010/11,Sub-degree,Education,M,120
+2010/11,Sub-degree,Education,F,639
+2010/11,Sub-degree,Engineering and Technology,M,514
+2010/11,Sub-degree,Engineering and Technology,F,498
+2010/11,Sub-degree,"Medicine, Dentistry and Health",M,23
+2010/11,Sub-degree,"Medicine, Dentistry and Health",F,82
+2010/11,Sub-degree,Sciences,M,165
+2010/11,Sub-degree,Sciences,F,153
+2010/11,Sub-degree,Social Sciences,M,41
+2010/11,Sub-degree,Social Sciences,F,100
+2010/11,Undergraduate,Arts and Humanities,M,658
+2010/11,Undergraduate,Arts and Humanities,F,1855
+2010/11,Undergraduate,Business and Management,M,1900
+2010/11,Undergraduate,Business and Management,F,2417
+2010/11,Undergraduate,Education,M,183
+2010/11,Undergraduate,Education,F,703
+2010/11,Undergraduate,Engineering and Technology,M,2196
+2010/11,Undergraduate,Engineering and Technology,F,1021
+2010/11,Undergraduate,"Medicine, Dentistry and Health",M,427
+2010/11,Undergraduate,"Medicine, Dentistry and Health",F,744
+2010/11,Undergraduate,Sciences,M,1857
+2010/11,Undergraduate,Sciences,F,948
+2010/11,Undergraduate,Social Sciences,M,963
+2010/11,Undergraduate,Social Sciences,F,1727
+2010/11,Taught Postgraduate,Arts and Humanities,M,43
+2010/11,Taught Postgraduate,Arts and Humanities,F,67
+2010/11,Taught Postgraduate,Business and Management,M,3
+2010/11,Taught Postgraduate,Business and Management,F,2
+2010/11,Taught Postgraduate,Education,M,540
+2010/11,Taught Postgraduate,Education,F,908
+2010/11,Taught Postgraduate,Engineering and Technology,M,80
+2010/11,Taught Postgraduate,Engineering and Technology,F,52
+2010/11,Taught Postgraduate,"Medicine, Dentistry and Health",M,12
+2010/11,Taught Postgraduate,"Medicine, Dentistry and Health",F,20
+2010/11,Taught Postgraduate,Sciences,M,33
+2010/11,Taught Postgraduate,Sciences,F,51
+2010/11,Taught Postgraduate,Social Sciences,M,100
+2010/11,Taught Postgraduate,Social Sciences,F,172
+2010/11,Research Postgraduate,Arts and Humanities,M,91
+2010/11,Research Postgraduate,Arts and Humanities,F,125
+2010/11,Research Postgraduate,Business and Management,M,50
+2010/11,Research Postgraduate,Business and Management,F,54
+2010/11,Research Postgraduate,Education,M,19
+2010/11,Research Postgraduate,Education,F,41
+2010/11,Research Postgraduate,Engineering and Technology,M,362
+2010/11,Research Postgraduate,Engineering and Technology,F,156
+2010/11,Research Postgraduate,"Medicine, Dentistry and Health",M,142
+2010/11,Research Postgraduate,"Medicine, Dentistry and Health",F,146
+2010/11,Research Postgraduate,Sciences,M,414
+2010/11,Research Postgraduate,Sciences,F,210
+2010/11,Research Postgraduate,Social Sciences,M,114
+2010/11,Research Postgraduate,Social Sciences,F,126
+2011/12,Sub-degree,Arts and Humanities,M,132
+2011/12,Sub-degree,Arts and Humanities,F,358
+2011/12,Sub-degree,Business and Management,M,96
+2011/12,Sub-degree,Business and Management,F,249
+2011/12,Sub-degree,Education,M,180
+2011/12,Sub-degree,Education,F,635
+2011/12,Sub-degree,Engineering and Technology,M,563
+2011/12,Sub-degree,Engineering and Technology,F,457
+2011/12,Sub-degree,"Medicine, Dentistry and Health",M,28
+2011/12,Sub-degree,"Medicine, Dentistry and Health",F,120
+2011/12,Sub-degree,Sciences,M,162
+2011/12,Sub-degree,Sciences,F,134
+2011/12,Sub-degree,Social Sciences,M,42
+2011/12,Sub-degree,Social Sciences,F,97
+2011/12,Undergraduate,Arts and Humanities,M,620
+2011/12,Undergraduate,Arts and Humanities,F,1900
+2011/12,Undergraduate,Business and Management,M,1815
+2011/12,Undergraduate,Business and Management,F,2332
+2011/12,Undergraduate,Education,M,181
+2011/12,Undergraduate,Education,F,761
+2011/12,Undergraduate,Engineering and Technology,M,2081
+2011/12,Undergraduate,Engineering and Technology,F,996
+2011/12,Undergraduate,"Medicine, Dentistry and Health",M,511
+2011/12,Undergraduate,"Medicine, Dentistry and Health",F,825
+2011/12,Undergraduate,Sciences,M,1877
+2011/12,Undergraduate,Sciences,F,1024
+2011/12,Undergraduate,Social Sciences,M,950
+2011/12,Undergraduate,Social Sciences,F,1758
+2011/12,Taught Postgraduate,Arts and Humanities,M,37
+2011/12,Taught Postgraduate,Arts and Humanities,F,78
+2011/12,Taught Postgraduate,Business and Management,M,2
+2011/12,Taught Postgraduate,Business and Management,F,2
+2011/12,Taught Postgraduate,Education,M,487
+2011/12,Taught Postgraduate,Education,F,853
+2011/12,Taught Postgraduate,Engineering and Technology,M,75
+2011/12,Taught Postgraduate,Engineering and Technology,F,68
+2011/12,Taught Postgraduate,"Medicine, Dentistry and Health",M,7
+2011/12,Taught Postgraduate,"Medicine, Dentistry and Health",F,19
+2011/12,Taught Postgraduate,Sciences,M,24
+2011/12,Taught Postgraduate,Sciences,F,48
+2011/12,Taught Postgraduate,Social Sciences,M,90
+2011/12,Taught Postgraduate,Social Sciences,F,187
+2011/12,Research Postgraduate,Arts and Humanities,M,96
+2011/12,Research Postgraduate,Arts and Humanities,F,119
+2011/12,Research Postgraduate,Business and Management,M,39
+2011/12,Research Postgraduate,Business and Management,F,42
+2011/12,Research Postgraduate,Education,M,18
+2011/12,Research Postgraduate,Education,F,30
+2011/12,Research Postgraduate,Engineering and Technology,M,371
+2011/12,Research Postgraduate,Engineering and Technology,F,164
+2011/12,Research Postgraduate,"Medicine, Dentistry and Health",M,177
+2011/12,Research Postgraduate,"Medicine, Dentistry and Health",F,202
+2011/12,Research Postgraduate,Sciences,M,440
+2011/12,Research Postgraduate,Sciences,F,191
+2011/12,Research Postgraduate,Social Sciences,M,95
+2011/12,Research Postgraduate,Social Sciences,F,129
+2012/13,Sub-degree,Arts and Humanities,M,82
+2012/13,Sub-degree,Arts and Humanities,F,308
+2012/13,Sub-degree,Business and Management,M,82
+2012/13,Sub-degree,Business and Management,F,244
+2012/13,Sub-degree,Education,M,202
+2012/13,Sub-degree,Education,F,648
+2012/13,Sub-degree,Engineering and Technology,M,602
+2012/13,Sub-degree,Engineering and Technology,F,467
+2012/13,Sub-degree,"Medicine, Dentistry and Health",M,39
+2012/13,Sub-degree,"Medicine, Dentistry and Health",F,115
+2012/13,Sub-degree,Sciences,M,150
+2012/13,Sub-degree,Sciences,F,137
+2012/13,Sub-degree,Social Sciences,M,37
+2012/13,Sub-degree,Social Sciences,F,64
+2012/13,Undergraduate,Arts and Humanities,M,668
+2012/13,Undergraduate,Arts and Humanities,F,1831
+2012/13,Undergraduate,Business and Management,M,1826
+2012/13,Undergraduate,Business and Management,F,2315
+2012/13,Undergraduate,Education,M,205
+2012/13,Undergraduate,Education,F,768
+2012/13,Undergraduate,Engineering and Technology,M,2234
+2012/13,Undergraduate,Engineering and Technology,F,1038
+2012/13,Undergraduate,"Medicine, Dentistry and Health",M,557
+2012/13,Undergraduate,"Medicine, Dentistry and Health",F,850
+2012/13,Undergraduate,Sciences,M,1935
+2012/13,Undergraduate,Sciences,F,1045
+2012/13,Undergraduate,Social Sciences,M,972
+2012/13,Undergraduate,Social Sciences,F,1663
+2012/13,Taught Postgraduate,Arts and Humanities,M,34
+2012/13,Taught Postgraduate,Arts and Humanities,F,51
+2012/13,Taught Postgraduate,Business and Management,M,1
+2012/13,Taught Postgraduate,Business and Management,F,1
+2012/13,Taught Postgraduate,Education,M,610
+2012/13,Taught Postgraduate,Education,F,1052
+2012/13,Taught Postgraduate,Engineering and Technology,M,81
+2012/13,Taught Postgraduate,Engineering and Technology,F,66
+2012/13,Taught Postgraduate,"Medicine, Dentistry and Health",M,4
+2012/13,Taught Postgraduate,"Medicine, Dentistry and Health",F,1
+2012/13,Taught Postgraduate,Sciences,M,25
+2012/13,Taught Postgraduate,Sciences,F,38
+2012/13,Taught Postgraduate,Social Sciences,M,112
+2012/13,Taught Postgraduate,Social Sciences,F,158
+2012/13,Research Postgraduate,Arts and Humanities,M,77
+2012/13,Research Postgraduate,Arts and Humanities,F,140
+2012/13,Research Postgraduate,Business and Management,M,42
+2012/13,Research Postgraduate,Business and Management,F,48
+2012/13,Research Postgraduate,Education,M,18
+2012/13,Research Postgraduate,Education,F,43
+2012/13,Research Postgraduate,Engineering and Technology,M,393
+2012/13,Research Postgraduate,Engineering and Technology,F,152
+2012/13,Research Postgraduate,"Medicine, Dentistry and Health",M,134
+2012/13,Research Postgraduate,"Medicine, Dentistry and Health",F,160
+2012/13,Research Postgraduate,Sciences,M,423
+2012/13,Research Postgraduate,Sciences,F,190
+2012/13,Research Postgraduate,Social Sciences,M,98
+2012/13,Research Postgraduate,Social Sciences,F,151
+2013/14,Sub-degree,Arts and Humanities,M,63
+2013/14,Sub-degree,Arts and Humanities,F,264
+2013/14,Sub-degree,Business and Management,M,95
+2013/14,Sub-degree,Business and Management,F,235
+2013/14,Sub-degree,Education,M,247
+2013/14,Sub-degree,Education,F,732
+2013/14,Sub-degree,Engineering and Technology,M,622
+2013/14,Sub-degree,Engineering and Technology,F,475
+2013/14,Sub-degree,"Medicine, Dentistry and Health",M,57
+2013/14,Sub-degree,"Medicine, Dentistry and Health",F,106
+2013/14,Sub-degree,Sciences,M,168
+2013/14,Sub-degree,Sciences,F,133
+2013/14,Sub-degree,Social Sciences,M,19
+2013/14,Sub-degree,Social Sciences,F,35
+2013/14,Undergraduate,Arts and Humanities,M,734
+2013/14,Undergraduate,Arts and Humanities,F,1933
+2013/14,Undergraduate,Business and Management,M,1881
+2013/14,Undergraduate,Business and Management,F,2374
+2013/14,Undergraduate,Education,M,221
+2013/14,Undergraduate,Education,F,874
+2013/14,Undergraduate,Engineering and Technology,M,2259
+2013/14,Undergraduate,Engineering and Technology,F,1010
+2013/14,Undergraduate,"Medicine, Dentistry and Health",M,611
+2013/14,Undergraduate,"Medicine, Dentistry and Health",F,869
+2013/14,Undergraduate,Sciences,M,1981
+2013/14,Undergraduate,Sciences,F,1014
+2013/14,Undergraduate,Social Sciences,M,1006
+2013/14,Undergraduate,Social Sciences,F,1691
+2013/14,Taught Postgraduate,Arts and Humanities,M,37
+2013/14,Taught Postgraduate,Arts and Humanities,F,61
+2013/14,Taught Postgraduate,Business and Management,M,2
+2013/14,Taught Postgraduate,Business and Management,F,1
+2013/14,Taught Postgraduate,Education,M,494
+2013/14,Taught Postgraduate,Education,F,877
+2013/14,Taught Postgraduate,Engineering and Technology,M,72
+2013/14,Taught Postgraduate,Engineering and Technology,F,71
+2013/14,Taught Postgraduate,"Medicine, Dentistry and Health",M,3
+2013/14,Taught Postgraduate,"Medicine, Dentistry and Health",F,6
+2013/14,Taught Postgraduate,Sciences,M,26
+2013/14,Taught Postgraduate,Sciences,F,37
+2013/14,Taught Postgraduate,Social Sciences,M,117
+2013/14,Taught Postgraduate,Social Sciences,F,188
+2013/14,Research Postgraduate,Arts and Humanities,M,95
+2013/14,Research Postgraduate,Arts and Humanities,F,119
+2013/14,Research Postgraduate,Business and Management,M,49
+2013/14,Research Postgraduate,Business and Management,F,59
+2013/14,Research Postgraduate,Education,M,19
+2013/14,Research Postgraduate,Education,F,37
+2013/14,Research Postgraduate,Engineering and Technology,M,412
+2013/14,Research Postgraduate,Engineering and Technology,F,177
+2013/14,Research Postgraduate,"Medicine, Dentistry and Health",M,145
+2013/14,Research Postgraduate,"Medicine, Dentistry and Health",F,177
+2013/14,Research Postgraduate,Sciences,M,445
+2013/14,Research Postgraduate,Sciences,F,191
+2013/14,Research Postgraduate,Social Sciences,M,124
+2013/14,Research Postgraduate,Social Sciences,F,143
+2014/15,Sub-degree,Arts and Humanities,M,84
+2014/15,Sub-degree,Arts and Humanities,F,274
+2014/15,Sub-degree,Business and Management,M,67
+2014/15,Sub-degree,Business and Management,F,177
+2014/15,Sub-degree,Education,M,290
+2014/15,Sub-degree,Education,F,706
+2014/15,Sub-degree,Engineering and Technology,M,556
+2014/15,Sub-degree,Engineering and Technology,F,381
+2014/15,Sub-degree,"Medicine, Dentistry and Health",M,31
+2014/15,Sub-degree,"Medicine, Dentistry and Health",F,115
+2014/15,Sub-degree,Sciences,M,148
+2014/15,Sub-degree,Sciences,F,135
+2014/15,Sub-degree,Social Sciences,M,13
+2014/15,Sub-degree,Social Sciences,F,44
+2014/15,Undergraduate,Arts and Humanities,M,782
+2014/15,Undergraduate,Arts and Humanities,F,2112
+2014/15,Undergraduate,Business and Management,M,1927
+2014/15,Undergraduate,Business and Management,F,2471
+2014/15,Undergraduate,Education,M,249
+2014/15,Undergraduate,Education,F,884
+2014/15,Undergraduate,Engineering and Technology,M,2332
+2014/15,Undergraduate,Engineering and Technology,F,1090
+2014/15,Undergraduate,"Medicine, Dentistry and Health",M,713
+2014/15,Undergraduate,"Medicine, Dentistry and Health",F,1034
+2014/15,Undergraduate,Sciences,M,2036
+2014/15,Undergraduate,Sciences,F,1088
+2014/15,Undergraduate,Social Sciences,M,1034
+2014/15,Undergraduate,Social Sciences,F,1850
+2014/15,Taught Postgraduate,Arts and Humanities,M,35
+2014/15,Taught Postgraduate,Arts and Humanities,F,56
+2014/15,Taught Postgraduate,Education,M,513
+2014/15,Taught Postgraduate,Education,F,858
+2014/15,Taught Postgraduate,Engineering and Technology,M,66
+2014/15,Taught Postgraduate,Engineering and Technology,F,78
+2014/15,Taught Postgraduate,"Medicine, Dentistry and Health",F,1
+2014/15,Taught Postgraduate,Sciences,M,20
+2014/15,Taught Postgraduate,Sciences,F,30
+2014/15,Taught Postgraduate,Social Sciences,M,126
+2014/15,Taught Postgraduate,Social Sciences,F,177
+2014/15,Research Postgraduate,Arts and Humanities,M,96
+2014/15,Research Postgraduate,Arts and Humanities,F,128
+2014/15,Research Postgraduate,Business and Management,M,65
+2014/15,Research Postgraduate,Business and Management,F,79
+2014/15,Research Postgraduate,Education,M,20
+2014/15,Research Postgraduate,Education,F,61
+2014/15,Research Postgraduate,Engineering and Technology,M,436
+2014/15,Research Postgraduate,Engineering and Technology,F,191
+2014/15,Research Postgraduate,"Medicine, Dentistry and Health",M,137
+2014/15,Research Postgraduate,"Medicine, Dentistry and Health",F,190
+2014/15,Research Postgraduate,Sciences,M,464
+2014/15,Research Postgraduate,Sciences,F,198
+2014/15,Research Postgraduate,Social Sciences,M,96
+2014/15,Research Postgraduate,Social Sciences,F,148
+2015/16,Sub-degree,Arts and Humanities,M,75
+2015/16,Sub-degree,Arts and Humanities,F,272
+2015/16,Sub-degree,Business and Management,M,41
+2015/16,Sub-degree,Business and Management,F,135
+2015/16,Sub-degree,Education,M,402
+2015/16,Sub-degree,Education,F,1026
+2015/16,Sub-degree,Engineering and Technology,M,552
+2015/16,Sub-degree,Engineering and Technology,F,312
+2015/16,Sub-degree,"Medicine, Dentistry and Health",M,2
+2015/16,Sub-degree,"Medicine, Dentistry and Health",F,4
+2015/16,Sub-degree,Sciences,M,133
+2015/16,Sub-degree,Sciences,F,103
+2015/16,Sub-degree,Social Sciences,M,5
+2015/16,Sub-degree,Social Sciences,F,9
+2015/16,Undergraduate,Arts and Humanities,M,696
+2015/16,Undergraduate,Arts and Humanities,F,2373
+2015/16,Undergraduate,Business and Management,M,1881
+2015/16,Undergraduate,Business and Management,F,2878
+2015/16,Undergraduate,Education,M,248
+2015/16,Undergraduate,Education,F,781
+2015/16,Undergraduate,Engineering and Technology,M,2473
+2015/16,Undergraduate,Engineering and Technology,F,1288
+2015/16,Undergraduate,"Medicine, Dentistry and Health",M,762
+2015/16,Undergraduate,"Medicine, Dentistry and Health",F,1046
+2015/16,Undergraduate,Sciences,M,2006
+2015/16,Undergraduate,Sciences,F,1295
+2015/16,Undergraduate,Social Sciences,M,1052
+2015/16,Undergraduate,Social Sciences,F,2256
+2015/16,Taught Postgraduate,Arts and Humanities,M,34
+2015/16,Taught Postgraduate,Arts and Humanities,F,56
+2015/16,Taught Postgraduate,Business and Management,M,1
+2015/16,Taught Postgraduate,Business and Management,F,1
+2015/16,Taught Postgraduate,Education,M,519
+2015/16,Taught Postgraduate,Education,F,902
+2015/16,Taught Postgraduate,Engineering and Technology,M,72
+2015/16,Taught Postgraduate,Engineering and Technology,F,78
+2015/16,Taught Postgraduate,"Medicine, Dentistry and Health",M,1
+2015/16,Taught Postgraduate,"Medicine, Dentistry and Health",F,7
+2015/16,Taught Postgraduate,Sciences,M,25
+2015/16,Taught Postgraduate,Sciences,F,40
+2015/16,Taught Postgraduate,Social Sciences,M,133
+2015/16,Taught Postgraduate,Social Sciences,F,186
+2015/16,Research Postgraduate,Arts and Humanities,M,98
+2015/16,Research Postgraduate,Arts and Humanities,F,128
+2015/16,Research Postgraduate,Business and Management,M,59
+2015/16,Research Postgraduate,Business and Management,F,62
+2015/16,Research Postgraduate,Education,M,17
+2015/16,Research Postgraduate,Education,F,39
+2015/16,Research Postgraduate,Engineering and Technology,M,493
+2015/16,Research Postgraduate,Engineering and Technology,F,173
+2015/16,Research Postgraduate,"Medicine, Dentistry and Health",M,173
+2015/16,Research Postgraduate,"Medicine, Dentistry and Health",F,196
+2015/16,Research Postgraduate,Sciences,M,390
+2015/16,Research Postgraduate,Sciences,F,203
+2015/16,Research Postgraduate,Social Sciences,M,117
+2015/16,Research Postgraduate,Social Sciences,F,165
+2016/17,Sub-degree,Arts and Humanities,M,38
+2016/17,Sub-degree,Arts and Humanities,F,185
+2016/17,Sub-degree,Business and Management,M,43
+2016/17,Sub-degree,Business and Management,F,106
+2016/17,Sub-degree,Education,M,394
+2016/17,Sub-degree,Education,F,1054
+2016/17,Sub-degree,Engineering and Technology,M,547
+2016/17,Sub-degree,Engineering and Technology,F,272
+2016/17,Sub-degree,Sciences,M,148
+2016/17,Sub-degree,Sciences,F,75
+2016/17,Sub-degree,Social Sciences,M,6
+2016/17,Sub-degree,Social Sciences,F,13
+2016/17,Undergraduate,Arts and Humanities,M,789
+2016/17,Undergraduate,Arts and Humanities,F,2397
+2016/17,Undergraduate,Business and Management,M,1892
+2016/17,Undergraduate,Business and Management,F,2876
+2016/17,Undergraduate,Education,M,228
+2016/17,Undergraduate,Education,F,876
+2016/17,Undergraduate,Engineering and Technology,M,2638
+2016/17,Undergraduate,Engineering and Technology,F,1134
+2016/17,Undergraduate,"Medicine, Dentistry and Health",M,728
+2016/17,Undergraduate,"Medicine, Dentistry and Health",F,1237
+2016/17,Undergraduate,Sciences,M,1928
+2016/17,Undergraduate,Sciences,F,1253
+2016/17,Undergraduate,Social Sciences,M,1133
+2016/17,Undergraduate,Social Sciences,F,2096
+2016/17,Taught Postgraduate,Arts and Humanities,M,26
+2016/17,Taught Postgraduate,Arts and Humanities,F,50
+2016/17,Taught Postgraduate,Business and Management,M,1
+2016/17,Taught Postgraduate,Business and Management,F,1
+2016/17,Taught Postgraduate,Education,M,477
+2016/17,Taught Postgraduate,Education,F,846
+2016/17,Taught Postgraduate,Engineering and Technology,M,56
+2016/17,Taught Postgraduate,Engineering and Technology,F,81
+2016/17,Taught Postgraduate,"Medicine, Dentistry and Health",M,5
+2016/17,Taught Postgraduate,"Medicine, Dentistry and Health",F,1
+2016/17,Taught Postgraduate,Sciences,M,21
+2016/17,Taught Postgraduate,Sciences,F,38
+2016/17,Taught Postgraduate,Social Sciences,M,157
+2016/17,Taught Postgraduate,Social Sciences,F,222
+2016/17,Research Postgraduate,Arts and Humanities,M,114
+2016/17,Research Postgraduate,Arts and Humanities,F,143
+2016/17,Research Postgraduate,Business and Management,M,55
+2016/17,Research Postgraduate,Business and Management,F,66
+2016/17,Research Postgraduate,Education,M,19
+2016/17,Research Postgraduate,Education,F,47
+2016/17,Research Postgraduate,Engineering and Technology,M,533
+2016/17,Research Postgraduate,Engineering and Technology,F,232
+2016/17,Research Postgraduate,"Medicine, Dentistry and Health",M,164
+2016/17,Research Postgraduate,"Medicine, Dentistry and Health",F,194
+2016/17,Research Postgraduate,Sciences,M,427
+2016/17,Research Postgraduate,Sciences,F,227
+2016/17,Research Postgraduate,Social Sciences,M,120
+2016/17,Research Postgraduate,Social Sciences,F,167
+2017/18,Sub-degree,Arts and Humanities,M,33
+2017/18,Sub-degree,Arts and Humanities,F,139
+2017/18,Sub-degree,Business and Management,M,34
+2017/18,Sub-degree,Business and Management,F,73
+2017/18,Sub-degree,Education,M,353
+2017/18,Sub-degree,Education,F,1151
+2017/18,Sub-degree,Engineering and Technology,M,495
+2017/18,Sub-degree,Engineering and Technology,F,268
+2017/18,Sub-degree,Sciences,M,118
+2017/18,Sub-degree,Sciences,F,74
+2017/18,Sub-degree,Social Sciences,M,11
+2017/18,Sub-degree,Social Sciences,F,21
+2017/18,Undergraduate,Arts and Humanities,M,846
+2017/18,Undergraduate,Arts and Humanities,F,2439
+2017/18,Undergraduate,Business and Management,M,1944
+2017/18,Undergraduate,Business and Management,F,2702
+2017/18,Undergraduate,Education,M,221
+2017/18,Undergraduate,Education,F,829
+2017/18,Undergraduate,Engineering and Technology,M,2784
+2017/18,Undergraduate,Engineering and Technology,F,1313
+2017/18,Undergraduate,"Medicine, Dentistry and Health",M,715
+2017/18,Undergraduate,"Medicine, Dentistry and Health",F,1240
+2017/18,Undergraduate,Sciences,M,1983
+2017/18,Undergraduate,Sciences,F,1237
+2017/18,Undergraduate,Social Sciences,M,1169
+2017/18,Undergraduate,Social Sciences,F,2075
+2017/18,Taught Postgraduate,Arts and Humanities,M,34
+2017/18,Taught Postgraduate,Arts and Humanities,F,59
+2017/18,Taught Postgraduate,Business and Management,M,1
+2017/18,Taught Postgraduate,Business and Management,F,1
+2017/18,Taught Postgraduate,Education,M,375
+2017/18,Taught Postgraduate,Education,F,744
+2017/18,Taught Postgraduate,Engineering and Technology,M,71
+2017/18,Taught Postgraduate,Engineering and Technology,F,75
+2017/18,Taught Postgraduate,"Medicine, Dentistry and Health",M,6
+2017/18,Taught Postgraduate,"Medicine, Dentistry and Health",F,5
+2017/18,Taught Postgraduate,Sciences,M,27
+2017/18,Taught Postgraduate,Sciences,F,43
+2017/18,Taught Postgraduate,Social Sciences,M,155
+2017/18,Taught Postgraduate,Social Sciences,F,245
+2017/18,Research Postgraduate,Arts and Humanities,M,125
+2017/18,Research Postgraduate,Arts and Humanities,F,125
+2017/18,Research Postgraduate,Business and Management,M,63
+2017/18,Research Postgraduate,Business and Management,F,81
+2017/18,Research Postgraduate,Education,M,26
+2017/18,Research Postgraduate,Education,F,60
+2017/18,Research Postgraduate,Engineering and Technology,M,559
+2017/18,Research Postgraduate,Engineering and Technology,F,244
+2017/18,Research Postgraduate,"Medicine, Dentistry and Health",M,168
+2017/18,Research Postgraduate,"Medicine, Dentistry and Health",F,212
+2017/18,Research Postgraduate,Sciences,M,519
+2017/18,Research Postgraduate,Sciences,F,245
+2017/18,Research Postgraduate,Social Sciences,M,100
+2017/18,Research Postgraduate,Social Sciences,F,135
+2018/19,Sub-degree,Arts and Humanities,M,28
+2018/19,Sub-degree,Arts and Humanities,F,97
+2018/19,Sub-degree,Business and Management,M,22
+2018/19,Sub-degree,Business and Management,F,32
+2018/19,Sub-degree,Education,M,360
+2018/19,Sub-degree,Education,F,1226
+2018/19,Sub-degree,Engineering and Technology,M,443
+2018/19,Sub-degree,Engineering and Technology,F,169
+2018/19,Sub-degree,Sciences,M,84
+2018/19,Sub-degree,Sciences,F,68
+2018/19,Sub-degree,Social Sciences,M,11
+2018/19,Sub-degree,Social Sciences,F,15
+2018/19,Undergraduate,Arts and Humanities,M,909
+2018/19,Undergraduate,Arts and Humanities,F,2343
+2018/19,Undergraduate,Business and Management,M,1826
+2018/19,Undergraduate,Business and Management,F,2780
+2018/19,Undergraduate,Education,M,268
+2018/19,Undergraduate,Education,F,684
+2018/19,Undergraduate,Engineering and Technology,M,2838
+2018/19,Undergraduate,Engineering and Technology,F,1259
+2018/19,Undergraduate,"Medicine, Dentistry and Health",M,727
+2018/19,Undergraduate,"Medicine, Dentistry and Health",F,1223
+2018/19,Undergraduate,Sciences,M,2085
+2018/19,Undergraduate,Sciences,F,1296
+2018/19,Undergraduate,Social Sciences,M,1075
+2018/19,Undergraduate,Social Sciences,F,2138
+2018/19,Taught Postgraduate,Arts and Humanities,M,39
+2018/19,Taught Postgraduate,Arts and Humanities,F,56
+2018/19,Taught Postgraduate,Business and Management,M,1
+2018/19,Taught Postgraduate,Business and Management,F,2
+2018/19,Taught Postgraduate,Education,M,393
+2018/19,Taught Postgraduate,Education,F,744
+2018/19,Taught Postgraduate,Engineering and Technology,M,73
+2018/19,Taught Postgraduate,Engineering and Technology,F,71
+2018/19,Taught Postgraduate,"Medicine, Dentistry and Health",M,4
+2018/19,Taught Postgraduate,"Medicine, Dentistry and Health",F,1
+2018/19,Taught Postgraduate,Sciences,M,31
+2018/19,Taught Postgraduate,Sciences,F,44
+2018/19,Taught Postgraduate,Social Sciences,M,120
+2018/19,Taught Postgraduate,Social Sciences,F,182
+2018/19,Research Postgraduate,Arts and Humanities,M,101
+2018/19,Research Postgraduate,Arts and Humanities,F,130
+2018/19,Research Postgraduate,Business and Management,M,68
+2018/19,Research Postgraduate,Business and Management,F,92
+2018/19,Research Postgraduate,Education,M,28
+2018/19,Research Postgraduate,Education,F,52
+2018/19,Research Postgraduate,Engineering and Technology,M,588
+2018/19,Research Postgraduate,Engineering and Technology,F,228
+2018/19,Research Postgraduate,"Medicine, Dentistry and Health",M,143
+2018/19,Research Postgraduate,"Medicine, Dentistry and Health",F,198
+2018/19,Research Postgraduate,Sciences,M,486
+2018/19,Research Postgraduate,Sciences,F,254
+2018/19,Research Postgraduate,Social Sciences,M,137
+2018/19,Research Postgraduate,Social Sciences,F,162
+2019/20,Sub-degree,Arts and Humanities,M,7
+2019/20,Sub-degree,Arts and Humanities,F,49
+2019/20,Sub-degree,Education,M,284
+2019/20,Sub-degree,Education,F,1087
+2019/20,Sub-degree,Engineering and Technology,M,354
+2019/20,Sub-degree,Engineering and Technology,F,118
+2019/20,Sub-degree,Sciences,M,70
+2019/20,Sub-degree,Sciences,F,39
+2019/20,Sub-degree,Social Sciences,M,7
+2019/20,Sub-degree,Social Sciences,F,15
+2019/20,Undergraduate,Arts and Humanities,M,893
+2019/20,Undergraduate,Arts and Humanities,F,2316
+2019/20,Undergraduate,Business and Management,M,1902
+2019/20,Undergraduate,Business and Management,F,2814
+2019/20,Undergraduate,Education,M,232
+2019/20,Undergraduate,Education,F,842
+2019/20,Undergraduate,Engineering and Technology,M,2704
+2019/20,Undergraduate,Engineering and Technology,F,1233
+2019/20,Undergraduate,"Medicine, Dentistry and Health",M,742
+2019/20,Undergraduate,"Medicine, Dentistry and Health",F,1235
+2019/20,Undergraduate,Sciences,M,2061
+2019/20,Undergraduate,Sciences,F,1361
+2019/20,Undergraduate,Social Sciences,M,1147
+2019/20,Undergraduate,Social Sciences,F,2055
+2019/20,Taught Postgraduate,Arts and Humanities,M,25
+2019/20,Taught Postgraduate,Arts and Humanities,F,57
+2019/20,Taught Postgraduate,Education,M,380
+2019/20,Taught Postgraduate,Education,F,755
+2019/20,Taught Postgraduate,Engineering and Technology,M,63
+2019/20,Taught Postgraduate,Engineering and Technology,F,71
+2019/20,Taught Postgraduate,"Medicine, Dentistry and Health",M,7
+2019/20,Taught Postgraduate,"Medicine, Dentistry and Health",F,22
+2019/20,Taught Postgraduate,Sciences,M,26
+2019/20,Taught Postgraduate,Sciences,F,50
+2019/20,Taught Postgraduate,Social Sciences,M,110
+2019/20,Taught Postgraduate,Social Sciences,F,151
+2019/20,Research Postgraduate,Arts and Humanities,M,101
+2019/20,Research Postgraduate,Arts and Humanities,F,127
+2019/20,Research Postgraduate,Business and Management,M,79
+2019/20,Research Postgraduate,Business and Management,F,76
+2019/20,Research Postgraduate,Education,M,24
+2019/20,Research Postgraduate,Education,F,48
+2019/20,Research Postgraduate,Engineering and Technology,M,556
+2019/20,Research Postgraduate,Engineering and Technology,F,228
+2019/20,Research Postgraduate,"Medicine, Dentistry and Health",M,145
+2019/20,Research Postgraduate,"Medicine, Dentistry and Health",F,234
+2019/20,Research Postgraduate,Sciences,M,473
+2019/20,Research Postgraduate,Sciences,F,236
+2019/20,Research Postgraduate,Social Sciences,M,97
+2019/20,Research Postgraduate,Social Sciences,F,135

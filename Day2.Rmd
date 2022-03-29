@@ -1,0 +1,103 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+# unnest() 
+
+# CATEGORICAL VARIABLES
+
+# SUB-GROUPS
+
+# RECODING DATA
+
+# SCALING
+
+# TRANSFORMING OUTLIERS
+
+
+
+------------------------------------------------------------------------
+
+# GRAMMAR OF GRAPHICS: ggplot2
+
+ggplot2 is an open-source data visualization package for R. A data visualization which breaks up graphs into semantic components such as scales and layers. Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
+
+## Simple Scatteplot
+
+```{r}
+allowance = read_csv("./data/allowance.csv")
+allowance %>% 
+  ggplot() + 
+  geom_point(mapping=aes(x=Assessment_Year, y=Basic)) 
+```
+
+## Simple Line Plot
+
+```{r}
+allowance %>% 
+  ggplot() +
+  geom_col(mapping=aes(x=Assessment_Year, y=Basic)) 
+```
+
+## Simple Histogram
+
+```{r}
+allowance %>% 
+  ggplot() +
+  geom_bar(mapping=aes(x=Basic))  
+```
+
+```{r}
+graduates = read_csv("./data/graduates.csv")
+# view(graduates)
+ggplot(data=graduates) +
+  geom_point(mapping =aes(x=AcademicYear, y=Headcount, shape=LevelOfStudy))
+
+ggplot(data=graduates) +
+  geom_point(mapping =aes(x=AcademicYear, y=Headcount, color=LevelOfStudy))
+```
+
+## geom_point() function
+
+```{r scatterplot}
+  graduates %>% 
+  filter(ProgrammeCategory=="Business and Management") %>%
+  # filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
+  ggplot() +
+    geom_point(mapping=aes(x=AcademicYear
+                           , y=Headcount
+                           , shape=LevelOfStudy
+                           , color=Sex
+                           #, size=Headcount
+                           )
+               )
+```
+
+## geom_line() function
+
+```{r ggplot line}
+
+  # filter(LevelOfStudy=="Taught Postgraduate") %>% 
+  # ggplot(aes(AcademicYear, Headcount, colours=ProgrammeCategory)) 
+  graduates %>% 
+  filter(LevelOfStudy=="Taught Postgraduate") %>% 
+  ggplot() +
+    geom_line(mapping=aes(x=AcademicYear,y=Headcount, color=ProgrammeCategory))
+    
+```
+
+## geom_bar() function
+
+```{r}
+  graduates %>% 
+  filter(LevelOfStudy=="Taught Postgraduate") %>% 
+  ggplot() +
+    #geom_bar(mapping=aes(x=AcademicYear, color=ProgrammeCategory))
+    geom_bar(mapping=aes(x=AcademicYear, fill=ProgrammeCategory))
+
+```
