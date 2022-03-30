@@ -3,48 +3,221 @@ title: "R Notebook"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
-# unnest() 
-
-# CATEGORICAL VARIABLES
-
-# SUB-GROUPS
-
-# RECODING DATA
-
-# SCALING
-
-# TRANSFORMING OUTLIERS
-
-
-
 ------------------------------------------------------------------------
 
-# GRAMMAR OF GRAPHICS: ggplot2
+
+# PRO R DATA VISUALIZATION
+
+Raw data point doesn't provide much insight to kick off data analysis.\
+
+Data Visualization is brilliant in
+- exploring the pattern of data briefly at the early stage
+- in the final conclusion, enhance the story telling of data analysis (inforgraphics play huge role for this purpose)
+
+## Built-in Plot Functions
+The advantage of using built-in plotting utilities is they are easy.
+Let you quickly visually the data pattern while you are trying to gain some brief insight and prepare for your models.
+```{r}
+plot(iris)
+```
+
+## Built-in Plot Tools
+For built-in data visualization, go to the R Programming Intro project on Github to refresh your memory
+(R Intro Source Codes)[https://github.com/ngsanluk/R-Intro]
+
+
+## Grammar of Graphics: ggplot2
+
+When these built-in plotting tools are not enough for you,\ 
+go to **ggplot2**\
+the most popular data visualization for R.
 
 ggplot2 is an open-source data visualization package for R. A data visualization which breaks up graphs into semantic components such as scales and layers. Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
 
-## Simple Scatteplot
+
+## ggplot2 Cheat Sheet
+
+[ggplot 2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
+
+------------------------------------------------------------------------
+
+# BASIC GRAMMAR
+ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components: **a data set** 
++ 
+**a coordinate system** 
++ 
+**and geoms—visual marks that represent data points**
+
+![Grammar of Graphics](https://jules32.github.io/r-for-excel-users/img/rstudio-cheatsheet-ggplot.png)
+
+
+## Use Built-in Datasets
+Let's use the built-in cars data set
 
 ```{r}
-allowance = read_csv("./data/allowance.csv")
-allowance %>% 
-  ggplot() + 
-  geom_point(mapping=aes(x=Assessment_Year, y=Basic)) 
+print(cars)
 ```
 
+```{r Generating Empty Plot}
+cars %>% ggplot() # This only specifies a data set and a coordinate system and therefore an empty plot
+```
+
+## geom_point() function
+It's easy to add geometry layer to the base co-ordinate\
+Let's add a layer of data points. \
+Yes, you can add layer by using the + operator
+Let's use point (namely **geom_point()**).
+In 2D co-ordinate, a point is describe by its x and y value.
+
+We need to provide a mapping that specifies the data columns' name to map to the x and y value of a point
+
+That mapping is defined by an aesthetics function\
+**aes()**
+
+Scatterplot is useful to explore the relation of two variable.
+
+```{r}
+cars %>% ggplot() +
+  geom_point(mapping = aes(x=speed, y=dist))
+```
+
+## Use geom_line() to replace geom_point()
+geom_point() and geom_line() require very similar parameters.\
+geom_line() is simply an enhanced visualization that automatically connect all the points
+
+```{r}
+cars %>% ggplot() +
+  geom_line(mapping = aes(x=speed, y=dist)) # just change geom_point to geom_line without change anything else
+```
+
+
+## Use geom_smoth() to project a smooth line
+again geom_smooth() and geom_point() require very similar parameters.\
+geom_smooth() smooths out the line progression
+
+```{r}
+cars %>% ggplot() +
+  geom_smooth(mapping = aes(x=speed, y=dist)) # just change geom_point to geom_line without change anything else
+```
+
+## Adding Aesthetics to your Plots
+```{r}
+cars %>% ggplot() +
+  geom_point(mapping = aes(x=speed, y=dist),
+             color = "orange", # the color of data points
+             # size = 3, # the size of data point
+             # alpha = 0.5, # the transparency of data points, min=0, max=1
+             # shape = 0, # the shape of data point
+             )
+```
+
+------------------------------------------------------------------------
+
+# PLOT WITH OUR OWN DATA
+
+## Loading Data: allowance & graduates
+```{r reading data files}
+allowance = read_csv("./data/allowance.csv")
+print(allowance)
+```
+
+
+## Allowance Data Set in Simple Scatterplot
+```{r Allowance Scatterplot}
+allowance %>% 
+  ggplot() + 
+  geom_point(
+    mapping=aes(x=Assessment_Year, y=Basic),
+    color = "orange",
+    size = 3
+    ) 
+```
+
+
+
+
+## Continuous Values vs. Discrete Values
+Continuous values refer to numbers value that has wide range
+Discrete values refer to a limited number of valid values.  It can be string. It can be a few distinct numbers.
+
+When you produce plots, pay attention to what type of value are required by the geoms.
+
+In many case, you will need to convert the data first.
+**mutate()** function are quite often used for that.
+
+example:
+```{r}
+allowance = allowance %>% 
+  mutate(Assessment_Year = as.numeric(substr(Assessment_Year, 1 ,4))) 
+```
+
+
 ## Simple Line Plot
+```{r Allowance Line Graph}
+
+# The following statement won't generate a plot
+allowance %>% ggplot() +
+  geom_line(mapping = aes(x=Assessment_Year, y=Basic))
+
+# For line graphs, the data points must be grouped so that it knows which points to connect. 
+# In this case, all points should be connected, so group=1. 
+# When more variables are used and multiple lines are drawn, the grouping for lines is usually done by variable.
+allowance %>% ggplot() +
+  geom_line(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Orange"))
+```
+
+## Adding Multiple Layers of Geometry
+```{r}
+allowance %>% ggplot() +
+  geom_line(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
+  geom_point(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Orange"))
+
+# As both geom use the same data mapping, the above statements can be simplified as
+allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
+  geom_line() +
+  geom_point(size=5)
+```
+
+## Use geom_smooth() to smooth out the line
+```{r}
+allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
+  geom_smooth() +
+  geom_point(size=5)
+```
+
+
+
+## Save a Plot: ggsave()
+```{r}
+my.first.plot = allowance %>% 
+  ggplot() + 
+  geom_point(
+    mapping=aes(x=Assessment_Year, y=Basic),
+    color = "orange",
+    size = 3,
+    ) 
+
+print(my.first.plot)
+
+ggsave("./output/my_first_plot.png") # default image size
+ggsave("./output/my_first_plot_large.png", width=10, height=10)
+
+```
+
+## Bar Chart with geom_col()
 
 ```{r}
 allowance %>% 
   ggplot() +
-  geom_col(mapping=aes(x=Assessment_Year, y=Basic)) 
+  geom_col(mapping=aes(x=Assessment_Year, y=Basic),
+           fill="tomato") 
 ```
 
-## Simple Histogram
+
+
+
+## Histogram with geom_bar()
+Counting the frequency of each occurrence of observed value.
 
 ```{r}
 allowance %>% 
@@ -52,64 +225,462 @@ allowance %>%
   geom_bar(mapping=aes(x=Basic))  
 ```
 
+------------------------------------------------------------------------
+
+# CHALLENGE
+## Multiple Layers of Lines
+add line plot for coloumn of Child
+in the same plot, add another line plot for Dependent_Parent_60
 ```{r}
+allowance %>% ggplot() +
+  geom_line(mapping = aes(x=Assessment_Year, y=Child, group=1), color="Orange") + 
+  geom_line(mapping = aes(x=Assessment_Year, y=Dependent_Parent_60, group=1), color="Blue") 
+```
+
+------------------------------------------------------------------------
+
+# MORE COMPLEX DATA
+
+## Loading Data: graduates.csv
+```{r reading complex data}
 graduates = read_csv("./data/graduates.csv")
-# view(graduates)
-ggplot(data=graduates) +
-  geom_point(mapping =aes(x=AcademicYear, y=Headcount, shape=LevelOfStudy))
-
-ggplot(data=graduates) +
-  geom_point(mapping =aes(x=AcademicYear, y=Headcount, color=LevelOfStudy))
+print(graduates)
 ```
 
-## geom_point() function
+## Simple Scatterplot
+Let's explore the data with some simple ggplot plot. 
+Overall they are not very useful.  Just some quick exploration.
 
-```{r scatterplot}
-  graduates %>% 
-  filter(ProgrammeCategory=="Business and Management") %>%
-  # filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
-  ggplot() +
-    geom_point(mapping=aes(x=AcademicYear
-                           , y=Headcount
-                           , shape=LevelOfStudy
-                           , color=Sex
-                           #, size=Headcount
-                           )
-               )
+```{r}
+ggplot(data=graduates) +
+  geom_point(mapping=aes(x=AcademicYear, y=Headcount))
+
+ggplot(data=graduates) +
+  geom_point(mapping=aes(x=AcademicYear, y=Headcount, shape=Sex) # use shape to differentiate groups
+             )
+
+ggplot(data=graduates) +
+  geom_point(mapping=aes(x=AcademicYear, y=Headcount, color=Sex) # use color to differentiate groups
+             )
 ```
 
-## geom_line() function
+## Use filter() to Extract Required Rows
+```{r use filter()}
+graduates %>% 
+filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
+ggplot() +
+  geom_point(mapping=aes(x=AcademicYear, y=Headcount, color=Sex)
+)
+```
 
-```{r ggplot line}
 
-  # filter(LevelOfStudy=="Taught Postgraduate") %>% 
-  # ggplot(aes(AcademicYear, Headcount, colours=ProgrammeCategory)) 
-  graduates %>% 
+## Use Line Plot To Explore the Trending 
+Use line plot to explore the trending of "Business and Management" student headcount trending
+
+
+```{r}
+library(magrittr)
+graduates %<>%
+  mutate(AcademicYear=as.factor(AcademicYear),
+         Sex=as.factor(Sex)
+         ) # convert the AcademicYear and Sex to factor type
+
+graduates %>% 
+filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
+ggplot() +
+  geom_line(
+    mapping=aes(x=AcademicYear, 
+                         y=Headcount,
+                         group=Sex, 
+                         color=Sex
+                         )
+             )
+
+```
+
+------------------------------------------------------------------------
+
+# CHALLENGE
+## Comparison with Line Plots
+Use line plots to compare female undergraduate students headcount trending in ProgrammeCategory of "Business and Management" and "Engineering and Technology"
+Use filter() to extract required record
+You can use multiple filter() call
+Use &, | or multiple conditions
+
+```{r}
+
+graduates %>% 
+  .$ProgrammeCategory %>% 
+  unique() # display the unique names of ProgrammeCategory
+
+graduates %>% 
+  filter(LevelOfStudy=="Undergraduate", Sex=="F") %>%
+  filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
+  print() # Test extracting and printing the required records.
+
+graduates %>% 
+  filter(LevelOfStudy=="Undergraduate", Sex=="F") %>%
+  filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
+  ggplot(
+    aes(x=AcademicYear, 
+             y=Headcount,
+             group=ProgrammeCategory, 
+             color=ProgrammeCategory
+             )
+    ) +
+    geom_line() +
+    geom_point() 
+  
+```
+
+
+# CHALLENGE: line plot for hibor_fixing_1m
+```{r}
+library(jsonlite) # load package
+hkma.interbank.url = "https://api.hkma.gov.hk/public/market-data-and-statistics/daily-monetary-statistics/daily-figures-interbank-liquidity"
+interbank.liquidity = fromJSON(hkma.interbank.url)
+# the above retrieval will take a while.  The server response is slow.
+summary(interbank.liquidity)
+str(interbank.liquidity)
+interbank.liquidity$result
+str(interbank.liquidity$result)
+interbank.records = interbank.liquidity$result$records %>% as_tibble()
+interbank.records
+
+interbank.records %>% 
+ggplot() +
+  geom_line(
+    mapping=aes(x=end_of_date, y=hibor_fixing_1m, group=1),
+    color="orange"
+             )
+
+```
+
+
+------------------------------------------------------------------------
+
+# GROUPING AND AGGREGATION
+
+## Using group_by() and summarise() 
+```{r}
+graduates %>% group_by(AcademicYear, LevelOfStudy) %>% 
+  summarise(TotalHeadcount = sum(Headcount)) 
+
+graduates %>% group_by(AcademicYear, LevelOfStudy) %>% 
+  summarise(TotalHeadcount = sum(Headcount)) %>% 
+  ggplot(
+    aes(x=AcademicYear, 
+             y=TotalHeadcount,
+             group=LevelOfStudy, 
+             color=LevelOfStudy
+             )
+    ) +
+    geom_line() +
+    geom_point() 
+  
+```
+
+## Use of filter()
+Use filter() to keep only "Taught Postgraduate" Records
+
+This plot is not very useful without previously applying filter() and group_by() and summarise()
+
+```{r}
+graduates %>% 
   filter(LevelOfStudy=="Taught Postgraduate") %>% 
   ggplot() +
-    geom_line(mapping=aes(x=AcademicYear,y=Headcount, color=ProgrammeCategory))
+    geom_line(mapping=aes(x=AcademicYear,y=Headcount, group=ProgrammeCategory, color=ProgrammeCategory))
+```
+
+
+## filter() + group_by() + summarise()
+Use filter() to extract required rows
+Use group_by() and summarise() to group and aggreate total headcout for both male and female
+```{r ggplot line}
+
+graduates %>% 
+  filter(LevelOfStudy=="Taught Postgraduate") %>% 
+  group_by(AcademicYear, ProgrammeCategory) %>% 
+  summarise(TotalHeadcount = sum(Headcount)) %>% 
+  ggplot() +
+    geom_line(mapping=aes(x=AcademicYear,y=TotalHeadcount, group=ProgrammeCategory, color=ProgrammeCategory))
+
+
+# graduates %>% 
+#   filter(LevelOfStudy=="Undergraduate") %>% 
+#   group_by(AcademicYear, ProgrammeCategory) %>% 
+#   summarise(TotalHeadcount = sum(Headcount)) %>% 
+#   ggplot() +
+#     geom_line(mapping=aes(x=AcademicYear,y=TotalHeadcount, group=ProgrammeCategory, color=ProgrammeCategory))
     
 ```
 
-## geom_bar() function
+
+
+## geom_col() function
 
 ```{r}
-  graduates %>% 
-  filter(LevelOfStudy=="Taught Postgraduate") %>% 
-  ggplot() +
-    #geom_bar(mapping=aes(x=AcademicYear, color=ProgrammeCategory))
-    geom_bar(mapping=aes(x=AcademicYear, fill=ProgrammeCategory))
+LevelOfStudy = graduates %>% .$LevelOfStudy %>% unique()
+ProgrammeCategory = graduates %>% .$ProgrammeCategory %>% unique() 
+print(LevelOfStudy)
+print(ProgrammeCategory)
+  
+graduates %>% 
+filter(ProgrammeCategory=="Business and Management") %>% 
+ggplot() +
+  geom_col(mapping=aes(x=AcademicYear, y=Headcount, fill=LevelOfStudy))
+
+graduates %>% 
+filter(ProgrammeCategory=="Engineering and Technology") %>% 
+ggplot() +
+  geom_col(mapping=aes(x=AcademicYear, y=Headcount, fill=LevelOfStudy))
+
+```
+
+## More Aggregation Functions
+Center: mean(), median()
+Spread: sd(), IQR(), mad()
+Range: min(), max(), quantile()
+Position: first(), last(), nth(),
+Count: n(), n_distinct()
+Logical: any(), all()
+
+More information at
+[summarise() function](https://dplyr.tidyverse.org/reference/summarise.html)
+
+
+## geom_bar() function
+bar chart give the counting frequency (number of record in the data set)
+```{r}
+
+graduates %>% 
+ggplot() +
+  geom_bar(mapping=aes(x=AcademicYear)) # you only need to provide the x column
+```
+
+## box plot
+The boxplot compactly displays the distribution of a continuous variable.\n
+It visualises five summary statistics (the median, two hinges and two whiskers), and all "outlying" points individually.
+
+```{r}
+graduates %>% 
+ggplot() +
+  geom_point(mapping=aes(x=Sex, y=Headcount))
+
+graduates %>% 
+ggplot() +
+  geom_boxplot(mapping=aes(x=LevelOfStudy, y=Headcount))
+```
+
+
+# MAKE IT PRETTY
+Use of title, label, background color and themes
+
+```{r}
+level.bar.plot = graduates %>% 
+filter(ProgrammeCategory=="Engineering and Technology") %>% 
+ggplot() +
+  geom_col(mapping=aes(x=AcademicYear, y=Headcount, fill=LevelOfStudy))
+```
+
+## Plot Background
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(plot.background = element_rect(fill="orange")) # styling the plot background
+```
+
+## Panel Background
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_rect(fill="orange")) # styling the panel background
+```
+
+## Remove Plot and Panel Background
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) # styling the grid line for y-axis
+```
+
+## Label
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") # Label for X axis
+```
+
+## Change Fill Colors
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") + # Label for X axis
+  scale_fill_manual(values=c("purple", "orange", "blue", "tomato")) # use c() function to specify color list
+```
+
+## Styling Legends
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") + # Label for X axis
+  theme(legend.position="top") +
+  scale_fill_manual(values=c("purple", "orange", "blue", "tomato"),
+                    guide = guide_legend(title="Level of Study", 
+                                         label.position = "bottom")
+                    ) # move legend position to top and label position to bottom 
+  
+```
+
+## Title
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") + # Label for X axis
+  theme(legend.position="top") +
+  scale_fill_manual(values=c("purple", "orange", "blue", "tomato"),
+                    guide = guide_legend(title="Level of Study", 
+                                         label.position = "bottom")
+                    ) + # move legend position to top and label position to bottom 
+  ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2019")
+```
+
+## Adding Annotations Text
+Add extra texts/shape to enhance your visualization
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") + # Label for X axis
+  theme(legend.position="top") +
+  scale_fill_manual(values=c("purple", "orange", "blue", "tomato"),
+                    guide = guide_legend(title="Level of Study", 
+                                         label.position = "bottom")
+                    ) + # move legend position to top and label position to bottom 
+  ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2019") + 
+  annotate("text", label="Record\nHigh", x="2017/18", y=5300) # you can change text position value of x and y to set the text position
+```
+
+## Adding Reference Line
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") + # Label for X axis
+  theme(legend.position="top") +
+  scale_fill_manual(values=c("purple", "orange", "blue", "tomato"),
+                    guide = guide_legend(title="Level of Study", 
+                                         label.position = "bottom")
+                    ) + # move legend position to top and label position to bottom 
+  ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2019") + 
+  annotate("text", label="Record\nHigh", x="2017/18", y=5300) + # you can change text position value of x and y to set the text position
+  geom_hline(yintercept=3200) + # adds horizontal line
+  geom_vline(xintercept = "2017/18") # adds vertical line
+  
+```
+
+
+## Using Themes
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme_bw() # black and white theme
+
+level.bar.plot +
+  theme_minimal() # black and white theme
+
+level.bar.plot +
+  theme_dark() # black and white theme
+```
+
+##  More 3rd-party Themes
+Install **ggthemes** package to unlock wider selections of themes.
+
+```{r}
+if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
+pacman::p_load(ggthemes)
+
+level.bar.plot # default style
+
+level.bar.plot +
+  theme_excel() # Excel Theme
+
+level.bar.plot +
+  theme_wsj() # Wall Street Journal Theme
+
+level.bar.plot +
+  theme_economist() # Economist Theme
+
+level.bar.plot +
+  theme_fivethirtyeight() # Wall Street Journal Theme
 
 ```
 
 
+------------------------------------------------------------------------
 
-
+# MORE RESOURCES ON ggplot2
+## official website
 ```{r}
 browseURL("https://ggplot2.tidyverse.org/")
+```
+
+## extentsions
+```{r}
 browseURL("https://exts.ggplot2.tidyverse.org/")
 ```
 
 
+------------------------------------------------------------------------
 
-## ggsave()
+
+# MODELING
+
+------------------------------------------------------------------------
+
+
+# MORE ON DATA WRANGLING
+
+## unnest()
+
+## Categorical Variable
+
+## Recoding Data
+
+## Scaling
+
+## Transforming Outliers

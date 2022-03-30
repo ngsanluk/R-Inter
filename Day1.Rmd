@@ -262,6 +262,9 @@ Choose: **Reference -\> Packages** Explore built-in datasets
 
 **Shift+Ctrl+M** (Mac) or **Shift+Ctrl+M** (Windows)\
 
+## Comment/Un-comment:
+**Shift+Ctrl+C** (Mac) or **Shift+Ctrl+C** (Windows)\
+
 
 
 # R DATA PROCESSING WORKFLOW / EXPLORING
