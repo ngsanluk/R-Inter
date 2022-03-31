@@ -186,9 +186,9 @@ pacman::p_load(datasets, pacman, rio, tidyverse) # Load required packages.  If t
 ## Handy Functions of pacman 
 ```{r}
 ?p_data
-p_data(datasets) # many datasets included
-p_data(rio) # it will show no datasets found
-p_data(tidyverse) # it will show no datasets found
+p_data(datasets) # many data sets included
+p_data(rio) # it will show no data sets found
+p_data(tidyverse) # it will show no data sets found
 p_data(ggplot2)
 p_data(tidyr)
 p_data(stringr)
@@ -312,8 +312,23 @@ summary(allowance) # give you quick overview about the data
 
 
 # DATA WRANGLING
-Data Wrangling is an **iteractive process** to fix or convert the your data to fit your data analysis needs.
-It has many names.  Someone calls it data tidying or data cleansing.
+
+## What is Data Wrangling?
+Data Wrangling is an **iterative process** to prepare, fix and convert your data to fit your data analysis needs.
+
+It has many other names such as data tidying or data cleansing.
+
+## Why Data Tidying?
+Garbage In = Garbage Out.
+
+Common problems in raw data:
+- missed values
+- titles
+- image or figures
+- merged cell
+- summary values
+- comments and notes
+
 Tidyverse offers many great features, functions or even potential workflow to help you do data wrangling effortlessly.
 In this intermediate workshop, we will massively use features and functions from Tidyverse.
 
@@ -647,8 +662,10 @@ ByLevelAndProgramme %>%
 
 
 # MORE ON OPEN DATA
-## figshare.com
+## Some More Open Data Source
 ```{r}
+browseURL("https://data.gov")
+browseURL("https://data.gov.uk")
 browseURL("https://figshare.com")
 ```
 

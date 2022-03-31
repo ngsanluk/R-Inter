@@ -564,6 +564,21 @@ level.bar.plot +
   xlab("Year") # Label for X axis
 ```
 
+## Ratate the Labe Text
+```{r}
+level.bar.plot # default style
+
+level.bar.plot +
+  theme(panel.background = element_blank()) + # styling the panel background to none
+  theme(plot.background = element_blank()) + # styling the plot background to none
+  theme(panel.grid.major.y = element_line(color="grey")) + # styling the grid line for y-axis
+  ylab("Number of Student") + # Label for Y axis
+  xlab("Year") + # Label for X axis
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+
+
 ## Change Fill Colors
 ```{r}
 level.bar.plot # default style
@@ -716,13 +731,16 @@ browseURL("https://exts.ggplot2.tidyverse.org/")
 
 ------------------------------------------------------------------------
 
+# EXPLORING DATA
 
-# MODELING
+
 
 ------------------------------------------------------------------------
 
+# ANALYZING DATA
 
-# TO CONTINUE
+
+# WHAT'S NEXT?
 
 ## unnest()
 
