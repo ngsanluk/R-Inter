@@ -266,21 +266,33 @@ Choose: **Reference -\> Packages** Explore built-in datasets
 **Shift+Ctrl+C** (Mac) or **Shift+Ctrl+C** (Windows)\
 
 
-
-# R DATA PROCESSING WORKFLOW / EXPLORING
-
-Data Tidying Data Visualization
-
 ------------------------------------------------------------------------
 
 
 # DATA SCIENCE WORKFLOW
-Workflow is the preferred steps by steps activity to complete a task.
-Some common steps in data science include: exploring data; wrangling data, visualizing data and modeling. 
-These tasks are not linear.  Company or team might have very different steps for the sake of productivity and effciency.
-These steps are quite commonly iterative too.
+
+## What is Workflow
+Workflow is the preferred step by step order to complete a complex task.
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+
+Some common steps in data science include: exploring data; wrangling data, visualizing data and modeling. 
+These steps are necessarily linear.  They are usually iterative.  Company/team might have very different steps for the sake of intended productivity and efficiency.
+
+
+## A Glance on Data
+```{r}
+allowance = read_csv("./data/allowance.csv")
+typeof(allowance) # it says list
+class(allowance) # it says multiple class types: "spec_tbl_df", "tbl_df", "tbl", "data.frame"
+print(allowance) # prints 10 rows and limited number of columns.
+view(allowance) # view the data in separate tab. it shows all rows and columns
+summary(allowance) # give you quick overview about the data
+```
+
+
+------------------------------------------------------------------------
+
 
 # WHAT IS DATA WRANGLING?
 Data Wrangling is an **iteractive process** to fix or convert the your data to fit your data analysis needs.
@@ -288,27 +300,48 @@ It has many names.  Someone calls it data tidying or data cleansing.
 Tidyverse offers many great features, functions or even potential workflow to help you do data wrangling effortlessly.
 In this intermediate workshop, we will massively use features and functions from Tidyverse.
 
+One often used function for data wrangling in R is **mutate()**
+**mutate()** is used to create new column or to replace a column.
 
-## Reading CSV File - allownance.csv
+## Converting Data Type
 ```{r}
-allowance = read_csv("./data/allowance.csv")
-typeof(allowance)
-class(allowance)
-print(allowance)
+print(allowance) # Check 'Personal_Disability_Allowance', it says <chr> characters
+summary(allowance) # number column offers basic statistic information.  'Personal_Disability_Allowance' doesn't.
+
+allowance.new = allowance %>% 
+  mutate(
+    Personal_Disability_Allowance_New = as.numeric(Personal_Disability_Allowance)
+  )
+print(allowance.new) # a new column named 'Personal_Disability_Allowance_New' as double type is added
+summary(allowance.new) # it offers basic statistic information
+
+# we don't have to create new data. we can simply replace the original column and original dataset
+allowance = allowance %>% 
+  mutate(
+    Personal_Disability_Allowance = as.numeric(Personal_Disability_Allowance)
+  )
+summary(allowance)
 ```
+
 
 ------------------------------------------------------------------------
 
 # USING TIBBLE
 
-## What is Tibble
+## What is Tibble?
 
 Instead of using the built-in data-frame, we will use tibble.\
-Tibble is a new data structure to replace data-frame.\
+Tibble is a new data structure from tidyverse to replace built-in data-frame.\
 Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to factors for easier data analysis.\
 
 Tibbles are one of the unifying features of the tidyverse. (Most other R packages use regular data frames)
 You can convert a data frame to a tibble by using **as_tibble()**
+
+## Tibble offers extras data about data
+```{r}
+print(allowance) # it shows the column names and their types
+```
+
 
 ## Reading CSV as tibble
 
@@ -316,16 +349,109 @@ Use read_csv()
 
 ```{r}
 graduates = read_csv("data/graduates.csv")
-typeof(graduates)
-class(graduates)
+typeof(graduates) # it says "list"
+class(graduates) # it says multiple class types: "spec_tbl_df", "tbl_df", "tbl", "data.frame" 
 print(graduates)
+summary(graduates)
+
+# Let's do some data wrangling again
+graduates = graduates %>% 
+  mutate(
+    Sex.Converted = as.factor(Sex)
+  ) # converting the sex column to factor
+summary(graduates) # now you have more meta-data (data about data)
+str(graduates) # it shows factor level info
 ```
+
+## === Exercise Time ===
+Use mutate() function to convert "LevelOfStudy", "ProgrammeCategory" to factor as well.
+Make sure you replace the allowance dataset (Don't create new variable)
+```{r}
+print(graduates)
+summary(graduates)
+```
+
+
 
 ## Reading Excel File
 ```{r}
 s = import("./data/Students.xlsx") %>% 
   as_tibble() %>% 
   print()
+```
+
+## Loading Live Open Data
+data.gov.hk is a central place for access open data from Hong Kong government and public organization.
+https://data.gov.hk
+
+Let's Expore Some Dataset by University Grant Commitee
+https://data.gov.hk/en-datasets/provider/hk-ugc?order=name&file-content=no
+
+CSV and JSON formats are preferred to data analysis
+
+```{r Student Number by University Live Data}
+student.number.by.uni.url = "http://www.ugcs.gov.hk/datagovhk/Approved_Student_Number_Targets(Eng).csv"
+student.number.by.uni = read_csv(student.number.by.uni.url)
+print(student.number.by.uni)
+summary(student.number.by.uni)
+```
+
+```{r Student Salary}
+student.salaries.url = "http://www.ugcs.gov.hk/datagovhk/Average_Annual_Salaries_FT_Employment(Eng).csv"
+student.salaries = read_csv(student.salaries.url)
+print(student.salaries)
+summary(student.salaries)
+
+# A little bit of data wrangling
+student.salaries = student.salaries %>% 
+  rename(AnnualSalary = "Average Annual Salary (HK$'000)") %>% # rename the column
+  mutate(AnnualSalary = AnnualSalary*1000) %>% # fixing the annual salary value
+  mutate(MonthlySalary = AnnualSalary/12) # create a new column: monthly salary
+print(student.salaries)
+```
+
+```{r Student Unit Cost Live Data}
+student.unit.cost.url = "http://www.ugcs.gov.hk/datagovhk/Average_Student_Unit_Cost(Eng).csv"
+student.unit.cost = read_csv(student.unit.cost.url)
+print(student.unit.cost)
+summary(student.unit.cost)
+```
+## === Exercise Time ===
+Data cleansing on previous student.unit.cost
+Suggestions: change the column name and fixed the number by times 1000
+Put your answer below
+```{r}
+
+```
+
+
+```{r Incoming Exchange Student Live Data}
+exchange.student.url = "http://www.ugcs.gov.hk/datagovhk/Incoming_Exchange(Eng).csv"
+exchange.student = read_csv(exchange.student.url)
+print(exchange.student)
+summary(exchange.student)
+```
+
+```{r Outgoing Exchange Student Live Data}
+exchange.student.url = "http://www.ugcs.gov.hk/datagovhk/Outgoing_Exchange(Eng).csv"
+exchange.student = read_csv(exchange.student.url)
+print(exchange.student)
+summary(exchange.student)
+```
+
+```{r Graudates By University}
+graduates.by.uni.url = "http://www.ugcs.gov.hk/datagovhk/Graduates1(Eng).csv"
+graduates.by.uni = read_csv(graduates.by.uni.url)
+print(graduates.by.uni)
+summary(graduates.by.uni)
+```
+
+```{r Graudates By Programme Category}
+# This is the exact data source that provided in the **data** folder
+graduates.live.data.url = "http://www.ugcs.gov.hk/datagovhk/Graduates2(Eng).csv"
+graduates.live.data = read_csv(graduates.live.data.url)
+print(graduates.live.data)
+summary(graduates.live.data)
 ```
 
 
