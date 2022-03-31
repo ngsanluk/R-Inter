@@ -1,12 +1,12 @@
 ---
-title: "R Notebook"
+title: "R Intermediate - Day 2"
 output: html_notebook
 ---
 
 ------------------------------------------------------------------------
 
 
-# PRO R DATA VISUALIZATION
+# R DATA VISUALIZATION
 
 Raw data point doesn't provide much insight to kick off data analysis.\
 
@@ -28,8 +28,8 @@ For built-in data visualization, go to the R Programming Intro project on Github
 
 ## Grammar of Graphics: ggplot2
 
-When these built-in plotting tools are not enough for you,\ 
-go to **ggplot2**\
+If these built-in plotting tools are not enough for you,\ 
+go fo **ggplot2**\
 the most popular data visualization for R.
 
 ggplot2 is an open-source data visualization package for R. A data visualization which breaks up graphs into semantic components such as scales and layers. Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
@@ -239,7 +239,7 @@ allowance %>% ggplot() +
 
 ------------------------------------------------------------------------
 
-# MORE COMPLEX DATA
+# WORK WITH MORE COMPLEX DATA
 
 ## Loading Data: graduates.csv
 ```{r reading complex data}
@@ -332,6 +332,8 @@ graduates %>%
     geom_point() 
   
 ```
+
+------------------------------------------------------------------------
 
 
 # CHALLENGE: line plot for hibor_fixing_1m
@@ -472,6 +474,8 @@ ggplot() +
   geom_boxplot(mapping=aes(x=LevelOfStudy, y=Headcount))
 ```
 
+
+------------------------------------------------------------------------
 
 # MAKE IT PRETTY
 Use of title, label, background color and themes
@@ -673,7 +677,7 @@ browseURL("https://exts.ggplot2.tidyverse.org/")
 ------------------------------------------------------------------------
 
 
-# MORE ON DATA WRANGLING
+# TO CONTINUE
 
 ## unnest()
 

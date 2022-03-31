@@ -1,5 +1,5 @@
 ---
-title: "R Notebook - Day 1"
+title: "R Intermediate - Day 1"
 output: html_notebook
 ---
 
@@ -90,8 +90,8 @@ line 2 (add a back slash)\
 
 ------------------------------------------------------------------------
 
-# PRACTICING MARKDOWN SYNTAX
-
+# PRACTICING MARKDOWN 
+**5 minutes on this.**
 Use the following markdown playground to practice markdown syntax
 
 ```{r markdown playground}
@@ -133,13 +133,17 @@ browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 
 ------------------------------------------------------------------------
 
-# INSTALL & LOAD PACKAGE
+# INSTALL & LOAD PACKAGES
 
-Using a 3rd-party library in R will involve 1. Install the require package using **install.packages()** function. (This is only required once.) 2. Load the library when you need the feature for your projects/codes using **library()** function. (This is required in every project you need tidyverse)
+Using a 3rd-party library in R will involve TWO steps.\ 
+1. Install the required package using **install.packages()** function. (This is only required once for each computer.) \
+2. Load the library(libraries) when you need to activate the feature(s) for your R projects/codes using.  Use **library()** function to activate package. (This is required in every time you need the package(s)).
 
 ## Install and Load Tidyverse
 
-The codes for this intermediate workshop heavily depends on **tidyverse** packages. tidyvers is a collections of libraries that are widely used by R data scientist. It includes popular data wrangling libraries such as **tidyr**, **tibble**, **readr**, **ggplot2**, **stringr**.
+The codes for this intermediate level workshop heavily depends on **tidyverse** packages.\
+**tidyverse** is a collections of packages that are widely used by R data scientist.\
+It includes popular data science libraries such as **tidyr**, **tibble**, **readr**, **ggplot2**, **stringr**.
 
 ## To install tidyverse, run the statement below
 
@@ -162,17 +166,24 @@ browseURL("https://www.tidyverse.org/")
 
 ## Package Manager: pacman
 
-pacman: this 3rd-party Package Manager makes your package management a lot easier.
+pacman is 3rd-party Package Manager makes your packages management a lot easier.
 
-Run the following statements to install **pacman** and use **pacman::p_load** to download/load required 3rd-party packages. Now we've combined package downloading and activating in one place. (Previously two-steps task)
+Run the following statements to install **pacman** and use **pacman::p_load()** to download and activate required 3rd-party packages. 
+
+With pacman, packages **downloading** and **activating** become two-in-one.
 
 ```{r}
 if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
 pacman::p_load(datasets, pacman, rio, tidyverse) # Load required packages.  If they are NOT already downloaded, download them automatically.
 ```
 
-Some handy functions come with **pacman**
+## Show your Library Path
+```{r}
+.libPaths()
+```
 
+
+## Handy Functions of pacman 
 ```{r}
 ?p_data
 p_data(datasets) # many datasets included
@@ -184,6 +195,10 @@ p_data(stringr)
 p_data(forcats)
 p_data(dplyr)
 ```
+
+
+------------------------------------------------------------------------
+
 
 # PIPING: %\>%
 
@@ -280,7 +295,9 @@ Some common steps in data science include: exploring data; wrangling data, visua
 These steps are necessarily linear.  They are usually iterative.  Company/team might have very different steps for the sake of intended productivity and efficiency.
 
 
-## A Glance on Data
+## A Glance of Data
+Take a galance of your raw data and what to improve
+
 ```{r}
 allowance = read_csv("./data/allowance.csv")
 typeof(allowance) # it says list
@@ -294,7 +311,7 @@ summary(allowance) # give you quick overview about the data
 ------------------------------------------------------------------------
 
 
-# WHAT IS DATA WRANGLING?
+# DATA WRANGLING
 Data Wrangling is an **iteractive process** to fix or convert the your data to fit your data analysis needs.
 It has many names.  Someone calls it data tidying or data cleansing.
 Tidyverse offers many great features, functions or even potential workflow to help you do data wrangling effortlessly.
@@ -303,7 +320,9 @@ In this intermediate workshop, we will massively use features and functions from
 One often used function for data wrangling in R is **mutate()**
 **mutate()** is used to create new column or to replace a column.
 
-## Converting Data Type
+## Converting Data Type: mutate()
+**mutate()** function can add, remove and change columns to fit your needs.
+
 ```{r}
 print(allowance) # Check 'Personal_Disability_Allowance', it says <chr> characters
 summary(allowance) # number column offers basic statistic information.  'Personal_Disability_Allowance' doesn't.
@@ -321,6 +340,35 @@ allowance = allowance %>%
     Personal_Disability_Allowance = as.numeric(Personal_Disability_Allowance)
   )
 summary(allowance)
+```
+
+## Rename a Column
+Quite often the column title from Excel or CSV is good for readers to understand, but NOT good for data scientist to do programming.
+e.g: 
+Annual Salary (Before Tax) '0000
+
+```{r}
+allowance  %>% 
+  rename(AssessmentYear = Assessment_Year,
+         MarriedPerson = Married_Person) 
+```
+
+
+## Assignment Pipes: %<>%
+The precess you do wrangling, you usually want to replace the old data set. 
+Assignment piping makes this easier.
+
+Note that the previous statement DOESN'T do any changes to the original allowance dataset.
+
+**magrittr** library is required for Assignment Piping
+
+```{r}
+library(magrittr)
+allowance %<>% # assignment pipe %<>% is used to update the data set
+  rename(AssessmentYear = Assessment_Year) %>% 
+  rename(MarriedPerson = Married_Person)
+
+# `allowance %<>%` is equivalen to `allowance <- allowance %>%` 
 ```
 
 
@@ -363,7 +411,7 @@ summary(graduates) # now you have more meta-data (data about data)
 str(graduates) # it shows factor level info
 ```
 
-## === Exercise Time ===
+## === Exercise ===
 Use mutate() function to convert "LevelOfStudy", "ProgrammeCategory" to factor as well.
 Make sure you replace the allowance dataset (Don't create new variable)
 ```{r}
@@ -416,7 +464,7 @@ student.unit.cost = read_csv(student.unit.cost.url)
 print(student.unit.cost)
 summary(student.unit.cost)
 ```
-## === Exercise Time ===
+## === Exercise ===
 Data cleansing on previous student.unit.cost
 Suggestions: change the column name and fixed the number by times 1000
 Put your answer below
@@ -472,8 +520,9 @@ graduates %>%
   view()
 ```
 
+------------------------------------------------------------------------
 
-# ADVANCED TIBBLE PROCESSING 
+# MORE ON TIBBLE
 
 ## Extracting Columns
 ```{r}
@@ -582,34 +631,10 @@ ByLevelAndProgramme %>%
   )
 ```
 
-## mutate() function
-Add / remove and change columns
 
-```{r}
-graduates2 = graduates %>%
-  mutate(HeadcountX100 = Headcount*100) # create a new column named HeadcountX10
-
-graduates2 = graduates %>%
-  mutate(Headcount = Headcount*100) # Replace the existing column with x100new value
-
-graduates2 = graduates2 %>%
-  mutate(Headcount = Headcount/100) # Replace the existing tibble to save memory consumption
-
-```
-
-
-## Rename a Column
-
-```{r}
-library(magrittr)
-allowance = read_csv("./data/allowance.csv")
-allowance %<>% # assignment pipe %<>% is used to update a value
-  rename(AssessmentYear = Assessment_Year) %>% 
-  rename(MarriedPerson = Married_Person)
-```
-
-
-
-## httr & fread()
-
+# MORE ON OPEN DATA
 ## figshare.com
+```{r}
+browseURL("https://figshare.com")
+```
+
