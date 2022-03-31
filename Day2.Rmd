@@ -8,31 +8,37 @@ output: html_notebook
 
 # R DATA VISUALIZATION
 
+## Why Data Visualization?
 Raw data point doesn't provide much insight to kick off data analysis.\
 
 Data Visualization is brilliant in
-- exploring the pattern of data briefly at the early stage
-- in the final conclusion, enhance the story telling of data analysis (inforgraphics play huge role for this purpose)
+* exploring the pattern of data briefly at the early stage
+* in the final conclusion, enhance the story telling of data analysis (inforgraphics play a huge role for this purpose)
+
+## Reminder on Workflow Again
+
+![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
 
 ## Built-in Plot Functions
 The advantage of using built-in plotting utilities is they are easy.
-Let you quickly visually the data pattern while you are trying to gain some brief insight and prepare for your models.
+It let you quickly visualize the data pattern while you are trying to gain a brief insight at the early stage of your workflow.
 ```{r}
 plot(iris)
 ```
 
-## Built-in Plot Tools
-For built-in data visualization, go to the R Programming Intro project on Github to refresh your memory
+## Reflash on Built-in Plot Tools
+For built-in R data visualization, go to the **R Programming Intro** project on Github to reflash your memory
 (R Intro Source Codes)[https://github.com/ngsanluk/R-Intro]
 
 
 ## Grammar of Graphics: ggplot2
 
 If these built-in plotting tools are not enough for you,\ 
-go fo **ggplot2**\
-the most popular data visualization for R.
+Go to **ggplot2**. It  is the most popular data visualization for R.
 
-ggplot2 is an open-source data visualization package for R. A data visualization which breaks up graphs into semantic components such as scales and layers. Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
+ggplot2 is an open-source data visualization package for R. 
+A data visualization which breaks up graphs into semantic components such as **scales** and **layers**.\ 
+Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
 
 
 ## ggplot2 Cheat Sheet
@@ -42,7 +48,9 @@ ggplot2 is an open-source data visualization package for R. A data visualization
 ------------------------------------------------------------------------
 
 # BASIC GRAMMAR
-ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components: **a data set** 
+ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components below: 
+
+**a data set** 
 + 
 **a coordinate system** 
 + 
@@ -52,7 +60,7 @@ ggplot2 is based on the grammar of graphics, the idea that you can build every g
 
 
 ## Use Built-in Datasets
-Let's use the built-in cars data set
+Let's use the built-in cars data set for a simple ggplot
 
 ```{r}
 print(cars)
@@ -64,17 +72,18 @@ cars %>% ggplot() # This only specifies a data set and a coordinate system and t
 
 ## geom_point() function
 It's easy to add geometry layer to the base co-ordinate\
-Let's add a layer of data points. \
-Yes, you can add layer by using the + operator
-Let's use point (namely **geom_point()**).
-In 2D co-ordinate, a point is describe by its x and y value.
+Let's ADD a layer of data points using **geom_point()** function. \
 
-We need to provide a mapping that specifies the data columns' name to map to the x and y value of a point
+And Yes, you can ADD a layer by using the + operator
+We use **geom_point()** function that required x and y value for each point.
+In 2D co-ordinate, a point is described by its x and y value.
+
+We need to provide a mapping that specifies the data columns' name to map to a point's the x and y value
 
 That mapping is defined by an aesthetics function\
 **aes()**
 
-Scatterplot is useful to explore the relation of two variable.
+Scatterplot is useful to explore the relation of two variables.
 
 ```{r}
 cars %>% ggplot() +
@@ -86,8 +95,9 @@ geom_point() and geom_line() require very similar parameters.\
 geom_line() is simply an enhanced visualization that automatically connect all the points
 
 ```{r}
+# just change geom_point to geom_line without change anything else
 cars %>% ggplot() +
-  geom_line(mapping = aes(x=speed, y=dist)) # just change geom_point to geom_line without change anything else
+  geom_line(mapping = aes(x=speed, y=dist)) 
 ```
 
 
@@ -96,11 +106,20 @@ again geom_smooth() and geom_point() require very similar parameters.\
 geom_smooth() smooths out the line progression
 
 ```{r}
+# just change geom_point to geom_line without change anything else
 cars %>% ggplot() +
-  geom_smooth(mapping = aes(x=speed, y=dist)) # just change geom_point to geom_line without change anything else
+  geom_smooth(mapping = aes(x=speed, y=dist)) 
+```
+## Adding Multiple Layers
+```{r}
+# just change geom_point to geom_line without change anything else
+cars %>% ggplot() +
+  geom_point(mapping = aes(x=speed, y=dist)) +
+  geom_smooth(mapping = aes(x=speed, y=dist)) 
 ```
 
 ## Adding Aesthetics to your Plots
+Un-comment the extra parameters to add more aesthetics to your plot
 ```{r}
 cars %>% ggplot() +
   geom_point(mapping = aes(x=speed, y=dist),
@@ -134,15 +153,13 @@ allowance %>%
 ```
 
 
-
-
 ## Continuous Values vs. Discrete Values
-Continuous values refer to numbers value that has wide range
+Continuous values refer to numbers value that has wide range. E.g. salary, height
 Discrete values refer to a limited number of valid values.  It can be string. It can be a few distinct numbers.
 
 When you produce plots, pay attention to what type of value are required by the geoms.
 
-In many case, you will need to convert the data first.
+In many cases, you will need to convert the data first.
 **mutate()** function are quite often used for that.
 
 example:
@@ -155,7 +172,7 @@ allowance = allowance %>%
 ## Simple Line Plot
 ```{r Allowance Line Graph}
 
-# The following statement won't generate a plot
+# The following statement WON'T generate a plot
 allowance %>% ggplot() +
   geom_line(mapping = aes(x=Assessment_Year, y=Basic))
 
@@ -200,7 +217,7 @@ my.first.plot = allowance %>%
 print(my.first.plot)
 
 ggsave("./output/my_first_plot.png") # default image size
-ggsave("./output/my_first_plot_large.png", width=10, height=10)
+ggsave("./output/my_first_plot_large.png", width=4000, height=2000, unit="px")
 
 ```
 
@@ -216,8 +233,9 @@ allowance %>%
 
 
 
-## Histogram with geom_bar()
-Counting the frequency of each occurrence of observed value.
+## geom_bar()
+geom_bar() is used for counting the frequency of each occurrence of observed value.
+It's usually for counting a limit set of value
 
 ```{r}
 allowance %>% 
@@ -229,7 +247,7 @@ allowance %>%
 
 # CHALLENGE
 ## Multiple Layers of Lines
-add line plot for coloumn of Child
+add line plot for column of Child
 in the same plot, add another line plot for Dependent_Parent_60
 ```{r}
 allowance %>% ggplot() +
@@ -307,8 +325,8 @@ Use filter() to extract required record
 You can use multiple filter() call
 Use &, | or multiple conditions
 
-```{r}
 
+```{r Previewing ProgramCategory}
 graduates %>% 
   .$ProgrammeCategory %>% 
   unique() # display the unique names of ProgrammeCategory
@@ -317,7 +335,10 @@ graduates %>%
   filter(LevelOfStudy=="Undergraduate", Sex=="F") %>%
   filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
   print() # Test extracting and printing the required records.
+```
 
+
+```{r Business and Management vs. Engineering and Technology}
 graduates %>% 
   filter(LevelOfStudy=="Undergraduate", Sex=="F") %>%
   filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
@@ -407,11 +428,11 @@ graduates %>%
   ggplot() +
     geom_line(mapping=aes(x=AcademicYear,y=TotalHeadcount, group=ProgrammeCategory, color=ProgrammeCategory))
 
-
-# graduates %>% 
-#   filter(LevelOfStudy=="Undergraduate") %>% 
-#   group_by(AcademicYear, ProgrammeCategory) %>% 
-#   summarise(TotalHeadcount = sum(Headcount)) %>% 
+# Following is the same chart for "undergraduate" 
+# graduates %>%
+#   filter(LevelOfStudy=="Undergraduate") %>%
+#   group_by(AcademicYear, ProgrammeCategory) %>%
+#   summarise(TotalHeadcount = sum(Headcount)) %>%
 #   ggplot() +
 #     geom_line(mapping=aes(x=AcademicYear,y=TotalHeadcount, group=ProgrammeCategory, color=ProgrammeCategory))
     
@@ -457,7 +478,7 @@ bar chart give the counting frequency (number of record in the data set)
 
 graduates %>% 
 ggplot() +
-  geom_bar(mapping=aes(x=AcademicYear)) # you only need to provide the x column
+  geom_bar(mapping=aes(x=AcademicYear)) # you only need to provide the x axis
 ```
 
 ## box plot
@@ -481,13 +502,23 @@ ggplot() +
 Use of title, label, background color and themes
 
 ```{r}
+# in this example we save the plot to a variable name 'level.bar.plot' so that we can use it again and again.
 level.bar.plot = graduates %>% 
 filter(ProgrammeCategory=="Engineering and Technology") %>% 
 ggplot() +
   geom_col(mapping=aes(x=AcademicYear, y=Headcount, fill=LevelOfStudy))
+
+# To show the plot, just use print() function with the previous saved plot variable as parameter.
+print(level.bar.plot)
 ```
 
+
 ## Plot Background
+**element_rect()** is a function to generated rectangle geometry element.
+You have to specify the **fill** parameter by color name or hex code code by string
+
+Plot Background refers to the big area of everything relevant to the plot.
+
 ```{r}
 level.bar.plot # default style
 
@@ -496,6 +527,7 @@ level.bar.plot +
 ```
 
 ## Panel Background
+Panel background refers to the inner area of plot. Area for showing header, axis lable and legend are NOT included.
 ```{r}
 level.bar.plot # default style
 
@@ -504,6 +536,13 @@ level.bar.plot +
 ```
 
 ## Remove Plot and Panel Background
+In visual design, color is very powerful tool to guide users' attention. But you have to use them carefully.
+
+Too many colors will usually do the opposite - confuse the audience.
+Minimal design is the recent trend.  Expecially true when many are using small device like mobile phone for day-to-day communication.
+
+In this example, we are removing both plot and panel background to achieve a clean design.  After all, background is the main dish. Very often background color causes distraction to graph.
+
 ```{r}
 level.bar.plot # default style
 
@@ -513,7 +552,7 @@ level.bar.plot +
   theme(panel.grid.major.y = element_line(color="grey")) # styling the grid line for y-axis
 ```
 
-## Label
+## Change Label for x/y Axis
 ```{r}
 level.bar.plot # default style
 
@@ -538,7 +577,7 @@ level.bar.plot +
   scale_fill_manual(values=c("purple", "orange", "blue", "tomato")) # use c() function to specify color list
 ```
 
-## Styling Legends
+## Styling The Legends
 ```{r}
 level.bar.plot # default style
 
@@ -556,7 +595,7 @@ level.bar.plot +
   
 ```
 
-## Title
+## Add Title and Subtitle
 ```{r}
 level.bar.plot # default style
 
@@ -574,7 +613,7 @@ level.bar.plot +
   ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2019")
 ```
 
-## Adding Annotations Text
+## Add Annotations Texts
 Add extra texts/shape to enhance your visualization
 ```{r}
 level.bar.plot # default style
@@ -594,7 +633,7 @@ level.bar.plot +
   annotate("text", label="Record\nHigh", x="2017/18", y=5300) # you can change text position value of x and y to set the text position
 ```
 
-## Adding Reference Line
+## Adding Reference Lines
 ```{r}
 level.bar.plot # default style
 
@@ -612,7 +651,7 @@ level.bar.plot +
   ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2019") + 
   annotate("text", label="Record\nHigh", x="2017/18", y=5300) + # you can change text position value of x and y to set the text position
   geom_hline(yintercept=3200) + # adds horizontal line
-  geom_vline(xintercept = "2017/18") # adds vertical line
+  geom_vline(xintercept = "2017/18", color="white") # adds vertical line
   
 ```
 
@@ -641,16 +680,21 @@ pacman::p_load(ggthemes)
 level.bar.plot # default style
 
 level.bar.plot +
-  theme_excel() # Excel Theme
+  theme_excel() + # Excel Theme
+  ggtitle("Excel Theme")
+  
 
 level.bar.plot +
-  theme_wsj() # Wall Street Journal Theme
+  theme_wsj() + # Wall Street Journal Theme
+  ggtitle("Wall Street Journal Theme")
 
 level.bar.plot +
-  theme_economist() # Economist Theme
+  theme_economist() + # Economist Theme
+  ggtitle("Economist Theme")
 
 level.bar.plot +
-  theme_fivethirtyeight() # Wall Street Journal Theme
+  theme_fivethirtyeight() + # Five Thirty Eight
+  ggtitle("Five Thirty Eight Theme")
 
 ```
 
@@ -658,6 +702,7 @@ level.bar.plot +
 ------------------------------------------------------------------------
 
 # MORE RESOURCES ON ggplot2
+
 ## official website
 ```{r}
 browseURL("https://ggplot2.tidyverse.org/")

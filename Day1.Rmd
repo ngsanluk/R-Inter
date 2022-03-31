@@ -401,8 +401,21 @@ typeof(graduates) # it says "list"
 class(graduates) # it says multiple class types: "spec_tbl_df", "tbl_df", "tbl", "data.frame" 
 print(graduates)
 summary(graduates)
+```
+## table() function for column insight
+Before you start data wrangling, you can use table() function to gain some brief insight on character column.
 
-# Let's do some data wrangling again
+It shows how many rows for each associated value
+
+```{r}
+graduates %>% 
+  select(LevelOfStudy) %>% 
+  table()
+```
+
+
+## Some Data Wrangling Works
+```{r}
 graduates = graduates %>% 
   mutate(
     Sex.Converted = as.factor(Sex)
@@ -410,6 +423,7 @@ graduates = graduates %>%
 summary(graduates) # now you have more meta-data (data about data)
 str(graduates) # it shows factor level info
 ```
+
 
 ## === Exercise ===
 Use mutate() function to convert "LevelOfStudy", "ProgrammeCategory" to factor as well.
