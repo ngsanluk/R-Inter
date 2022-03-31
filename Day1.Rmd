@@ -274,7 +274,20 @@ Data Tidying Data Visualization
 ------------------------------------------------------------------------
 
 
+# DATA SCIENCE WORKFLOW
+Workflow is the preferred steps by steps activity to complete a task.
+Some common steps in data science include: exploring data; wrangling data, visualizing data and modeling. 
+These tasks are not linear.  Company or team might have very different steps for the sake of productivity and effciency.
+These steps are quite commonly iterative too.
+
+![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+
 # WHAT IS DATA WRANGLING?
+Data Wrangling is an **iteractive process** to fix or convert the your data to fit your data analysis needs.
+It has many names.  Someone calls it data tidying or data cleansing.
+Tidyverse offers many great features, functions or even potential workflow to help you do data wrangling effortlessly.
+In this intermediate workshop, we will massively use features and functions from Tidyverse.
+
 
 ## Reading CSV File - allownance.csv
 ```{r}
