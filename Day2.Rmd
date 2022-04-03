@@ -731,18 +731,99 @@ browseURL("https://exts.ggplot2.tidyverse.org/")
 
 ------------------------------------------------------------------------
 
-# EXPLORING DATA
+# EXPLORING & ANALYZING WITH MODELS
+
+![Work Follow of Data Science](https://d33wubrfki0l68.cloudfront.net/e5bf2a8f4c787a12facbc0b4191fc82bd192f4c5/4e5d2/diagrams/data-science-model.png)
+
+Data Science is combination of efforts and results of programming, mathematics and domain expertise.  Among all, mathematics is the foundation of models.  With models, data scientists make predictions; discover hidden patterns; and conclude insights. 
+
+Modeling is usually an iterative process among data transformation, data visualization, exploring with models and fitting.
+
+## What exactly is a Model?
+
+Human are good in drawing conclusions and providing insight while are NOT good in directly facing large number of data attributes and huge volume of raw data.  
+
+![Models Example](https://d33wubrfki0l68.cloudfront.net/e28a66adf6e8b2d127db8d3af9ac992a2abb87ce/47308/model-basics_files/figure-html/unnamed-chunk-45-1.png)
+
+A model is mathematics expression that provides a simple low-dimensional **summary** of a data set so that we can draw conclusion and even providing insights.  Models only provide approximation (NOT the exact truth).
 
 
+## Basic Concepts of Model
 
-------------------------------------------------------------------------
+Let's do some simple R coding to uncover the basic concept of model
 
-# ANALYZING DATA
+```{r Loading Required Packages }
+if (!require("pacman")) install.packages("pacman") # install pacman
+pacman::p_load(pacman, tidyverse, modelr, magrittr) # install (or load) required packages
+```
 
 
-# WHAT'S NEXT?
+Let's use a simple built-in data set **sim1** for exploring.
+In this simulation data you can strongly see the pattern with the help of simple scatterplot.
 
-## unnest()
+```{r Using sim1 Data Set}
+print(sim1)
+ggplot(sim1, aes(x, y)) +
+  geom_point()
+```
+
+## Generating a Random Model
+Linear algebra is widely used to explore the relation of two variables.
+Let's generate a random value of a1 as **intercept** and a2 as **slope**.
+
+```{r}
+model = tibble(
+  a1 = runif(1, -20, 40), # random intercept value between -20 to 40
+  a2 = runif(1, -5, 5) # random slop value between -5 to 5
+)
+
+ggplot(sim1, aes(x,y)) +
+  geom_point() +
+  geom_abline(aes(intercept = a1, slope = a2), data=model, color="Orange")
+```
+
+## Generating 250 Random Models
+The number of potential models are unlimited.  
+Let's try to generated 250 random ones.  Among these 250 models, some are very bad by just taking glances. Some are not bad but we don't know which one is the best among them.
+
+```{r}
+models = tibble(
+  a1 = runif(250, -20, 40), # 250 random intercept values between -20 to 40
+  a2 = runif(250, -5, 5) # 250 random slop values between -5 to 5
+)
+
+ggplot(sim1, aes(x,y)) +
+  geom_point() +
+  geom_abline(aes(intercept = a1, slope = a2), data=models, alpha=0.2)
+```
+## Selecting the Most Fitting Ten
+```{r}
+model1 = function(a, data) {
+  a[1] + data$x * a[2] # a[1] is the intercept and a[2] is the slope
+}
+
+measure_distance = function(mod, data) {
+  diff <- data$y - model1(mod, data) # mod is random intercept and slope of a certain model
+  sqrt(mean(diff ^ 2))
+}
+
+sim1_dist = function(a1, a2) {
+  measure_distance(c(a1, a2), sim1)
+}
+
+models %<>% 
+  mutate(dist = purrr::map2_dbl(a1, a2, sim1_dist))
+models
+
+ggplot(sim1, aes(x, y)) + 
+  geom_point(size = 2, colour = "grey30") + 
+  geom_abline(
+    aes(intercept = a1, slope = a2, color = -dist) , 
+    data = filter(models, rank(dist) <= 10) # To show only the best 5, change 10 to five
+  )
+
+```
+
 
 ## Categorical Variable
 
@@ -751,3 +832,14 @@ browseURL("https://exts.ggplot2.tidyverse.org/")
 ## Scaling
 
 ## Transforming Outliers
+
+## More on Model
+
+
+------------------------------------------------------------------------
+
+
+
+## unnest()
+
+
