@@ -767,24 +767,28 @@ ggplot(sim1, aes(x, y)) +
   geom_point()
 ```
 
-## Generating a Random Model
-Linear algebra is widely used to explore the relation of two variables.
-Let's generate a random value of a1 as **intercept** and a2 as **slope**.
+## Generating a Random Linear Model
+Linear model is widely used to explore the relation of two variables.
+A linear model is described as
+y = a1 + x * a2
 
+Let's generate a random value of a1 as **intercept** and a2 as **slope**.
+Here, we use **runinf()** to generated a random uniform distributed number
 ```{r}
 model = tibble(
   a1 = runif(1, -20, 40), # random intercept value between -20 to 40
   a2 = runif(1, -5, 5) # random slop value between -5 to 5
 )
+print(model)
 
 ggplot(sim1, aes(x,y)) +
   geom_point() +
   geom_abline(aes(intercept = a1, slope = a2), data=model, color="Orange")
 ```
 
-## Generating 250 Random Models
-The number of potential models are unlimited.  
-Let's try to generated 250 random ones.  Among these 250 models, some are very bad by just taking glances. Some are not bad but we don't know which one is the best among them.
+## Generating 250 Random Models as Candidate Models
+The number of potential models are unlimited.  Let's try to generate 250 random ones as candiates.  
+Among these 250 models, some are very bad even by just taking glances. Some are not bad but we don't know which one is the best among them.
 
 ```{r}
 models = tibble(
@@ -796,21 +800,25 @@ ggplot(sim1, aes(x,y)) +
   geom_point() +
   geom_abline(aes(intercept = a1, slope = a2), data=models, alpha=0.2)
 ```
-## Selecting the Most Fitting Ten
+## Selecting the Most Fitting Ten Models
 ```{r}
-model1 = function(a, data) {
+# this function calculates the modeled y value of each given x oberservation
+modeled_y = function(a, data) {
   a[1] + data$x * a[2] # a[1] is the intercept and a[2] is the slope
 }
 
+# this function calculates ONE distance between a observed y value to the modeled y value
 measure_distance = function(mod, data) {
-  diff <- data$y - model1(mod, data) # mod is random intercept and slope of a certain model
+  diff <- data$y - modeled_y(mod, data) # mod is random intercept and slope of a certain model
   sqrt(mean(diff ^ 2))
 }
 
+# this function calucautes ALL distance for a given model with a1 as intercept and a2 as slope
 sim1_dist = function(a1, a2) {
-  measure_distance(c(a1, a2), sim1)
+  measure_distance(c(a1, a2), sim1) # a1 is the intercept of a model while a2 is the slope
 }
 
+# use map2_dbl (a mapping function) to a new column named 'dist' to each random model
 models %<>% 
   mutate(dist = purrr::map2_dbl(a1, a2, sim1_dist))
 models
@@ -822,6 +830,31 @@ ggplot(sim1, aes(x, y)) +
     data = filter(models, rank(dist) <= 10) # To show only the best 5, change 10 to five
   )
 
+```
+
+## Using lm() function
+In fact, we didn't have to do all the previous complex coding. 
+Things can be very handy by using built-in R feature. 
+There is a function named **lm()** (a linear model fitting function)
+**lm()** actually finds the closest model in a single step, using a sophisticated algorithm that involves geometry, calculus, and linear algebra
+```{r}
+sim1_auto_model = lm(y ~ x, data = sim1) # finding the optimized linear model
+print(sim1_auto_model) # print out the auto generated linear model
+print(summary(sim1_auto_model)) # print out the summary of the generated linear model
+
+sim1_coef = coef(sim1_auto_model) # retrieves model's intercept and slope
+print(sim1_coef)
+
+# visualize the auto generated linear model on top of the sim1 data
+ggplot(sim1, aes(x, y)) + 
+  geom_point(size = 2, colour = "grey30") + 
+  geom_abline(
+    aes(intercept = sim1_coef[1], slope = sim1_coef[2]) 
+  )
+
+new.data = data.frame(x = c(1,2,3,4,5,6,7,8,9,10))
+new.data
+predict(sim1_auto_model, new.data)
 ```
 
 
