@@ -57,7 +57,8 @@ pacman::p_load(
   datasets, # built-in data sets
   rio, # r input / output
   magrittr, # for piping commands
-  tidyverse 
+  tidyverse, 
+  modelr # mathematics model
 ) # Load required packages.  If they are NOT already downloaded, download them automatically.
 ```
 
@@ -774,7 +775,7 @@ browseURL("https://exts.ggplot2.tidyverse.org/gallery")
 
 ------------------------------------------------------------------------
 
-# EXPLORING & ANALYZING WITH MODELS
+# MODELS
 
 ![Work Follow of Data Science](https://d33wubrfki0l68.cloudfront.net/e5bf2a8f4c787a12facbc0b4191fc82bd192f4c5/4e5d2/diagrams/data-science-model.png)
 
@@ -901,7 +902,11 @@ In fact, R makes linear model fitting extremely easy by just one single line of 
 **lm()** has a special way to specify the model family: formulas. 
 Formulas look like **y ~ x**, which lm() will translate to a function like y = a1 + a2 * x
 ```{r}
+# regular function calling manner
 sim1_auto_model = lm(y ~ x, data = sim1) # finding the optimized linear model
+# Or using piping below
+sim1_auto_model = sim1 %>%  lm(y ~ x, .) # since piping always assumes outputs from previous function call will be the first parameter of next function, here we use "." to indicate sim1 will be fed as second parameter
+
 print(sim1_auto_model) # print out the auto generated linear model
 print(summary(sim1_auto_model)) # print out the summary of the generated linear model
 
@@ -923,22 +928,70 @@ predict(sim1_auto_model, new.data)
 ```
 
 
-## Categorical Variable
+## Using lm() function with categorical data
+Using lm() function on a categorical variable will use mean value for each category for prediction.
+```{r}
+p_data(modelr) # shows included data sets with modelr package
+sim2 %>% summary()
+sim2 
+model_cat = sim2 %>%  lm(y~x, .)
+print(model_cat)
+grid = sim2 %>% 
+  data_grid(x) %>% 
+  add_predictions(model_cat)
+grid
 
-## Recoding Data
+ggplot(sim2, aes(x)) + 
+  geom_point(aes(y = y)) +
+  geom_point(data = grid, aes(y = pred), colour = "red", size = 4)
+```
 
-## Scaling
 
-## Transforming Outliers
+```{r}
+sim3
+```
 
-## More on Model
+## Multiple Regression
+Multiple regression is an extension of linear regression into relationship between more than two variables.
+```{r}
+?mtcars
+print(mtcars)
+m.r.model = mtcars %>% lm(mpg~disp+hp+wt, .)
+print(m.r.model)
 
+new.data.2 = data.frame(
+  disp = c(221),
+  hp = c(102),
+  wt = c(2.91)
+  ) %>% print()
+
+predict(m.r.model, new.data.2)
+```
+
+## Logistic Regression
+
+```{r}
+print(mtcars)
+bi.model = mtcars %>% glm(am~cyl+hp+wt, ., family=binomial)
+print(bi.model)
+
+new.data.3 = data.frame(
+  cyl = c(4),
+  hp = c(102),
+  wt = c(3.91)
+  ) %>% print()
+
+new.data.3b = data.frame(
+  cyl = c(4,6,8),
+  hp = c(102,110,98),
+  wt = c(2.91, 2.62, 3.44)
+  ) %>% print()
+summary(bi.model)
+predict(bi.model, new.data.3)
+```
 
 ------------------------------------------------------------------------
 
-
-
-## unnest()
 
 ```{r}
 sim1a <- tibble(
@@ -986,5 +1039,61 @@ ggplot(sim5, aes(x, y)) +
   geom_point() +
   geom_line(data = grid, colour = "red") +
   facet_wrap(~ model)
+```
+# VISUALIZATION VS. MODEL
+Visualization is usually thought as a tool for hypothesis generation to explore the hidden patterns among data while modelling is usually thought as at tool for hypothesis confirmation (to confirm what are found by data visualization tools).  These two tools are suggested to used in an iterative manner so as to achieve a deeper revealing on data.
+
+
+# FURTHER LEARNING RESOURCES
+## More on ggplot2
+
+### ggplot2 tutorial
+```{r}
+browseURL("https://www.tutorialspoint.com/ggplot2/ggplot2_introduction.htm")
+```
+
+ggplot2: Elegant Graphics for Data Analysis (Web-based E-book)
+###
+```{r}
+browseURL("https://ggplot2-book.org/")
+```
+
+
+
+## R Statiscal Models
+
+### more on model building
+A execellent ebook for R Data Science
+* Basic Concept of Model
+* Model Building
+* Example on Model
+A web based ebook at
+```{r}
+browseURL("https://r4ds.had.co.nz/model-intro.html")
+```
+
+### examples on more models
+* Linear Regression
+* Multiple Regression
+* Logistic Regression
+* Decision Tree
+* Random Forest
+* And so on
+```{r}
+browseURL("https://www.tutorialspoint.com/r/r_linear_regression.htm")
+```
+
+## R Studio Cheatsheets
+Many quick syntax hints for R programming and 3-rd packages
+```{r}
+browseURL("https://www.rstudio.com/resources/cheatsheets/")
+```
+
+
+
+# TO DELETE
+```{r}
+p_data(modelr)
+heights
 ```
 
