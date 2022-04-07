@@ -174,7 +174,13 @@ With pacman, packages **downloading** and **activating** become two-in-one.
 
 ```{r}
 if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
-pacman::p_load(datasets, pacman, rio, tidyverse) # Load required packages.  If they are NOT already downloaded, download them automatically.
+pacman::p_load(
+  pacman, # package manager
+  datasets, # built-in data sets
+  rio, # r input / output
+  magrittr, # for piping commands
+  tidyverse 
+) # Load required packages.  If they are NOT already downloaded, download them automatically.
 ```
 
 ## Show your Library Path
@@ -185,13 +191,13 @@ pacman::p_load(datasets, pacman, rio, tidyverse) # Load required packages.  If t
 
 ## Handy Functions of pacman 
 ```{r}
-?p_data
+?p_data # shows the built-in data sets in a package
 p_data(datasets) # many data sets included
-p_data(rio) # it will show no data sets found
-p_data(tidyverse) # it will show no data sets found
-p_data(ggplot2)
-p_data(tidyr)
-p_data(stringr)
+p_data(rio) # it shows no data sets found
+p_data(tidyverse) # it shows no data sets found
+p_data(ggplot2) # many built-in data sets for learning
+p_data(tidyr) # many built-in data sets for learning
+p_data(stringr) 
 p_data(forcats)
 p_data(dplyr)
 ```
@@ -231,10 +237,19 @@ subset(iris,
        )
 ```
 
+Avoid using the coding pattern like above.  Instead, use piping like below to improve the readability.
+You can use filter() function to include selective rows in your result data set.
+You can use select() function to make a selective subset of columns.  select() is also widely use for re-arranging the column orders.
 ```{r piping the functions call}
 iris %>% 
   filter(Sepal.Length>5.0) %>% 
   select(Species, Sepal.Length) 
+```
+
+Use ":" to specify a range of columns
+```{r}
+iris %>% 
+  select(Petal.Length:Species) # selection starts at 'Patel.Length' column, all they way to 'Species' column
 ```
 
 ------------------------------------------------------------------------

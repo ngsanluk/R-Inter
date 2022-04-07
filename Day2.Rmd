@@ -18,6 +18,8 @@ Data Visualization is brilliant in
 ## Reminder on Workflow Again
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+Like the picture above shows, in the stage of **Understand** (exploring the data sets), Transform, Visualize and Model are used in an iterative manner so as to get the best early understaning about the data sets.
+
 
 ## Built-in Plot Functions
 The advantage of using built-in plotting utilities is they are easy.
@@ -46,6 +48,18 @@ Since 2005, ggplot2 has grown in use to become one of the most popular R package
 [ggplot 2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
 
 ------------------------------------------------------------------------
+
+# INSTALL / LOAD PACKAGES
+```{r}
+if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
+pacman::p_load(
+  pacman, # package manager
+  datasets, # built-in data sets
+  rio, # r input / output
+  magrittr, # for piping commands
+  tidyverse 
+) # Load required packages.  If they are NOT already downloaded, download them automatically.
+```
 
 # BASIC GRAMMAR
 ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components below: 
@@ -83,10 +97,10 @@ We need to provide a mapping that specifies the data columns' name to map to a p
 That mapping is defined by an aesthetics function\
 **aes()**
 
-Scatterplot is useful to explore the relation of two variables.
+Scatter plot is useful to explore the relation of two variables.
 
 ```{r}
-cars %>% ggplot() +
+cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
   geom_point(mapping = aes(x=speed, y=dist))
 ```
 
@@ -110,6 +124,11 @@ geom_smooth() smooths out the line progression
 cars %>% ggplot() +
   geom_smooth(mapping = aes(x=speed, y=dist)) 
 ```
+
+## Geometric Objects Comparison
+a geom is the geometrical object that a plot use to represent data.
+We used points, lines and smooth above on the same data set and they provide very different message. 
+
 ## Adding Multiple Layers
 ```{r}
 # just change geom_point to geom_line without change anything else
@@ -134,7 +153,7 @@ cars %>% ggplot() +
 
 # PLOT WITH OUR OWN DATA
 
-## Loading Data: allowance & graduates
+## Loading Data: allowance
 ```{r reading data files}
 allowance = read_csv("./data/allowance.csv")
 print(allowance)
@@ -382,6 +401,7 @@ ggplot() +
 
 ------------------------------------------------------------------------
 
+
 # GROUPING AND AGGREGATION
 
 ## Using group_by() and summarise() 
@@ -495,6 +515,29 @@ ggplot() +
   geom_boxplot(mapping=aes(x=LevelOfStudy, y=Headcount))
 ```
 
+## facet_wrap()
+facets are useful categorical variables.
+It split your plot into subplot (a.k.a facets) that each display one subset of the data.
+
+facet_wrap() lets you work with ONE extra variable (besides x and y).  
+Each categorical value will used to produce to a sub plot.
+We use LevelOfStudy here.  Since there are FOUR distinct values, you will see FOUR sub-plots
+```{r}
+graduates %>% ggplot() +
+  geom_point(mapping = aes(x=AcademicYear, y=Headcount)) +
+  facet_wrap(~ LevelOfStudy) # You will see FOUR sub plots as there are FOUR distinct values for this variable.
+```
+
+## facet_grid()
+facet_grid() lets you work with TWO extra variables (besides x and y).  
+Each combination of these two varaibles' value are used to produce to a sub plot.
+
+You should SEE 28 sub plots as there are FOUR distinct values for LevelOfStudy and 7 distinct values for ProgrammeCategory.
+```{r}
+graduates %>% ggplot() +
+  geom_point(mapping = aes(x=AcademicYear, y=Headcount)) +
+  facet_grid(LevelOfStudy ~ ProgrammeCategory)
+```
 
 ------------------------------------------------------------------------
 
@@ -723,9 +766,9 @@ level.bar.plot +
 browseURL("https://ggplot2.tidyverse.org/")
 ```
 
-## extentsions
+## extensions gallery
 ```{r}
-browseURL("https://exts.ggplot2.tidyverse.org/")
+browseURL("https://exts.ggplot2.tidyverse.org/gallery")
 ```
 
 
@@ -759,61 +802,76 @@ pacman::p_load(pacman, tidyverse, modelr, magrittr) # install (or load) required
 
 
 Let's use a simple built-in data set **sim1** for exploring.
-In this simulation data you can strongly see the pattern with the help of simple scatterplot.
+In this simulation data you can strongly see the pattern with the help of simple scatter-plot.
 
 ```{r Using sim1 Data Set}
-print(sim1)
+p_data(modelr) # display all the built-in data sets of modelr
+print(heights)
+?heights
+print(sim1) # contains two continuous variables: x, y
+
 ggplot(sim1, aes(x, y)) +
   geom_point()
 ```
 
 ## Generating a Random Linear Model
-Linear model is widely used to explore the relation of two variables.
+Linear line and quadratic curve are widely used to explore the relation of two variables. Let's take linear model as simple example to grab the essence of model.
+
 A linear model is described as
 y = a1 + x * a2
+x and y are the variable from dataset
+a1 and a2 are parameters that can vary to capture different patterns.
 
 Let's generate a random value of a1 as **intercept** and a2 as **slope**.
-Here, we use **runinf()** to generated a random uniform distributed number
+Here, we use **runinf()** to generate a random uniform distributed number
+
+**Note**: 
+You might have to repeatively run a few times before you can see the visualized random model represented by a orange straight line.
 ```{r}
 model = tibble(
   a1 = runif(1, -20, 40), # random intercept value between -20 to 40
   a2 = runif(1, -5, 5) # random slop value between -5 to 5
 )
-print(model)
+# print(model) # un-comment to print the random model
 
 ggplot(sim1, aes(x,y)) +
-  geom_point() +
-  geom_abline(aes(intercept = a1, slope = a2), data=model, color="Orange")
+  geom_point() + # this plots all the data
+  geom_abline(aes(intercept = a1, slope = a2), 
+              data=model, 
+              color="Orange"
+              ) # this add the straight line, a.k.a, our random model on top to data layer
 ```
 
 ## Generating 250 Random Models as Candidate Models
-The number of potential models are unlimited.  Let's try to generate 250 random ones as candiates.  
-Among these 250 models, some are very bad even by just taking glances. Some are not bad but we don't know which one is the best among them.
-
+The number of potential models are unlimited.  Let's try to generate 250 random ones as candidate models.  
+Among these 250 models, some are very bad that you can judge even by glancing. Some are not bad but we don't know which one is the best among them.
 ```{r}
 models = tibble(
   a1 = runif(250, -20, 40), # 250 random intercept values between -20 to 40
   a2 = runif(250, -5, 5) # 250 random slop values between -5 to 5
 )
 
+# let add these random linear models as overlay on top of data 
 ggplot(sim1, aes(x,y)) +
   geom_point() +
   geom_abline(aes(intercept = a1, slope = a2), data=models, alpha=0.2)
 ```
 ## Selecting the Most Fitting Ten Models
 ```{r}
-# this function calculates the modeled y value of each given x oberservation
+# this function calculates the modeled y value of each given 'x' value
 modeled_y = function(a, data) {
   a[1] + data$x * a[2] # a[1] is the intercept and a[2] is the slope
 }
+# modeled_y(c(7, 1.5), sim1) # test-run modeled_y function
 
-# this function calculates ONE distance between a observed y value to the modeled y value
+# this function calculates the distance between an actual y value and the predicted y value (modeled_y)
 measure_distance = function(mod, data) {
   diff <- data$y - modeled_y(mod, data) # mod is random intercept and slope of a certain model
-  sqrt(mean(diff ^ 2))
+  sqrt(mean(diff ^ 2)) # root-mean-squared deviation to compute overall distance
 }
+# measure_distance(c(7, 1,5), sim1) # test-run measure_distance function
 
-# this function calucautes ALL distance for a given model with a1 as intercept and a2 as slope
+# this function calculates the 'overall' distance for a given model with a1 as intercept and a2 as slope
 sim1_dist = function(a1, a2) {
   measure_distance(c(a1, a2), sim1) # a1 is the intercept of a model while a2 is the slope
 }
@@ -821,8 +879,9 @@ sim1_dist = function(a1, a2) {
 # use map2_dbl (a mapping function) to a new column named 'dist' to each random model
 models %<>% 
   mutate(dist = purrr::map2_dbl(a1, a2, sim1_dist))
-models
+models # now we have an extra column named 'dist' in our models
 
+# plotting the best 10 models from the ranked distances
 ggplot(sim1, aes(x, y)) + 
   geom_point(size = 2, colour = "grey30") + 
   geom_abline(
@@ -833,10 +892,14 @@ ggplot(sim1, aes(x, y)) +
 ```
 
 ## Using lm() function
-In fact, we didn't have to do all the previous complex coding. 
-Things can be very handy by using built-in R feature. 
-There is a function named **lm()** (a linear model fitting function)
-**lm()** actually finds the closest model in a single step, using a sophisticated algorithm that involves geometry, calculus, and linear algebra
+If the previous R codes on choosing best 10 among 250 random models are too much digest. It's fine.  It's just for you to feel the process and essence of models and fitting models.
+
+In fact, R makes linear model fitting extremely easy by just one single line of function calling to the **lm()** function (a built-in linear model fitting function)
+
+**lm()** finds the closest model in a single step, using a sophisticated algorithm that involves geometry, calculus, and linear algebra.
+
+**lm()** has a special way to specify the model family: formulas. 
+Formulas look like **y ~ x**, which lm() will translate to a function like y = a1 + a2 * x
 ```{r}
 sim1_auto_model = lm(y ~ x, data = sim1) # finding the optimized linear model
 print(sim1_auto_model) # print out the auto generated linear model
@@ -851,9 +914,11 @@ ggplot(sim1, aes(x, y)) +
   geom_abline(
     aes(intercept = sim1_coef[1], slope = sim1_coef[2]) 
   )
+```
 
+Making Prediction
+```{r}
 new.data = data.frame(x = c(1,2,3,4,5,6,7,8,9,10))
-new.data
 predict(sim1_auto_model, new.data)
 ```
 
@@ -875,4 +940,51 @@ predict(sim1_auto_model, new.data)
 
 ## unnest()
 
+```{r}
+sim1a <- tibble(
+  x = rep(1:10, each = 3),
+  y = x * 1.5 + 6 + rt(length(x), df = 2)
+)
+
+sim2
+sim2 %>% 
+  select(x) %>% 
+  table()
+ggplot(sim2) +
+  geom_point(aes(x,y))
+
+mod2 <- lm(y ~ x, data = sim2)
+
+grid <- sim2 %>% 
+  data_grid(x) %>% 
+  add_predictions(mod2)
+grid
+
+ggplot(sim2, aes(x)) + 
+  geom_point(aes(y = y)) +
+  geom_point(data = grid, aes(y = pred), colour = "red", size = 4)
+
+sim5 <- tibble(
+  x = seq(0, 3.5 * pi, length = 50),
+  y = 4 * sin(x) + rnorm(length(x))
+)
+
+ggplot(sim5, aes(x, y)) +
+  geom_point()
+library(splines)
+mod1 <- lm(y ~ ns(x, 1), data = sim5)
+mod2 <- lm(y ~ ns(x, 2), data = sim5)
+mod3 <- lm(y ~ ns(x, 3), data = sim5)
+mod4 <- lm(y ~ ns(x, 4), data = sim5)
+mod5 <- lm(y ~ ns(x, 5), data = sim5)
+
+grid <- sim5 %>% 
+  data_grid(x = seq_range(x, n = 50, expand = 0.1)) %>% 
+  gather_predictions(mod1, mod2, mod3, mod4, mod5, .pred = "y")
+
+ggplot(sim5, aes(x, y)) + 
+  geom_point() +
+  geom_line(data = grid, colour = "red") +
+  facet_wrap(~ model)
+```
 
