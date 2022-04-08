@@ -1053,11 +1053,11 @@ browseURL("https://www.tutorialspoint.com/ggplot2/ggplot2_introduction.htm")
 ```
 
 ggplot2: Elegant Graphics for Data Analysis (Web-based E-book)
+![Elegant Graphics for Data Analysis](https://ggplot2-book.org/cover.jpg)
 ###
 ```{r}
 browseURL("https://ggplot2-book.org/")
 ```
-
 
 
 ## R Statiscal Models
@@ -1068,6 +1068,7 @@ A execellent ebook for R Data Science
 * Model Building
 * Example on Model
 A web based ebook at
+![R for Data Science](https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png)
 ```{r}
 browseURL("https://r4ds.had.co.nz/model-intro.html")
 ```
@@ -1084,9 +1085,16 @@ browseURL("https://www.tutorialspoint.com/r/r_linear_regression.htm")
 ```
 
 ## R Studio Cheatsheets
-Many quick syntax hints for R programming and 3-rd packages
+Many quick syntax reference for R programming and 3-rd packages
+![R Studio Cheatsheets](https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/data-visualization.png)
 ```{r}
 browseURL("https://www.rstudio.com/resources/cheatsheets/")
+```
+
+## Advanced R
+![Advanced R](https://d33wubrfki0l68.cloudfront.net/565916198b0be51bf88b36f94b80c7ea67cafe7c/7f70b/cover.png)
+```{r}
+browseURL("https://adv-r.hadley.nz/index.html")
 ```
 
 
