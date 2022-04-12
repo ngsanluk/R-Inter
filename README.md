@@ -1,7 +1,8 @@
 # R Programming Intermediate Workshop
 
 If you are new to R programming, go to R Intro by the link below
-[R-Intro](https://github.com/ngsanluk/R-Intro)
+
+[R-Intro: https://github.com/ngsanluk/R-Intro](https://github.com/ngsanluk/R-Intro)
 
 This intermedia workshop includes the following topics
 
