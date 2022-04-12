@@ -9,11 +9,12 @@ output: html_notebook
 # R DATA VISUALIZATION
 
 ## Why Data Visualization?
-Raw data point doesn't provide much insight to kick off data analysis.\
+Raw data points don't provide much insight to kick off data analysis.
 
 Data Visualization is brilliant in
 * exploring the pattern of data briefly at the early stage
-* in the final conclusion, enhance the story telling of data analysis (inforgraphics play a huge role for this purpose)
+* in the final conclusion, enhance the story telling of data analysis 
+
 
 ## Reminder on Workflow Again
 
@@ -23,23 +24,25 @@ Like the picture above shows, in the stage of **Understand** (exploring the data
 
 ## Built-in Plot Functions
 The advantage of using built-in plotting utilities is they are easy.
+
 It let you quickly visualize the data pattern while you are trying to gain a brief insight at the early stage of your workflow.
 ```{r}
 plot(iris)
 ```
 
-## Reflash on Built-in Plot Tools
-For built-in R data visualization, go to the **R Programming Intro** project on Github to reflash your memory
+## Refresh on Built-in Plot Tools
+For built-in R data visualization, go to the **R Intro** project on Github to refresh your memory
 (R Intro Source Codes)[https://github.com/ngsanluk/R-Intro]
 
 
 ## Grammar of Graphics: ggplot2
 
-If these built-in plotting tools are not enough for you,\ 
-Go to **ggplot2**. It  is the most popular data visualization for R.
+If the built-in plotting tools are not enough for you, 
+go for **ggplot2**. 
+It  is the most popular data visualization for R.
 
 ggplot2 is an open-source data visualization package for R. 
-A data visualization which breaks up graphs into semantic components such as **scales** and **layers**.\ 
+ggplot2 breaks up graphs into semantic components such as **scales** and **layers**.
 Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
 
 
@@ -69,12 +72,12 @@ ggplot2 is based on the grammar of graphics, the idea that you can build every g
 + 
 **a coordinate system** 
 + 
-**and geoms—visual marks that represent data points**
+**and geom—visual that represent data points**
 
 ![Grammar of Graphics](https://jules32.github.io/r-for-excel-users/img/rstudio-cheatsheet-ggplot.png)
 
 
-## Use Built-in Datasets
+## Use Built-in Data Sets
 Let's use the built-in cars data set for a simple ggplot
 
 ```{r}
@@ -82,23 +85,27 @@ print(cars)
 ```
 
 ```{r Generating Empty Plot}
-cars %>% ggplot() # This only specifies a data set and a coordinate system and therefore an empty plot
+cars %>% ggplot() 
+# This only specifies a data set and a coordinate system 
+# and therefore it's an empty plot
 ```
 
 ## geom_point() function
-It's easy to add geometry layer to the base co-ordinate\
-Let's ADD a layer of data points using **geom_point()** function. \
+It's easy to add geometry layer to the base co-ordinate
+Let's ADD a layer of data points using **geom_point()** function.
 
 And Yes, you can ADD a layer by using the + operator
-We use **geom_point()** function that required x and y value for each point.
+We use **geom_point()** function that requires x and y value for each geom point.
 In 2D co-ordinate, a point is described by its x and y value.
 
-We need to provide a mapping that specifies the data columns' name to map to a point's the x and y value
+We need to provide a mapping that specifies the data columns' name to map to a point's x and y value
 
-That mapping is defined by an aesthetics function\
+That mapping is defined by an aesthetics function: 
 **aes()**
 
-Scatter plot is useful to explore the relation of two variables.
+We usually name the plot by the name of geom that we use to represent data.
+In this case, it's widely called Scatter Plot.
+It is useful to explore the relation of two variables.
 
 ```{r}
 cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
@@ -106,8 +113,9 @@ cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
 ```
 
 ## Use geom_line() to replace geom_point()
-geom_point() and geom_line() require very similar parameters.\
-geom_line() is simply an enhanced visualization that automatically connect all the points
+geom_point() and geom_line() require very similar parameters.
+geom_line() is simply an enhanced visualization that automatically connect all the points.
+Line chart are used to explore/emphasize trending.
 
 ```{r}
 # just change geom_point to geom_line without change anything else
@@ -117,8 +125,8 @@ cars %>% ggplot() +
 
 
 ## Use geom_smoth() to project a smooth line
-again geom_smooth() and geom_point() require very similar parameters.\
-geom_smooth() smooths out the line progression
+`geom_smooth()` and `geom_point()` require very similar parameters.
+`geom_smooth()` smooths out the line progression
 
 ```{r}
 # just change geom_point to geom_line without change anything else
@@ -129,6 +137,8 @@ cars %>% ggplot() +
 ## Geometric Objects Comparison
 a geom is the geometrical object that a plot use to represent data.
 We used points, lines and smooth above on the same data set and they provide very different message. 
+
+We usually name the plot by the name of geom that we use to represent data.
 
 ## Adding Multiple Layers
 ```{r}
@@ -174,13 +184,14 @@ allowance %>%
 
 
 ## Continuous Values vs. Discrete Values
-Continuous values refer to numbers value that has wide range. E.g. salary, height
+Continuous values refer to numbers value that has wide range. E.g. salary, height.
+
 Discrete values refer to a limited number of valid values.  It can be string. It can be a few distinct numbers.
 
-When you produce plots, pay attention to what type of value are required by the geoms.
+When you produce plots, pay attention to what type of value are required by the geom object.
 
 In many cases, you will need to convert the data first.
-**mutate()** function are quite often used for that.
+`mutate()` function are quite often used for that.
 
 example:
 ```{r}
@@ -191,7 +202,6 @@ allowance = allowance %>%
 
 ## Simple Line Plot
 ```{r Allowance Line Graph}
-
 # The following statement WON'T generate a plot
 allowance %>% ggplot() +
   geom_line(mapping = aes(x=Assessment_Year, y=Basic))
@@ -255,7 +265,7 @@ allowance %>%
 
 ## geom_bar()
 geom_bar() is used for counting the frequency of each occurrence of observed value.
-It's usually for counting a limit set of value
+It's usually for counting a limit set of values
 
 ```{r}
 allowance %>% 
@@ -267,8 +277,8 @@ allowance %>%
 
 # CHALLENGE
 ## Multiple Layers of Lines
-add line plot for column of Child
-in the same plot, add another line plot for Dependent_Parent_60
+add line plot for column of 'Child'
+in the same plot, add another line plot for 'Dependent_Parent_60'
 ```{r}
 allowance %>% ggplot() +
   geom_line(mapping = aes(x=Assessment_Year, y=Child, group=1), color="Orange") + 
@@ -287,7 +297,7 @@ print(graduates)
 
 ## Simple Scatterplot
 Let's explore the data with some simple ggplot plot. 
-Overall they are not very useful.  Just some quick exploration.
+Just some quick exploration. They might not be very useful.  
 
 ```{r}
 ggplot(data=graduates) +
@@ -321,7 +331,7 @@ library(magrittr)
 graduates %<>%
   mutate(AcademicYear=as.factor(AcademicYear),
          Sex=as.factor(Sex)
-         ) # convert the AcademicYear and Sex to factor type
+         ) # convert the 'AcademicYear' and Sex to factor type
 
 graduates %>% 
 filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
@@ -340,15 +350,15 @@ ggplot() +
 
 # CHALLENGE
 ## Comparison with Line Plots
-Use line plots to compare female undergraduate students headcount trending in ProgrammeCategory of "Business and Management" and "Engineering and Technology"
-Use filter() to extract required record
-You can use multiple filter() call
+Use line plots to compare female undergraduate students headcount trending in "ProgrammeCategory" of "Business and Management" and "Engineering and Technology"
+Use filter() to extract required records
+You can use multiple `filter()` call
 Use &, | or multiple conditions
 
 
 ```{r Previewing ProgramCategory}
 graduates %>% 
-  .$ProgrammeCategory %>% 
+  .$ProgrammeCategory %>% # . means the parameter from previous command
   unique() # display the unique names of ProgrammeCategory
 
 graduates %>% 
@@ -425,9 +435,9 @@ graduates %>% group_by(AcademicYear, LevelOfStudy) %>%
 ```
 
 ## Use of filter()
-Use filter() to keep only "Taught Postgraduate" Records
+Use `filter()` to keep only "Taught Postgraduate" Records
 
-This plot is not very useful without previously applying filter() and group_by() and summarise()
+This plot is not very useful without previously applying `filter()` and `group_by()` and `summarise()`
 
 ```{r}
 graduates %>% 
@@ -438,8 +448,8 @@ graduates %>%
 
 
 ## filter() + group_by() + summarise()
-Use filter() to extract required rows
-Use group_by() and summarise() to group and aggreate total headcout for both male and female
+Use `filter()` to extract required rows
+Use `group_by()` and `summarise()` to group and aggregate total headcount for both male and female
 ```{r ggplot line}
 
 graduates %>% 
@@ -482,12 +492,12 @@ ggplot() +
 ```
 
 ## More Aggregation Functions
-Center: mean(), median()
-Spread: sd(), IQR(), mad()
-Range: min(), max(), quantile()
-Position: first(), last(), nth(),
-Count: n(), n_distinct()
-Logical: any(), all()
+Center: `mean()`, `median()`
+Spread: `sd()`, `IQR()`, `mad()`
+Range: `min()`, `max()`, `quantile()`
+Position: `first()`, `last()`, `nth()`,
+Count: `n()`, `n_distinct()`
+Logical: `any()`, `all()`
 
 More information at
 [summarise() function](https://dplyr.tidyverse.org/reference/summarise.html)
@@ -496,7 +506,6 @@ More information at
 ## geom_bar() function
 bar chart give the counting frequency (number of record in the data set)
 ```{r}
-
 graduates %>% 
 ggplot() +
   geom_bar(mapping=aes(x=AcademicYear)) # you only need to provide the x axis
@@ -522,7 +531,7 @@ It split your plot into subplot (a.k.a facets) that each display one subset of t
 
 facet_wrap() lets you work with ONE extra variable (besides x and y).  
 Each categorical value will used to produce to a sub plot.
-We use LevelOfStudy here.  Since there are FOUR distinct values, you will see FOUR sub-plots
+We use 'LevelOfStudy' here.  Since there are FOUR distinct values, you will see FOUR sub-plots
 ```{r}
 graduates %>% ggplot() +
   geom_point(mapping = aes(x=AcademicYear, y=Headcount)) +
@@ -531,9 +540,9 @@ graduates %>% ggplot() +
 
 ## facet_grid()
 facet_grid() lets you work with TWO extra variables (besides x and y).  
-Each combination of these two varaibles' value are used to produce to a sub plot.
+Each combination of these two variables' value are used to produce to a sub plot.
 
-You should SEE 28 sub plots as there are FOUR distinct values for LevelOfStudy and 7 distinct values for ProgrammeCategory.
+You should SEE 28 sub plots as there are FOUR distinct values for 'LevelOfStudy' and 7 distinct values for 'ProgrammeCategory'.
 ```{r}
 graduates %>% ggplot() +
   geom_point(mapping = aes(x=AcademicYear, y=Headcount)) +
@@ -571,7 +580,7 @@ level.bar.plot +
 ```
 
 ## Panel Background
-Panel background refers to the inner area of plot. Area for showing header, axis lable and legend are NOT included.
+Panel background refers to the inner area of plot. Area for showing header, axis label and legend are NOT included.
 ```{r}
 level.bar.plot # default style
 
@@ -580,12 +589,12 @@ level.bar.plot +
 ```
 
 ## Remove Plot and Panel Background
-In visual design, color is very powerful tool to guide users' attention. But you have to use them carefully.
+In visual design, color is a very powerful tool to guide users' attention. But you have to use them carefully.
 
 Too many colors will usually do the opposite - confuse the audience.
-Minimal design is the recent trend.  Expecially true when many are using small device like mobile phone for day-to-day communication.
+Minimal design is the recent trend.  Especially true when many are using small device like mobile phone or tablet for day-to-day communication.
 
-In this example, we are removing both plot and panel background to achieve a clean design.  After all, background is the main dish. Very often background color causes distraction to graph.
+In this example, we are removing both plot and panel background to achieve a clean design. After all, background is NOT the main dish. Very often background color causes distraction to graph.
 
 ```{r}
 level.bar.plot # default style
@@ -688,7 +697,7 @@ level.bar.plot +
                     guide = guide_legend(title="Level of Study", 
                                          label.position = "bottom")
                     ) + # move legend position to top and label position to bottom 
-  ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2019") + 
+  ggtitle("Hong Kong Higher Education Student Headcount", subtitle="2009 - 2020") + 
   annotate("text", label="Record\nHigh", x="2017/18", y=5300) # you can change text position value of x and y to set the text position
 ```
 
@@ -789,7 +798,9 @@ Human are good in drawing conclusions and providing insight while are NOT good i
 
 ![Models Example](https://d33wubrfki0l68.cloudfront.net/e28a66adf6e8b2d127db8d3af9ac992a2abb87ce/47308/model-basics_files/figure-html/unnamed-chunk-45-1.png)
 
-A model is mathematics expression that provides a simple low-dimensional **summary** of a data set so that we can draw conclusion and even providing insights.  Models only provide approximation (NOT the exact truth).
+A model is mathematics expression that provides a simple low-dimensional **summary** of a data set so that we can draw conclusion and even provide insights.  
+
+Models only provide approximation (NOT the exact truth).
 
 
 ## Basic Concepts of Model
@@ -803,7 +814,7 @@ pacman::p_load(pacman, tidyverse, modelr, magrittr) # install (or load) required
 
 
 Let's use a simple built-in data set **sim1** for exploring.
-In this simulation data you can strongly see the pattern with the help of simple scatter-plot.
+In this simulation data, you can strongly see the pattern with the help of simple scatter-plot.
 
 ```{r Using sim1 Data Set}
 p_data(modelr) # display all the built-in data sets of modelr
@@ -819,12 +830,12 @@ ggplot(sim1, aes(x, y)) +
 Linear line and quadratic curve are widely used to explore the relation of two variables. Let's take linear model as simple example to grab the essence of model.
 
 A linear model is described as
-y = a1 + x * a2
-x and y are the variable from dataset
+`y = a1 + x * a2`
+x and y are the variable from data set
 a1 and a2 are parameters that can vary to capture different patterns.
 
-Let's generate a random value of a1 as **intercept** and a2 as **slope**.
-Here, we use **runinf()** to generate a random uniform distributed number
+Let's generate a random value of `a1` as **intercept** and `a2` as **slope**.
+Here, we use **runinf()** to generate random uniform distributed number
 
 **Note**: 
 You might have to repeatively run a few times before you can see the visualized random model represented by a orange straight line.
@@ -857,6 +868,8 @@ ggplot(sim1, aes(x,y)) +
   geom_point() +
   geom_abline(aes(intercept = a1, slope = a2), data=models, alpha=0.2)
 ```
+
+
 ## Selecting the Most Fitting Ten Models
 ```{r}
 # this function calculates the modeled y value of each given 'x' value
@@ -891,6 +904,7 @@ ggplot(sim1, aes(x, y)) +
   )
 
 ```
+
 
 ## Using lm() function
 If the previous R codes on choosing best 10 among 250 random models are too much digest. It's fine.  It's just for you to feel the process and essence of models and fitting models.
@@ -929,7 +943,7 @@ predict(sim1_auto_model, new.data)
 
 
 ## Using lm() function with categorical data
-Using lm() function on a categorical variable will use mean value for each category for prediction.
+Using `lm()` function on a categorical variable will use mean value for each category for prediction.
 ```{r}
 p_data(modelr) # shows included data sets with modelr package
 sim2 %>% summary()
@@ -968,8 +982,9 @@ new.data.2 = data.frame(
 predict(m.r.model, new.data.2)
 ```
 
-## Logistic Regression
 
+
+## Logistic Regression
 ```{r}
 print(mtcars)
 bi.model = mtcars %>% glm(am~cyl+hp+wt, ., family=binomial)
@@ -980,6 +995,7 @@ new.data.3 = data.frame(
   hp = c(102),
   wt = c(3.91)
   ) %>% print()
+predict(bi.model, new.data.3)
 
 new.data.3b = data.frame(
   cyl = c(4,6,8),
@@ -987,59 +1003,12 @@ new.data.3b = data.frame(
   wt = c(2.91, 2.62, 3.44)
   ) %>% print()
 summary(bi.model)
-predict(bi.model, new.data.3)
+predict(bi.model, new.data.3b)
 ```
 
 ------------------------------------------------------------------------
 
 
-```{r}
-sim1a <- tibble(
-  x = rep(1:10, each = 3),
-  y = x * 1.5 + 6 + rt(length(x), df = 2)
-)
-
-sim2
-sim2 %>% 
-  select(x) %>% 
-  table()
-ggplot(sim2) +
-  geom_point(aes(x,y))
-
-mod2 <- lm(y ~ x, data = sim2)
-
-grid <- sim2 %>% 
-  data_grid(x) %>% 
-  add_predictions(mod2)
-grid
-
-ggplot(sim2, aes(x)) + 
-  geom_point(aes(y = y)) +
-  geom_point(data = grid, aes(y = pred), colour = "red", size = 4)
-
-sim5 <- tibble(
-  x = seq(0, 3.5 * pi, length = 50),
-  y = 4 * sin(x) + rnorm(length(x))
-)
-
-ggplot(sim5, aes(x, y)) +
-  geom_point()
-library(splines)
-mod1 <- lm(y ~ ns(x, 1), data = sim5)
-mod2 <- lm(y ~ ns(x, 2), data = sim5)
-mod3 <- lm(y ~ ns(x, 3), data = sim5)
-mod4 <- lm(y ~ ns(x, 4), data = sim5)
-mod5 <- lm(y ~ ns(x, 5), data = sim5)
-
-grid <- sim5 %>% 
-  data_grid(x = seq_range(x, n = 50, expand = 0.1)) %>% 
-  gather_predictions(mod1, mod2, mod3, mod4, mod5, .pred = "y")
-
-ggplot(sim5, aes(x, y)) + 
-  geom_point() +
-  geom_line(data = grid, colour = "red") +
-  facet_wrap(~ model)
-```
 # VISUALIZATION VS. MODEL
 Visualization is usually thought as a tool for hypothesis generation to explore the hidden patterns among data while modelling is usually thought as at tool for hypothesis confirmation (to confirm what are found by data visualization tools).  These two tools are suggested to used in an iterative manner so as to achieve a deeper revealing on data.
 
@@ -1095,13 +1064,5 @@ browseURL("https://www.rstudio.com/resources/cheatsheets/")
 ![Advanced R](https://d33wubrfki0l68.cloudfront.net/565916198b0be51bf88b36f94b80c7ea67cafe7c/7f70b/cover.png)
 ```{r}
 browseURL("https://adv-r.hadley.nz/index.html")
-```
-
-
-
-# TO DELETE
-```{r}
-p_data(modelr)
-heights
 ```
 
