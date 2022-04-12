@@ -7,15 +7,15 @@ output: html_notebook
 
 # WHAT IS R MARKDOWN / R NOTEBOOK?
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook.\
-When you execute code within the notebook, the results appear beneath the code. It's an experience of coding environment and descriptive note taking TWO-in-ONE.
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook.
+When you execute code within the notebook, the results appear beneath the code. It's an experience of coding environment and descriptive notes TWO-in-ONE.
 
 ## To Run a Chunk of R Codes
 
-Try executing the following chunk by\
-clicking the **Run** button within the chunk\
+Try executing the following chunk by
+clicking the **Run** button within the chunk
 
-or place your cursor inside a chunk of codes and press\
+or place your cursor inside a chunk of codes and press
 **Cmd+Shift+Enter** (Mac) or **Ctrl+Shift+Enter** (Windows).
 
 ```{r print range of numbers}
@@ -29,14 +29,16 @@ plot(cars)
 
 ## To Add a New Chunk of Codes
 
-Click the **Insert Chunk** button on the toolbar\
-or\
+Click the **Insert Chunk** button on the toolbar
+
+or
+
 Press **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
 ```{r simple r variables declaration}
 name <- "Sunny" # assigning "Sunny" to variable 'name'
 address = "Hong Kong" # assigning "Hong Kong" to variable address
-print(name) # use print() function to show a variable
+print(name) # use print() function to show a variable's value
 address # or just directly type the variable name to show it's value
 ```
 
@@ -68,11 +70,11 @@ line 2 (add a back slash)\
 
 ## headings:
 
-\# Heading 1
+Use one hash: # Heading 1
 
-\## Heading 2
+Use two hash: ## Heading 2
 
-\### Header 3
+Use three hash: ### Header 3
 
 ## lists:
 
@@ -91,7 +93,7 @@ line 2 (add a back slash)\
 ------------------------------------------------------------------------
 
 # PRACTICING MARKDOWN 
-**5 minutes on this.**
+**5 minutes on this**
 Use the following markdown playground to practice markdown syntax
 
 ```{r markdown playground}
@@ -102,19 +104,19 @@ browseURL("https://dillinger.io/")
 
 ## R Markdown Formats & Options
 
-Press the **gear** icon next to **Preview** button.\
-You will see the document in the format of rendered markdown.\
-Let's give it a try.\
+Press the **gear** icon next to **Preview** button.
+You will see the document in the format of rendered markdown.
+Let's give it a try.
 
 ## R MARKDOWN OUTPUT
 
-Press **Preview** button to see preview of default output.\
+Press **Preview** button to see preview of default output.
 Press the **Down** arrow next to **Preview** button to choose a file format to knit.
 
 ## Use Notebook or Markdown?
 
-They are pretty much equivalent or at least converatble.\
-Only different by automatic added mark-down options at begining of document.
+They are pretty much equivalent or at least convertable.
+Only different by automatic-added mark-down options at beginning of document.
 
 If you are primarily doing analysis in the Notebook environment, choose **Notebook**.
 
@@ -122,11 +124,12 @@ If you are primarily aiming to create a PDF or Word document, choose **R Markdow
 
 ## More on Markdown
 
-Reach out to:\
-**Help** - **Markdown Quick Reference or browse**
+Reach out to:
+**Help : Markdown Quick Reference**
 
-Or open the following page
+Or browse the following page
 
+## === Exercise ===
 ```{r browse rmarkdown lesson}
 browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 ```
@@ -135,38 +138,40 @@ browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 
 # INSTALL & LOAD PACKAGES
 
-Using a 3rd-party library in R will involve TWO steps.\ 
-1. Install the required package using **install.packages()** function. (This is only required once for each computer.) \
-2. Load the library(libraries) when you need to activate the feature(s) for your R projects/codes using.  Use **library()** function to activate package. (This is required in every time you need the package(s)).
+Using a 3rd-party library in R will involve TWO steps.
+
+1. Install the required package using **install.packages()** function. (This is only required once for each computer.)
+
+2. Load the library(libraries) when you need to activate the feature(s) for your R projects/codes.  Use **library()** function to activate package. (This is required every time you need the package(s)).
 
 ## Install and Load Tidyverse
 
-The codes for this intermediate level workshop heavily depends on **tidyverse** packages.\
-**tidyverse** is a collections of packages that are widely used by R data scientist.\
+The codes for this intermediate level workshop heavily depends on **tidyverse** packages.
+
+**tidyverse** is a collections of packages that are widely used by R data scientist.
+
 It includes popular data science libraries such as **tidyr**, **tibble**, **readr**, **ggplot2**, **stringr**.
 
-## To install tidyverse, run the statement below
 
+## To install tidyverse, run the statement below
 ```{r install tidyverse}
 install.packages("tidyverse")
 ```
 
 ## To load/activate tidyverse, run the statement below
-
 ```{r load tidyverse}
 library("tidyverse")
-
 ```
 
 More about tidyverse, open the following page
-
 ```{r browse tidyverse}
 browseURL("https://www.tidyverse.org/")
 ```
 
+
 ## Package Manager: pacman
 
-pacman is 3rd-party Package Manager makes your packages management a lot easier.
+**pacman** is 3rd-party Package Manager makes your packages management easier.
 
 Run the following statements to install **pacman** and use **pacman::p_load()** to download and activate required 3rd-party packages. 
 
@@ -188,8 +193,8 @@ pacman::p_load(
 .libPaths()
 ```
 
-
 ## Handy Functions of pacman 
+Use **CMD + ENTER** (Mac) or **CTRL + ENTER**(Windows) to run line by line
 ```{r}
 ?p_data # shows the built-in data sets in a package
 p_data(datasets) # many data sets included
@@ -206,7 +211,7 @@ p_data(dplyr)
 ------------------------------------------------------------------------
 
 
-# PIPING: %\>%
+# PIPING OPERATOR: %\>%
 
 ## Why Piping?
 
@@ -216,10 +221,12 @@ The following nested function call is difficult to read
 
 ```{r}
 text = "1234.56789"
-round(sqrt(as.double(text)),2) # nested function calling starts with the inner most function. as.double() is called first. sqrt() is called second. round is called last.
+round(sqrt(as.double(text)),2) # nested function calling starts with the inner most function. as.double() is called first. sqrt() is called second. round() is called last.
 ```
 
-Using piping `%\>%` makes the codes a lot easier to understand Each previous expression will be used as *the first parameter* for the next function call
+Using piping operator `%\>%` makes the codes a lot easier to understand.
+
+Each previous expression will be used as *the first parameter* for the next function call
 
 ```{r}
 text %>% 
@@ -237,9 +244,11 @@ subset(iris,
        )
 ```
 
-Avoid using the coding pattern like above.  Instead, use piping like below to improve the readability.
-You can use filter() function to include selective rows in your result data set.
-You can use select() function to make a selective subset of columns.  select() is also widely use for re-arranging the column orders.
+Avoid using the coding pattern like above.  
+Instead, use piping like below to improve the readability.
+You can use **filter()** function to include selective rows in your result data set.
+You can use **select()** function to make a selective subset of columns.  
+**select()** is also widely use for re-arranging the column orders.
 ```{r piping the functions call}
 iris %>% 
   filter(Sepal.Length>5.0) %>% 
@@ -249,7 +258,7 @@ iris %>%
 Use ":" to specify a range of columns
 ```{r}
 iris %>% 
-  select(Petal.Length:Species) # selection starts at 'Patel.Length' column, all they way to 'Species' column
+  select(Petal.Length:Species) # selection starts at 'Patel.Length' column, all the way to 'Species' column
 ```
 
 ------------------------------------------------------------------------
@@ -258,11 +267,11 @@ iris %>%
 
 ## Help Menu
 
-Open Help - R Help
+Open Help : R Help
 
 ## Help on Installed Packages
 
-Choose: **Reference -\> Packages** Explore built-in datasets
+Choose: **Reference : Packages** Explore built-in datasets
 
 ------------------------------------------------------------------------
 
@@ -270,30 +279,35 @@ Choose: **Reference -\> Packages** Explore built-in datasets
 
 ## Run a line of code:
 
-**Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows)\
+**Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows)
+
 
 ## Run a chunk of code:
 
-**Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)\
+**Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
+
 
 ## Run and stay at current line:
 
-**Option+Enter** (Mac) or **Alt+Enter** (Windows)\
+**Option+Enter** (Mac) or **Alt+Enter** (Windows)
+
 
 ## Move a line / some lines up/down:
 
-**Option+Up/Down** (Mac) or **Alt+Up/Down** (Windows)\
+**Option+Up/Down** (Mac) or **Alt+Up/Down** (Windows)
 
 ## Delete current line:
 
-**Cmd+D** (Mac) or **Ctrl+D** (Windows)\
+**Cmd+D** (Mac) or **Ctrl+D** (Windows)
+
 
 ## Insert Pipe Operator:
 
-**Shift+Ctrl+M** (Mac) or **Shift+Ctrl+M** (Windows)\
+**Shift+Ctrl+M** (Mac) or **Shift+Ctrl+M** (Windows)
+
 
 ## Comment/Un-comment:
-**Shift+Ctrl+C** (Mac) or **Shift+Ctrl+C** (Windows)\
+**Shift+Ctrl+C** (Mac) or **Shift+Ctrl+C** (Windows)
 
 
 ------------------------------------------------------------------------
@@ -306,12 +320,12 @@ Workflow is the preferred step by step order to complete a complex task.
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
 
-Some common steps in data science include: exploring data; wrangling data, visualizing data and modeling. 
+Some common steps in data science include: exploring data; wrangling data; visualizing data and modeling. 
 These steps are necessarily linear.  They are usually iterative.  Company/team might have very different steps for the sake of intended productivity and efficiency.
 
 
 ## A Glance of Data
-Take a galance of your raw data and what to improve
+Take a glance of your raw data and think of what to enhance
 
 ```{r}
 allowance = read_csv("./data/allowance.csv")
@@ -331,20 +345,21 @@ summary(allowance) # give you quick overview about the data
 ## What is Data Wrangling?
 Data Wrangling is an **iterative process** to prepare, fix and convert your data to fit your data analysis needs.
 
-It has many other names such as data tidying or data cleansing.
+It has many other names such as data tidying or data cleansing
 
-## Why Data Tidying?
+## Why Data Wrangling?
 Garbage In = Garbage Out.
 
-Common problems in raw data:
+There are many common problems in raw data:
 - missed values
-- titles
+- titles/heading in excel
 - image or figures
 - merged cell
 - summary values
 - comments and notes
 
-Tidyverse offers many great features, functions or even potential workflow to help you do data wrangling effortlessly.
+Tidyverse offers many great features, functions or even potential enhanced workflow to help you do data wrangling effortlessly.
+
 In this intermediate workshop, we will massively use features and functions from Tidyverse.
 
 One often used function for data wrangling in R is **mutate()**
@@ -377,6 +392,7 @@ Quite often the column title from Excel or CSV is good for readers to understand
 e.g: 
 Annual Salary (Before Tax) '0000
 
+Using **rename()** function
 ```{r}
 allowance  %>% 
   rename(AssessmentYear = Assessment_Year,
@@ -384,11 +400,11 @@ allowance  %>%
 ```
 
 
-## Assignment Pipes: %<>%
-The precess you do wrangling, you usually want to replace the old data set. 
+## Assignment Pipe Operator: %<>%
+The process you do wrangling, you usually want to replace the old data set. 
 Assignment piping makes this easier.
 
-Note that the previous statement DOESN'T do any changes to the original allowance dataset.
+Note that the previous statement DOESN'T do any changes to the original allowance data set.
 
 **magrittr** library is required for Assignment Piping
 
@@ -408,9 +424,9 @@ allowance %<>% # assignment pipe %<>% is used to update the data set
 
 ## What is Tibble?
 
-Instead of using the built-in data-frame, we will use tibble.\
-Tibble is a new data structure from tidyverse to replace built-in data-frame.\
-Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to factors for easier data analysis.\
+Instead of using the built-in data-frame, we will use tibble.
+Tibble is a new data structure from tidyverse to replace built-in data-frame.
+Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to factors for easier data analysis.
 
 Tibbles are one of the unifying features of the tidyverse. (Most other R packages use regular data frames)
 You can convert a data frame to a tibble by using **as_tibble()**
@@ -423,7 +439,7 @@ print(allowance) # it shows the column names and their types
 
 ## Reading CSV as tibble
 
-Use read_csv()
+Use **read_csv()**
 
 ```{r}
 graduates = read_csv("data/graduates.csv")
@@ -432,7 +448,7 @@ class(graduates) # it says multiple class types: "spec_tbl_df", "tbl_df", "tbl",
 print(graduates)
 summary(graduates)
 ```
-## table() function for column insight
+## table() function for column's insight
 Before you start data wrangling, you can use table() function to gain some brief insight on character column.
 
 It shows how many rows for each associated value
@@ -510,7 +526,7 @@ summary(student.unit.cost)
 ```
 ## === Exercise ===
 Data cleansing on previous student.unit.cost
-Suggestions: change the column name and fixed the number by times 1000
+Suggestions: change the column name and fixed the number by times to 1000
 Put your answer below
 ```{r}
 
@@ -651,13 +667,12 @@ ByLevelAndProgramme %>%  tally() # counting number of row in each group
 
 ## Retrieving Group Keys
 ```{r}
-ByLevelAndProgramme %>% group_keys() %>% 
 ByLevelAndProgramme %>% group_keys() %>% .[1,] # getting the first row
 ByLevelAndProgramme %>% group_keys() %>% .[1:5,] # getting row #1 .. #5
 ByLevelAndProgramme %>% group_keys() %>% .[,1] # getting first column
 ```
 
-## Which Rows Each Group Contains
+## What Rows Each Group Contains
 ```{r}
 ByLevelAndProgramme %>% group_rows() %>% head()
 ```
