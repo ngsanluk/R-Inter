@@ -16,7 +16,7 @@ Data Visualization is brilliant in
 * in the final conclusion, enhance the story telling of data analysis 
 
 
-## Reminder on Workflow Again
+## Reminder on Workflow
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
 Like the picture above shows, in the stage of **Understand** (exploring the data sets), Transform, Visualize and Model are used in an iterative manner so as to get the best early understaning about the data sets.

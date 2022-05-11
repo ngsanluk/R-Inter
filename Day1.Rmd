@@ -5,7 +5,7 @@ output: html_notebook
 
 ------------------------------------------------------------------------
 
-# WHAT IS R MARKDOWN / R NOTEBOOK?
+# WHAT IS R-MARKDOWN / R-NOTEBOOK?
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook.
 When you execute code within the notebook, the results appear beneath the code. It's an experience of coding environment and descriptive notes TWO-in-ONE.
