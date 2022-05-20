@@ -145,7 +145,7 @@ Using a 3rd-party library in R will involve TWO steps.
 
 1. Install the required package using **install.packages()** function. (This is only required once for each computer.)
 
-2. Load the library(libraries) when you need to activate the feature(s) for your R projects/codes.  Use **library()** function to activate package. (This is required every time you need the package(s)).
+2. Load the library(or libraries) when you need to activate the feature(s) for your R projects/codes.  Use **library()** function to activate package. (This is required every time you need the package(s)).
 
 
 ## Install and Load Tidyverse
@@ -179,7 +179,7 @@ browseURL("https://www.tidyverse.org/")
 
 Run the following statements to install **pacman** and use **pacman::p_load()** to download and activate required 3rd-party packages. 
 
-With pacman, packages **downloading** and **activating** become two-in-one.
+With pacman, packages **downloading** and **activating** becomes ONE STEP.
 
 ```{r}
 if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
@@ -198,12 +198,12 @@ pacman::p_load(
 ```
 
 ## Handy Functions of pacman 
-Use **CMD + ENTER** (Mac) or **CTRL + ENTER**(Windows) to run line by line
+Use **CMD + ENTER** (Mac) or **CTRL + ENTER** (Windows) to run line by line
 ```{r}
 ?p_data # shows the built-in data sets in a package
 p_data(datasets) # many data sets included
-p_data(rio) # it shows no data sets found
-p_data(tidyverse) # it shows no data sets found
+p_data(rio) # it shows NO data sets found
+p_data(tidyverse) # it shows NO data sets found
 p_data(ggplot2) # many built-in data sets for learning
 p_data(tidyr) # many built-in data sets for learning
 p_data(stringr) 
@@ -221,7 +221,7 @@ p_data(dplyr)
 
 nested function is difficult to read and therefore usually makes the codes difficult to maintain.
 
-The following nested function call is difficult to read
+The following nested functions call is difficult to read
 
 ```{r}
 text = "1234.56789"
@@ -259,7 +259,7 @@ iris %>%
   select(Species, Sepal.Length)
 ```
 
-Use ":" to specify a range of columns
+Use `:` to specify a range of columns
 ```{r}
 iris %>% 
   select(Petal.Length:Species) # selection starts at 'Patel.Length' column, all the way to 'Species' column
@@ -267,15 +267,16 @@ iris %>%
 
 ------------------------------------------------------------------------
 
-# HELP IN RSTUDIO
+# HELP IN RStudio
 
 ## Help Menu
 
-Open Help : R Help
+Open Main Menu 
+Help : R Help
 
 ## Help on Installed Packages
 
-Choose: **Reference : Packages** Explore built-in data sets
+Choose: **Reference : Packages** to explore built-in data sets
 
 ------------------------------------------------------------------------
 
@@ -325,12 +326,13 @@ Choose: **Reference : Packages** Explore built-in data sets
 
 # DATA SCIENCE WORKFLOW
 
-## What is Workflow
+## What is Workflow?
 Workflow is the preferred step by step order to complete a complex task.
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
 
 Some common steps in data science include: exploring data; wrangling data; visualizing data and modeling. 
+
 These steps are necessarily linear.  They are usually iterative.  Company/team might have very different steps for the sake of intended productivity and efficiency.
 
 
@@ -361,6 +363,7 @@ It has many other names such as data tidying or data cleansing
 Garbage In = Garbage Out.
 
 There are many common problems in raw data:
+
 - missed values
 - titles/heading in excel
 - image or figures
@@ -368,19 +371,21 @@ There are many common problems in raw data:
 - summary values
 - comments and notes
 
+
 Tidyverse offers many great features, functions or even potential enhanced workflow to help you do data wrangling effortlessly.
 
 In this intermediate workshop, we will massively use features and functions from Tidyverse.
 
 One often used function for data wrangling in R is **mutate()**
-**mutate()** is used to create new column or to replace a column.
+
+**mutate()** is used to create a new column or to replace a column.
 
 ## Converting Data Type: mutate()
 **mutate()** function can add, remove and change columns to fit your needs.
 
 ```{r}
 print(allowance) # Check 'Personal_Disability_Allowance', it says <chr> characters
-summary(allowance) # number column offers basic statistic information.  'Personal_Disability_Allowance' doesn't.
+summary(allowance) # numeric columns offers basic statistic information.  'Personal_Disability_Allowance' doesn't.
 
 allowance.new = allowance %>% 
   mutate(
@@ -400,7 +405,7 @@ summary(allowance)
 ## Rename a Column
 Quite often the column title from Excel or CSV is good for readers to understand, but NOT good for data scientist to do programming.
 e.g: 
-Annual Salary (Before Tax) '0000
+`Annual Salary (Before Tax) '0000`
 
 Using **rename()** function
 ```{r}
@@ -412,6 +417,7 @@ allowance  %>%
 
 ## Assignment Pipe Operator: %<>%
 The process you do wrangling, you usually want to replace the old data set. 
+
 Assignment piping makes this easier.
 
 Note that the previous statement DOESN'T do any changes to the original allowance data set.
@@ -423,10 +429,9 @@ library(magrittr)
 allowance %<>% # assignment pipe %<>% is used to update the data set
   rename(AssessmentYear = Assessment_Year) %>% 
   rename(MarriedPerson = Married_Person)
-
-# `allowance %<>%` is equivalen to `allowance <- allowance %>%` 
 ```
 
+`allowance %<>%` is equivalen to `allowance <- allowance %>%` 
 
 ------------------------------------------------------------------------
 
@@ -482,8 +487,8 @@ str(graduates) # it shows factor level info
 
 
 ## === Exercise ===
-Use mutate() function to convert "LevelOfStudy", "ProgrammeCategory" to factor as well.
-Make sure you replace the allowance dataset (Don't create new variable)
+Use `mutate()` function to convert "LevelOfStudy", "ProgrammeCategory" to factor as well.
+Make sure you replace the allowance data set (Don't create new variable)
 ```{r}
 print(graduates)
 summary(graduates)
@@ -502,7 +507,7 @@ s = import("./data/Students.xlsx") %>%
 data.gov.hk is a central place for access open data from Hong Kong government and public organization.
 https://data.gov.hk
 
-Let's Expore Some Dataset by University Grant Commitee
+Let's explore some data set by University Grant Commitee
 https://data.gov.hk/en-datasets/provider/hk-ugc?order=name&file-content=no
 
 CSV and JSON formats are preferred to data analysis
@@ -536,8 +541,10 @@ summary(student.unit.cost)
 ```
 ## === Exercise ===
 Data cleansing on previous student.unit.cost
-Suggestions: change the column name and fixed the number by times to 1000
-Put your answer below
+
+Suggestions: change the column name and fixed the number by times to 1000.
+
+Put your answer below.
 ```{r}
 
 ```
@@ -599,7 +606,7 @@ graduates %>%
 graduates$AcademicYear # selecting single column.
 
 graduates %>% 
-  select(AcademicYear, Sex, Headcount) # select multiple columns. return a tibble.
+  select(AcademicYear, Sex, Headcount) # select multiple columns. returns a tibble.
 ```
 ## Extracting Rows & Columns by Piping
 ```{r}
@@ -624,7 +631,7 @@ browseURL("https://dplyr.tidyverse.org/reference/select.html")
 
 ## Filtering
 
-filter() & str_detect() FUNCTIONS
+filter() FUNCTIONS
 
 ```{r}
 graduates %>% # using piping to chain up multiple function calls.

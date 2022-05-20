@@ -12,6 +12,7 @@ output: html_notebook
 Raw data points don't provide much insight to kick off data analysis.
 
 Data Visualization is brilliant in
+
 * exploring the pattern of data briefly at the early stage
 * in the final conclusion, enhance the story telling of data analysis 
 
@@ -19,19 +20,21 @@ Data Visualization is brilliant in
 ## Reminder on Workflow
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
-Like the picture above shows, in the stage of **Understand** (exploring the data sets), Transform, Visualize and Model are used in an iterative manner so as to get the best early understaning about the data sets.
+
+Like the picture above shows, in the stage of **Understand** (exploring the data sets), Transform, Visualize and Model are used in an iterative manner so as to get the best early understanding about the data sets.
 
 
 ## Built-in Plot Functions
 The advantage of using built-in plotting utilities is they are easy.
 
-It let you quickly visualize the data pattern while you are trying to gain a brief insight at the early stage of your workflow.
+It lets you quickly visualize the data pattern while you are trying to gain a brief insight at the early stage of your workflow.
 ```{r}
 plot(iris)
 ```
 
 ## Refresh on Built-in Plot Tools
 For built-in R data visualization, go to the **R Intro** project on Github to refresh your memory
+
 (R Intro Source Codes)[https://github.com/ngsanluk/R-Intro]
 
 
@@ -295,7 +298,7 @@ graduates = read_csv("./data/graduates.csv")
 print(graduates)
 ```
 
-## Simple Scatterplot
+## Simple Scatter-plot
 Let's explore the data with some simple ggplot plot. 
 Just some quick exploration. They might not be very useful.  
 
