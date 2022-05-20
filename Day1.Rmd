@@ -271,7 +271,7 @@ Open Help : R Help
 
 ## Help on Installed Packages
 
-Choose: **Reference : Packages** Explore built-in datasets
+Choose: **Reference : Packages** Explore built-in data sets
 
 ------------------------------------------------------------------------
 
