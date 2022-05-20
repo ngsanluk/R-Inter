@@ -27,7 +27,7 @@ print(r)
 plot(cars)
 ```
 
-## To Add a New Chunk of Codes
+## To Add a New Code Chunk
 
 Click the **Insert Chunk** button on the toolbar
 
@@ -44,7 +44,7 @@ address # or just directly type the variable name to show it's value
 
 ## On Saving a Notebook
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it. Click the **Preview** button or Press **Cmd+Shift+K** (Mac) or **Ctrl+Shift+K** (Windows) to preview the HTML.
+When you save the notebook, a HTML file containing the code and output will be saved alongside it. Click the **Preview** button or press **Cmd+Shift+K** (Mac) or **Ctrl+Shift+K** (Windows) to preview the HTML.
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike **Knit**, **Preview** does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 
@@ -52,43 +52,48 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 # MARKDOWN SYNTAX
 
-R Markdown is an easy-to-write plain text format for creating dynamic documents and reports.
+HTML is complex.
+
+R Markdown is an easy-to-write rich text format for creating dynamic documents and reports.
 
 ## italic text:
 
-*italic text*
+`*italic text*`
 
 ## bold text:
 
-**bold text**
+`**bold text**`
 
 ## line break:
 
+```
 line 1 (followed by an empty line)
 
-line 2 (add a back slash)\
+line 2 (add a back slash)
+```
 
 ## headings:
 
-Use one hash: # Heading 1
+Use one hash: `# Heading 1`
 
-Use two hash: ## Heading 2
+Use two hash: `## Heading 2`
 
-Use three hash: ### Header 3
+Use three hash: `### Header 3`
 
 ## lists:
-
--   item 1\
--   item 2\
+```
+-   item 1
+-   item 2
 -   item 3
+```
 
-## link:
+## hyperlink:
 
-[Google](https://www.google.com)
+`[Google](https://www.google.com)`
 
 ## image:
 
-![Apple Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png)
+`![Apple Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png)`
 
 ------------------------------------------------------------------------
 
@@ -115,7 +120,7 @@ Press the **Down** arrow next to **Preview** button to choose a file format to k
 
 ## Use Notebook or Markdown?
 
-They are pretty much equivalent or at least convertable.
+They are pretty much equivalent or at least convertible.
 Only different by automatic-added mark-down options at beginning of document.
 
 If you are primarily doing analysis in the Notebook environment, choose **Notebook**.
@@ -128,8 +133,6 @@ Reach out to:
 **Help : Markdown Quick Reference**
 
 Or browse the following page
-
-## === Exercise ===
 ```{r browse rmarkdown lesson}
 browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 ```
@@ -143,6 +146,7 @@ Using a 3rd-party library in R will involve TWO steps.
 1. Install the required package using **install.packages()** function. (This is only required once for each computer.)
 
 2. Load the library(libraries) when you need to activate the feature(s) for your R projects/codes.  Use **library()** function to activate package. (This is required every time you need the package(s)).
+
 
 ## Install and Load Tidyverse
 
@@ -211,7 +215,7 @@ p_data(dplyr)
 ------------------------------------------------------------------------
 
 
-# PIPING OPERATOR: %\>%
+# PIPING OPERATOR: %>%
 
 ## Why Piping?
 
@@ -221,10 +225,10 @@ The following nested function call is difficult to read
 
 ```{r}
 text = "1234.56789"
-round(sqrt(as.double(text)),2) # nested function calling starts with the inner most function. as.double() is called first. sqrt() is called second. round() is called last.
+round(sqrt(as.double(text)),2) # nested function calling starts at inner most function call. as.double() is called first. sqrt() is called second. round() is called last.
 ```
 
-Using piping operator `%\>%` makes the codes a lot easier to understand.
+Using piping operator `%>%` makes the codes a lot easier to understand.
 
 Each previous expression will be used as *the first parameter* for the next function call
 
@@ -244,7 +248,7 @@ subset(iris,
        )
 ```
 
-Avoid using the coding pattern like above.  
+Avoid using the coding pattern of nested functions call.  
 Instead, use piping like below to improve the readability.
 You can use **filter()** function to include selective rows in your result data set.
 You can use **select()** function to make a selective subset of columns.  
@@ -292,12 +296,12 @@ Choose: **Reference : Packages** Explore built-in data sets
 **Option+Enter** (Mac) or **Alt+Enter** (Windows)
 
 
-## Insert a chunk of code:
+## Insert a new code chunk:
 
 **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
 
-## Move a line / some lines up/down:
+## Move a line (some lines) up/down:
 
 **Option+Up/Down** (Mac) or **Alt+Up/Down** (Windows)
 
