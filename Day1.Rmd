@@ -250,9 +250,9 @@ You can use **filter()** function to include selective rows in your result data 
 You can use **select()** function to make a selective subset of columns.  
 **select()** is also widely use for re-arranging the column orders.
 ```{r piping the functions call}
-iris %>% 
-  filter(Sepal.Length>5.0) %>% 
-  select(Species, Sepal.Length) 
+iris %>%
+  filter(Sepal.Length>5.0) %>%
+  select(Species, Sepal.Length)
 ```
 
 Use ":" to specify a range of columns
@@ -277,14 +277,14 @@ Choose: **Reference : Packages** Explore built-in datasets
 
 # KEYBOARD SHORTCUTS
 
+## Run a chunk of codes
+
+**Cmd+Shift+Enter** (Mac) or **Ctrl+Shift+Enter** (Windows).
+
+
 ## Run a line of code:
 
 **Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows)
-
-
-## Run a chunk of code:
-
-**Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
 
 ## Run and stay at current line:
@@ -292,9 +292,15 @@ Choose: **Reference : Packages** Explore built-in datasets
 **Option+Enter** (Mac) or **Alt+Enter** (Windows)
 
 
+## Insert a chunk of code:
+
+**Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
+
+
 ## Move a line / some lines up/down:
 
 **Option+Up/Down** (Mac) or **Alt+Up/Down** (Windows)
+
 
 ## Delete current line:
 
