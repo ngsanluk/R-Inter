@@ -8,7 +8,7 @@ output: html_notebook
 # WHAT IS R-MARKDOWN / R-NOTEBOOK?
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook.
-When you execute code within the notebook, the results appear beneath the code. It's an experience of coding environment and descriptive notes TWO-in-ONE.
+When you execute code within the notebook, the results appear beneath the codes. It's an experience of coding environment and descriptive notes TWO-in-ONE.
 
 ## To Run a Chunk of R Codes
 
@@ -52,7 +52,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 # MARKDOWN SYNTAX
 
-HTML is complex.
+HTML is a very powerful presentation language. But it's quite complex.
 
 R Markdown is an easy-to-write rich text format for creating dynamic documents and reports.
 
@@ -74,11 +74,11 @@ line 2 (add a back slash)
 
 ## headings:
 
-Use one hash: `# Heading 1`
+Use one hash for heading 1: `# Heading 1`
 
-Use two hash: `## Heading 2`
+Use two hash for heading 2: `## Heading 2`
 
-Use three hash: `### Header 3`
+Use three hash for heading 3: `### Header 3`
 
 ## lists:
 ```
@@ -99,7 +99,8 @@ Use three hash: `### Header 3`
 
 # PRACTICING MARKDOWN 
 **5 minutes on this**
-Use the following markdown playground to practice markdown syntax
+
+Use the following markdown playground to practice markdown syntax.
 
 ```{r markdown playground}
 browseURL("https://dillinger.io/")
@@ -110,18 +111,21 @@ browseURL("https://dillinger.io/")
 ## R Markdown Formats & Options
 
 Press the **gear** icon next to **Preview** button.
+
 You will see the document in the format of rendered markdown.
+
 Let's give it a try.
 
 ## R MARKDOWN OUTPUT
 
 Press **Preview** button to see preview of default output.
+
 Press the **Down** arrow next to **Preview** button to choose a file format to knit.
 
 ## Use Notebook or Markdown?
 
 They are pretty much equivalent or at least convertible.
-Only different by automatic-added mark-down options at beginning of document.
+Only different by automatic-added mark-down options at the beginning of document.
 
 If you are primarily doing analysis in the Notebook environment, choose **Notebook**.
 
@@ -133,6 +137,8 @@ Reach out to:
 **Help : Markdown Quick Reference**
 
 Or browse the following page
+[rstudio lession 1](https://rmarkdown.rstudio.com/lesson-1.html)
+
 ```{r browse rmarkdown lesson}
 browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 ```
@@ -198,7 +204,7 @@ pacman::p_load(
 ```
 
 ## Handy Functions of pacman 
-Use **CMD + ENTER** (Mac) or **CTRL + ENTER** (Windows) to run line by line
+Use **CMD + ENTER** (Mac) or **CTRL + ENTER** (Windows) to run LINE BY LINE
 ```{r}
 ?p_data # shows the built-in data sets in a package
 p_data(datasets) # many data sets included
@@ -215,7 +221,7 @@ p_data(dplyr)
 ------------------------------------------------------------------------
 
 
-# PIPING OPERATOR: %>%
+# PIPING OPERATOR: `%>%`
 
 ## Why Piping?
 
@@ -225,7 +231,8 @@ The following nested functions call is difficult to read
 
 ```{r}
 text = "1234.56789"
-round(sqrt(as.double(text)),2) # nested function calling starts at inner most function call. as.double() is called first. sqrt() is called second. round() is called last.
+round(sqrt(as.double(text)),2) 
+# nested function calling starts at inner most function call. as.double() is called first. sqrt() is called second. round() is called last.
 ```
 
 Using piping operator `%>%` makes the codes a lot easier to understand.
@@ -272,7 +279,7 @@ iris %>%
 ## Help Menu
 
 Open Main Menu 
-Help : R Help
+**Help : R Help**
 
 ## Help on Installed Packages
 
@@ -284,7 +291,7 @@ Choose: **Reference : Packages** to explore built-in data sets
 
 ## Run a chunk of codes
 
-**Cmd+Shift+Enter** (Mac) or **Ctrl+Shift+Enter** (Windows).
+**Cmd+Shift+Enter** (Mac) or **Ctrl+Shift+Enter** (Windows)
 
 
 ## Run a line of code:
@@ -302,7 +309,7 @@ Choose: **Reference : Packages** to explore built-in data sets
 **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
 
-## Move a line (some lines) up/down:
+## Move a line(s) up/down:
 
 **Option+Up/Down** (Mac) or **Alt+Up/Down** (Windows)
 
@@ -331,9 +338,9 @@ Workflow is the preferred step by step order to complete a complex task.
 
 ![R Data Science Workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
 
-Some common steps in data science include: exploring data; wrangling data; visualizing data and modeling. 
+Some common steps in data science include: **exploring data**; **wrangling data**; **visualizing data** and **modeling**. 
 
-These steps are necessarily linear.  They are usually iterative.  Company/team might have very different steps for the sake of intended productivity and efficiency.
+These steps are NOT necessarily linear.  They are usually iterative.  Company/team might have very different steps for the sake of intended productivity and efficiency.
 
 
 ## A Glance of Data
@@ -357,7 +364,7 @@ summary(allowance) # give you quick overview about the data
 ## What is Data Wrangling?
 Data Wrangling is an **iterative process** to prepare, fix and convert your data to fit your data analysis needs.
 
-It has many other names such as data tidying or data cleansing
+It has many other names such as data tidying or data cleansing.
 
 ## Why Data Wrangling?
 Garbage In = Garbage Out.
@@ -376,12 +383,12 @@ Tidyverse offers many great features, functions or even potential enhanced workf
 
 In this intermediate workshop, we will massively use features and functions from Tidyverse.
 
-One often used function for data wrangling in R is **mutate()**
+One often used function for data wrangling in R is `mutate()`
 
-**mutate()** is used to create a new column or to replace a column.
+`mutate()` is used to create a new column or to replace a column.
 
 ## Converting Data Type: mutate()
-**mutate()** function can add, remove and change columns to fit your needs.
+`mutate()` function can add, remove and change columns to fit your needs.
 
 ```{r}
 print(allowance) # Check 'Personal_Disability_Allowance', it says <chr> characters
@@ -407,7 +414,7 @@ Quite often the column title from Excel or CSV is good for readers to understand
 e.g: 
 `Annual Salary (Before Tax) '0000`
 
-Using **rename()** function
+Using `rename()` function
 ```{r}
 allowance  %>% 
   rename(AssessmentYear = Assessment_Year,
@@ -415,8 +422,8 @@ allowance  %>%
 ```
 
 
-## Assignment Pipe Operator: %<>%
-The process you do wrangling, you usually want to replace the old data set. 
+## Assignment Pipe Operator: `%<>%`
+When you do wrangling, you usually want to replace the old data set to save up meomory consumption.
 
 Assignment piping makes this easier.
 
@@ -444,7 +451,7 @@ Tibble is a new data structure from tidyverse to replace built-in data-frame.
 Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to factors for easier data analysis.
 
 Tibbles are one of the unifying features of the tidyverse. (Most other R packages use regular data frames)
-You can convert a data frame to a tibble by using **as_tibble()**
+You can convert a data frame to a tibble by using `as_tibble()`
 
 ## Tibble offers extras data about data
 ```{r}
@@ -463,8 +470,8 @@ class(graduates) # it says multiple class types: "spec_tbl_df", "tbl_df", "tbl",
 print(graduates)
 summary(graduates)
 ```
-## table() function for column's insight
-Before you start data wrangling, you can use table() function to gain some brief insight on character column.
+## `table()` function for column's insight
+Before you start data wrangling, you can use `table()` function to gain some brief insight on character column.
 
 It shows how many rows for each associated value
 
@@ -504,10 +511,13 @@ s = import("./data/Students.xlsx") %>%
 ```
 
 ## Loading Live Open Data
-data.gov.hk is a central place for access open data from Hong Kong government and public organization.
+[data.gov.hk](https://www.data.gov.hk) is a central place for access open data from Hong Kong government and public organization.
+
+Open link: 
 https://data.gov.hk
 
 Let's explore some data set by University Grant Commitee
+
 https://data.gov.hk/en-datasets/provider/hk-ugc?order=name&file-content=no
 
 CSV and JSON formats are preferred to data analysis
@@ -540,7 +550,7 @@ print(student.unit.cost)
 summary(student.unit.cost)
 ```
 ## === Exercise ===
-Data cleansing on previous student.unit.cost
+Data cleansing on previous `student.unit.cost`
 
 Suggestions: change the column name and fixed the number by times to 1000.
 
@@ -582,7 +592,7 @@ summary(graduates.live.data)
 
 ## Displaying Tibble In Place
 
-Use print() function to display data in place (right underneath the statement)
+Use `print()` function to display data in place (right underneath the statement)
 
 ```{r}
 print(graduates)
@@ -590,7 +600,7 @@ print(graduates)
 
 ## Viewing Tibble in Separate Tab
 
-Use view() function to open a separate tab to preview the data. Data will be shown as a separate tab.
+Use `view()` function to open a separate tab to preview the data. Data will be shown as a separate tab.
 
 ```{r}
 graduates %>% 
@@ -631,7 +641,7 @@ browseURL("https://dplyr.tidyverse.org/reference/select.html")
 
 ## Filtering
 
-filter() FUNCTIONS
+`filter()` FUNCTIONS
 
 ```{r}
 graduates %>% # using piping to chain up multiple function calls.
@@ -650,7 +660,7 @@ graduates %>%
 
 ## Getting Distinct Values: unique()
 
-Use unique() function to display a list of distinct values of a column.
+Use `unique()` function to display a list of distinct values of a column.
 
 ```{r}
 AcademicYear = graduates$AcademicYear %>% 
@@ -668,14 +678,14 @@ ProgrammeCategory = graduates$ProgrammeCategory %>%
 ```
 
 
-## group_by()
+## `group_by()`
 ```{r}
 ByLevelOfStudy = graduates %>% group_by(LevelOfStudy)
 print(ByLevelOfStudy)
 ByLevelOfStudy %>%  tally() # counting number of row in each group
 ```
 
-## group_by() with multiple variable
+## `group_by()` with multiple variable
 ```{r}
 ByLevelAndProgramme = graduates %>% group_by(LevelOfStudy, ProgrammeCategory)
 ByLevelAndProgramme %>%  tally() # counting number of row in each group
@@ -696,7 +706,7 @@ ByLevelAndProgramme %>% group_rows() %>% head()
 
 
 
-## summarise()
+## `summarise()` function
 Compute summary for each group
 ```{r}
 ByLevelAndProgramme %>% 
