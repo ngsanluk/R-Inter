@@ -58,13 +58,15 @@ R Markdown is an easy-to-write rich text format for creating dynamic documents a
 
 ## italic text:
 
-`*italic text*`
+syntax: `*italic text*`
 
 ## bold text:
 
-`**bold text**`
+syntax: `**bold text**`
 
 ## line break:
+
+syntax: 
 
 ```
 line 1 (followed by an empty line)
@@ -89,11 +91,11 @@ Use three hash for heading 3: `### Header 3`
 
 ## hyperlink:
 
-`[Google](https://www.google.com)`
+syntax: `[Google](https://www.google.com)`
 
 ## image:
 
-`![Apple Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png)`
+syntax: `![Apple Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png)`
 
 ------------------------------------------------------------------------
 
