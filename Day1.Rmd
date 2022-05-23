@@ -149,9 +149,9 @@ browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 
 Using a 3rd-party library in R will involve TWO steps.
 
-1. Install the required package using **install.packages()** function. (This is only required once for each computer.)
+1. Install the required package using `install.packages()` function. (This is only required once for each computer.)
 
-2. Load the library(or libraries) when you need to activate the feature(s) for your R projects/codes.  Use **library()** function to activate package. (This is required every time you need the package(s)).
+2. Load the library(or libraries) when you need to activate the feature(s) for your R projects/codes.  Use `library()` function to activate package. (This is required every time you need the package(s)).
 
 
 ## Install and Load Tidyverse
@@ -183,7 +183,7 @@ browseURL("https://www.tidyverse.org/")
 
 **pacman** is 3rd-party Package Manager makes your packages management easier.
 
-Run the following statements to install **pacman** and use **pacman::p_load()** to download and activate required 3rd-party packages. 
+Run the following statements to install **pacman** and use `pacman::p_load()` to download and activate required 3rd-party packages. 
 
 With pacman, packages **downloading** and **activating** becomes ONE STEP.
 
@@ -225,7 +225,7 @@ p_data(dplyr)
 
 ## Why Piping?
 
-nested function is difficult to read and therefore usually makes the codes difficult to maintain.
+Nested function is difficult to read and therefore usually makes the codes difficult to maintain.
 
 The following nested functions call is difficult to read
 
@@ -257,9 +257,9 @@ subset(iris,
 
 Avoid using the coding pattern of nested functions call.  
 Instead, use piping like below to improve the readability.
-You can use **filter()** function to include selective rows in your result data set.
-You can use **select()** function to make a selective subset of columns.  
-**select()** is also widely use for re-arranging the column orders.
+You can use `filter()` function to include selective rows in your result data set.
+You can use `select()` function to make a selective subset of columns.  
+`select()` is also widely use for re-arranging the column orders.
 ```{r piping the functions call}
 iris %>%
   filter(Sepal.Length>5.0) %>%
@@ -308,6 +308,9 @@ Choose: **Reference : Packages** to explore built-in data sets
 
 **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
+## Duplicate line(s) of code:
+
+**Cmd+Option+Up/Down** (Mac) or **Ctr+Option+Up/Down** (Windows)
 
 ## Move a line(s) up/down:
 
@@ -387,7 +390,7 @@ One often used function for data wrangling in R is `mutate()`
 
 `mutate()` is used to create a new column or to replace a column.
 
-## Converting Data Type: mutate()
+## Converting Data Type: `mutate()`
 `mutate()` function can add, remove and change columns to fit your needs.
 
 ```{r}
@@ -423,7 +426,7 @@ allowance  %>%
 
 
 ## Assignment Pipe Operator: `%<>%`
-When you do wrangling, you usually want to replace the old data set to save up meomory consumption.
+When you do wrangling, you usually want to replace the old data set to save up memory consumption.
 
 Assignment piping makes this easier.
 
@@ -438,7 +441,7 @@ allowance %<>% # assignment pipe %<>% is used to update the data set
   rename(MarriedPerson = Married_Person)
 ```
 
-`allowance %<>%` is equivalen to `allowance <- allowance %>%` 
+`allowance %<>%` is equivalent to `allowance <- allowance %>%` 
 
 ------------------------------------------------------------------------
 
