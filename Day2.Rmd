@@ -5,17 +5,16 @@ output: html_notebook
 
 ------------------------------------------------------------------------
 
-
 # R DATA VISUALIZATION
 
 ## Why Data Visualization?
+
 A whole bunch of raw data points don't provide much insight.
 
 Data Visualization is brilliant in
 
-* exploring the pattern of data briefly at the early stage
-* in the conclusion, enhance the story telling of data analysis 
-
+-   exploring the pattern of data briefly at the early stage
+-   in the conclusion, enhance the story telling of data analysis
 
 ## Reminder on Workflow
 
@@ -23,31 +22,27 @@ Data Visualization is brilliant in
 
 Like the picture above shows, in the stage of **Understand** (exploring the data sets), *Transform*, *Visualize* and *Model* are used in an iterative manner so as to get the best early understanding about the data sets.
 
-
 ## Built-in Plot Functions
+
 The advantage of using built-in plotting utilities is they are easy.
 
 It lets you quickly visualize the data pattern while you are trying to gain a brief insight at the early stage of your workflow.
+
 ```{r}
 plot(iris)
 ```
 
 ## Refresh on Built-in Plot Tools
+
 For built-in R data visualization, go to the **R Intro** project on Github to refresh your memory
 
-(R Intro Source Codes)[https://github.com/ngsanluk/R-Intro]
-
+(R Intro Source Codes)[<https://github.com/ngsanluk/R-Intro>]
 
 ## Grammar of Graphics: ggplot2
 
-If the built-in plotting tools are not enough for you, 
-go for **ggplot2**. 
-It  is the most popular data visualization for R.
+If the built-in plotting tools are not enough for you, go for **ggplot2**. It is the most popular data visualization for R.
 
-ggplot2 is an open-source data visualization package for R. 
-ggplot2 breaks up graphs into semantic components such as **scales** and **layers**.
-Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
-
+ggplot2 is an open-source data visualization package for R. ggplot2 breaks up graphs into semantic components such as **scales** and **layers**. Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
 
 ## ggplot2 Cheat Sheet
 
@@ -56,6 +51,7 @@ Since 2005, ggplot2 has grown in use to become one of the most popular R package
 ------------------------------------------------------------------------
 
 # INSTALL / LOAD PACKAGES
+
 ```{r}
 if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
 pacman::p_load(
@@ -69,18 +65,15 @@ pacman::p_load(
 ```
 
 # BASIC GRAMMAR
-ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components below: 
 
-**a data set** 
-+ 
-**a coordinate system** 
-+ 
-**and geom—visual that represent data points**
+ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components below:
+
+**a data set** + **a coordinate system** + **and geom---visual that represent data points**
 
 ![Grammar of Graphics](https://jules32.github.io/r-for-excel-users/img/rstudio-cheatsheet-ggplot.png)
 
-
 ## Use Built-in Data Sets
+
 Let's use the built-in cars data set for a simple ggplot
 
 ```{r}
@@ -94,21 +87,16 @@ cars %>% ggplot()
 ```
 
 ## `geom_point()` function
-It's easy to add geometry layer to the base co-ordinate
-Let's ADD a layer of data points using `geom_point()` function.
 
-And Yes, you can ADD a layer by using the + operator
-We use `geom_point()` function that requires x and y value for each geom point.
-In 2D co-ordinate, a point is described by its x and y value.
+It's easy to add geometry layer to the base co-ordinate Let's ADD a layer of data points using `geom_point()` function.
+
+And Yes, you can ADD a layer by using the + operator We use `geom_point()` function that requires x and y value for each geom point. In 2D co-ordinate, a point is described by its x and y value.
 
 We need to provide a mapping that specifies the data columns' name to map to a point's x and y value
 
-That mapping is defined by an aesthetics function: 
-`aes()`
+That mapping is defined by an aesthetics function: `aes()`
 
-We usually name the plot by the type of geom that we use to represent data.
-In this case, it's widely called Scatter Plot.
-It is useful to explore the relation of two variables.
+We usually name the plot by the type of geom that we use to represent data. In this case, it's widely called Scatter Plot. It is useful to explore the relation of two variables.
 
 ```{r}
 cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
@@ -116,9 +104,8 @@ cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
 ```
 
 ## Use `geom_line()` to replace geom_point()
-`geom_point()` and `geom_line()` require very similar parameters.
-`geom_line()` is simply an enhanced visualization that automatically connect all the points.
-Line chart are used to explore/emphasize trending.
+
+`geom_point()` and `geom_line()` require very similar parameters. `geom_line()` is simply an enhanced visualization that automatically connect all the points. Line chart are used to explore/emphasize trending.
 
 ```{r}
 # just change geom_point to geom_line without change anything else
@@ -126,10 +113,9 @@ cars %>% ggplot() +
   geom_line(mapping = aes(x=speed, y=dist)) 
 ```
 
-
 ## Use `geom_smoth()` to project a smooth line
-`geom_smooth()` and `geom_point()` require very similar parameters.
-`geom_smooth()` smooths out the line progression
+
+`geom_smooth()` and `geom_point()` require very similar parameters. `geom_smooth()` smooths out the line progression
 
 ```{r}
 # just change geom_point to geom_line without change anything else
@@ -138,12 +124,13 @@ cars %>% ggplot() +
 ```
 
 ## Geometric Objects Comparison
-a geom is the geometrical object that a plot use to represent data.
-We used points, lines and smooth above on the same data set and they provide very different message. 
+
+a geom is the geometrical object that a plot use to represent data. We used points, lines and smooth above on the same data set and they provide very different message.
 
 We usually name the plot by the name of geom that we use to represent data.
 
 ## Adding Multiple Layers
+
 ```{r}
 # just change geom_point to geom_line without change anything else
 cars %>% ggplot() +
@@ -152,7 +139,9 @@ cars %>% ggplot() +
 ```
 
 ## Adding Aesthetics to your Plots
+
 Un-comment the extra parameters to add more aesthetics to your plot
+
 ```{r}
 cars %>% ggplot() +
   geom_point(mapping = aes(x=speed, y=dist),
@@ -168,13 +157,14 @@ cars %>% ggplot() +
 # PLOT WITH OUR OWN DATA
 
 ## Loading Data: allowance
+
 ```{r reading data files}
 allowance = read_csv("./data/allowance.csv")
 print(allowance)
 ```
 
-
 ## Allowance Data Set in Simple Scatterplot
+
 ```{r Allowance Scatterplot}
 allowance %>% 
   ggplot() + 
@@ -185,25 +175,25 @@ allowance %>%
     ) 
 ```
 
-
 ## Continuous Values vs. Discrete Values
+
 Continuous values refer to numbers value that has wide range. E.g. salary, height.
 
-Discrete values refer to a limited number of valid values.  It can be string. It can be a few distinct numbers.
+Discrete values refer to a limited number of valid values. It can be string. It can be a few distinct numbers.
 
 When you produce plots, pay attention to what type of value are required by the geom object.
 
-In many cases, you will need to convert the data first.
-`mutate()` function are quite often used for that.
+In many cases, you will need to convert the data first. `mutate()` function are quite often used for that.
 
 example:
+
 ```{r}
 allowance = allowance %>% 
   mutate(Assessment_Year = as.numeric(substr(Assessment_Year, 1 ,4))) 
 ```
 
-
 ## Simple Line Plot
+
 ```{r Allowance Line Graph}
 # The following statement WON'T generate a plot
 allowance %>% ggplot() +
@@ -217,6 +207,7 @@ allowance %>% ggplot() +
 ```
 
 ## Adding Multiple Layers of Geometry
+
 ```{r}
 allowance %>% ggplot() +
   geom_line(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
@@ -229,15 +220,15 @@ allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
 ```
 
 ## Use `geom_smooth()` to smooth out the line
+
 ```{r}
 allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
   geom_smooth() +
   geom_point(size=5)
 ```
 
-
-
 ## Save a Plot: `ggsave()`
+
 ```{r}
 my.first.plot = allowance %>% 
   ggplot() + 
@@ -263,12 +254,9 @@ allowance %>%
            fill="tomato") 
 ```
 
-
-
-
 ## `geom_bar()`
-geom_bar() is used for counting the frequency of each occurrence of observed value.
-It's usually for counting a limit set of values
+
+geom_bar() is used for counting the frequency of each occurrence of observed value. It's usually for counting a limit set of values
 
 ```{r}
 allowance %>% 
@@ -279,9 +267,11 @@ allowance %>%
 ------------------------------------------------------------------------
 
 # CHALLENGE
+
 ## Multiple Layers of Lines
-add line plot for column of 'Child'
-in the same plot, add another line plot for 'Dependent_Parent_60'
+
+add line plot for column of 'Child' in the same plot, add another line plot for 'Dependent_Parent_60'
+
 ```{r}
 allowance %>% ggplot() +
   geom_line(mapping = aes(x=Assessment_Year, y=Child, group=1), color="Orange") + 
@@ -293,14 +283,15 @@ allowance %>% ggplot() +
 # WORK WITH MORE COMPLEX DATA
 
 ## Loading Data: graduates.csv
+
 ```{r reading complex data}
 graduates = read_csv("./data/graduates.csv")
 print(graduates)
 ```
 
 ## Simple Scatter-plot
-Let's explore the data with some simple ggplot plot. 
-Just some quick exploration. They might not be very useful.  
+
+Let's explore the data with some simple ggplot plot. Just some quick exploration. They might not be very useful.
 
 ```{r}
 ggplot(data=graduates) +
@@ -316,6 +307,7 @@ ggplot(data=graduates) +
 ```
 
 ## Use `filter()` to Extract Required Rows
+
 ```{r use filter()}
 graduates %>% 
 filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
@@ -324,10 +316,9 @@ ggplot() +
 )
 ```
 
+## Use Line Plot To Explore the Trending
 
-## Use Line Plot To Explore the Trending 
 Use line plot to explore the trending of "Business and Management" student headcount trending
-
 
 ```{r}
 library(magrittr)
@@ -352,14 +343,14 @@ ggplot() +
 ------------------------------------------------------------------------
 
 # CHALLENGE
+
 ## Comparison with Line Plots
+
 Use line plots to compare female undergraduate students headcount trending in "ProgrammeCategory" of "Business and Management" and "Engineering and Technology"
 
 Use `filter()` to extract required records
 
-You can use multiple `filter()` call
-OrUse &, | or multiple conditions
-
+You can use multiple `filter()` call OrUse &, \| or multiple conditions
 
 ```{r Previewing ProgramCategory}
 graduates %>% 
@@ -371,7 +362,6 @@ graduates %>%
   filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
   print() # Test extracting and printing the required records.
 ```
-
 
 ```{r Business and Management vs. Engineering and Technology}
 graduates %>% 
@@ -391,8 +381,8 @@ graduates %>%
 
 ------------------------------------------------------------------------
 
-
 # CHALLENGE: line plot for hibor_fixing_1m
+
 ```{r}
 library(jsonlite) # load package
 
@@ -416,13 +406,12 @@ ggplot() +
 
 ```
 
-
 ------------------------------------------------------------------------
-
 
 # GROUPING AND AGGREGATION
 
-## Using `group_by()` and `summarise()` 
+## Using `group_by()` and `summarise()`
+
 ```{r}
 graduates %>% group_by(AcademicYear, LevelOfStudy) %>% 
   summarise(TotalHeadcount = sum(Headcount)) 
@@ -442,6 +431,7 @@ graduates %>% group_by(AcademicYear, LevelOfStudy) %>%
 ```
 
 ## Use of filter()
+
 Use `filter()` to keep only "Taught Postgraduate" Records
 
 This plot is not very useful without previously applying `filter()` and `group_by()` and `summarise()`
@@ -453,10 +443,10 @@ graduates %>%
     geom_line(mapping=aes(x=AcademicYear,y=Headcount, group=ProgrammeCategory, color=ProgrammeCategory))
 ```
 
-
 ## `filter()` + `group_by()` + `summarise()`
-Use `filter()` to extract required rows
-Use `group_by()` and `summarise()` to group and aggregate total headcount for both male and female
+
+Use `filter()` to extract required rows Use `group_by()` and `summarise()` to group and aggregate total headcount for both male and female
+
 ```{r ggplot line}
 
 graduates %>% 
@@ -475,8 +465,6 @@ graduates %>%
 #     geom_line(mapping=aes(x=AcademicYear,y=TotalHeadcount, group=ProgrammeCategory, color=ProgrammeCategory))
     
 ```
-
-
 
 ## `geom_col()` function
 
@@ -499,19 +487,15 @@ ggplot() +
 ```
 
 ## More Aggregation Functions
-Center: `mean()`, `median()`
-Spread: `sd()`, `IQR()`, `mad()`
-Range: `min()`, `max()`, `quantile()`
-Position: `first()`, `last()`, `nth()`,
-Count: `n()`, `n_distinct()`
-Logical: `any()`, `all()`
 
-More information at
-[summarise() function](https://dplyr.tidyverse.org/reference/summarise.html)
+Center: `mean()`, `median()` Spread: `sd()`, `IQR()`, `mad()` Range: `min()`, `max()`, `quantile()` Position: `first()`, `last()`, `nth()`, Count: `n()`, `n_distinct()` Logical: `any()`, `all()`
 
+More information at [summarise() function](https://dplyr.tidyverse.org/reference/summarise.html)
 
 ## geom_bar() function
+
 bar chart give the counting frequency (number of record in the data set)
+
 ```{r}
 graduates %>% 
 ggplot() +
@@ -519,6 +503,7 @@ ggplot() +
 ```
 
 ## box plot
+
 The boxplot compactly displays the distribution of a continuous variable.
 
 It visualises five summary statistics (the median, two hinges and two whiskers), and all "outlying" points individually.
@@ -534,12 +519,12 @@ ggplot() +
 ```
 
 ## `facet_wrap()`
-facets are useful categorical variables.
-It split your plot into subplot (a.k.a facets) that each display one subset of the data.
 
-`facet_wrap()` lets you work with ONE extra variable (besides x and y).  
-Each categorical value will used to produce to a sub plot.
-We use 'LevelOfStudy' here.  Since there are FOUR distinct values, you will see FOUR sub-plots
+facets are useful categorical variables. It split your plot into subplot (a.k.a facets) that each display one subset of the data.
+
+`facet_wrap()` lets you work with ONE extra variable (besides x and y).\
+Each categorical value will used to produce to a sub plot. We use 'LevelOfStudy' here. Since there are FOUR distinct values, you will see FOUR sub-plots
+
 ```{r}
 graduates %>% ggplot() +
   geom_point(mapping = aes(x=AcademicYear, y=Headcount)) +
@@ -547,10 +532,12 @@ graduates %>% ggplot() +
 ```
 
 ## `facet_grid()`
-`facet_grid()` lets you work with TWO extra variables (besides x and y).  
+
+`facet_grid()` lets you work with TWO extra variables (besides x and y).\
 Each combination of these two variables' value are used to produce to a sub plot.
 
 You should SEE 28 sub plots as there are FOUR distinct values for 'LevelOfStudy' and 7 distinct values for 'ProgrammeCategory'.
+
 ```{r}
 graduates %>% ggplot() +
   geom_point(mapping = aes(x=AcademicYear, y=Headcount)) +
@@ -560,6 +547,7 @@ graduates %>% ggplot() +
 ------------------------------------------------------------------------
 
 # MAKE IT PRETTY
+
 Use of title, label, background color and themes
 
 ```{r}
@@ -573,10 +561,9 @@ ggplot() +
 print(level.bar.plot)
 ```
 
-
 ## Plot Background
-`element_rect()` is a function to generated rectangle geometry element.
-You have to specify the **fill** parameter by color name or hex code code by string
+
+`element_rect()` is a function to generated rectangle geometry element. You have to specify the **fill** parameter by color name or hex code code by string
 
 Plot Background refers to the big area of everything relevant to the plot.
 
@@ -588,7 +575,9 @@ level.bar.plot +
 ```
 
 ## Panel Background
+
 Panel background refers to the inner area of plot. Area for showing header, axis label and legend are NOT included.
+
 ```{r}
 level.bar.plot # default style
 
@@ -597,10 +586,10 @@ level.bar.plot +
 ```
 
 ## Remove Plot and Panel Background
+
 In visual design, color is a very powerful tool to guide users' attention. But you have to use them carefully.
 
-Too many colors will usually do the opposite - confuse the audience.
-Minimal design is the recent trend.  Especially true when many are using small device like mobile phone or tablet for day-to-day communication.
+Too many colors will usually do the opposite - confuse the audience. Minimal design is the recent trend. Especially true when many are using small device like mobile phone or tablet for day-to-day communication.
 
 In this example, we are removing both plot and panel background to achieve a clean design. After all, background is NOT the main dish. Very often background color causes distraction to graph.
 
@@ -614,6 +603,7 @@ level.bar.plot +
 ```
 
 ## Change Label for x/y Axis
+
 ```{r}
 level.bar.plot # default style
 
@@ -626,6 +616,7 @@ level.bar.plot +
 ```
 
 ## Rotate the Label Text
+
 ```{r}
 level.bar.plot # default style
 
@@ -638,9 +629,8 @@ level.bar.plot +
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-
-
 ## Change Fill Colors
+
 ```{r}
 level.bar.plot # default style
 
@@ -654,6 +644,7 @@ level.bar.plot +
 ```
 
 ## Styling The Legends
+
 ```{r}
 level.bar.plot # default style
 
@@ -672,6 +663,7 @@ level.bar.plot +
 ```
 
 ## Add Title and Subtitle
+
 ```{r}
 level.bar.plot # default style
 
@@ -690,7 +682,9 @@ level.bar.plot +
 ```
 
 ## Add Annotations Texts
+
 Add extra texts/shape to enhance your visualization
+
 ```{r}
 level.bar.plot # default style
 
@@ -710,6 +704,7 @@ level.bar.plot +
 ```
 
 ## Adding Reference Lines
+
 ```{r}
 level.bar.plot # default style
 
@@ -731,8 +726,8 @@ level.bar.plot +
   
 ```
 
-
 ## Using Themes
+
 ```{r}
 level.bar.plot # default style
 
@@ -746,7 +741,8 @@ level.bar.plot +
   theme_dark() # black and white theme
 ```
 
-##  More 3rd-party Themes
+## More 3rd-party Themes
+
 Install **ggthemes** package to unlock wider selections of themes.
 
 ```{r}
@@ -774,21 +770,21 @@ level.bar.plot +
 
 ```
 
-
 ------------------------------------------------------------------------
 
 # MORE RESOURCES ON ggplot2
 
 ## official website
+
 ```{r}
 browseURL("https://ggplot2.tidyverse.org/")
 ```
 
 ## extensions gallery
+
 ```{r}
 browseURL("https://exts.ggplot2.tidyverse.org/gallery")
 ```
-
 
 ------------------------------------------------------------------------
 
@@ -796,20 +792,19 @@ browseURL("https://exts.ggplot2.tidyverse.org/gallery")
 
 ![Work Follow of Data Science](https://d33wubrfki0l68.cloudfront.net/e5bf2a8f4c787a12facbc0b4191fc82bd192f4c5/4e5d2/diagrams/data-science-model.png)
 
-Data Science is combination of efforts and results of programming, mathematics and domain expertise.  Among all, mathematics is the foundation of models.  With models, data scientists make predictions; discover hidden patterns; and conclude insights. 
+Data Science is combination of efforts and results of programming, mathematics and domain expertise. Among all, mathematics is the foundation of models. With models, data scientists make predictions; discover hidden patterns; and conclude insights.
 
 Modeling is usually an iterative process among data transformation, data visualization, exploring with models and fitting.
 
 ## What exactly is a Model?
 
-Human are good in drawing conclusions and providing insight while are NOT good in directly facing large number of data attributes and huge volume of raw data.  
+Human are good in drawing conclusions and providing insight while are NOT good in directly facing large number of data attributes and huge volume of raw data.
 
 ![Models Example](https://d33wubrfki0l68.cloudfront.net/e28a66adf6e8b2d127db8d3af9ac992a2abb87ce/47308/model-basics_files/figure-html/unnamed-chunk-45-1.png)
 
-A model is mathematics expression that provides a simple low-dimensional **summary** of a data set so that we can draw conclusion and even provide insights.  
+A model is mathematics expression that provides a simple low-dimensional **summary** of a data set so that we can draw conclusion and even provide insights.
 
 Models only provide approximation (NOT the exact truth).
-
 
 ## Basic Concepts of Model
 
@@ -820,9 +815,7 @@ if (!require("pacman")) install.packages("pacman") # install pacman
 pacman::p_load(pacman, tidyverse, modelr, magrittr) # install (or load) required packages
 ```
 
-
-Let's use a simple built-in data set **sim1** for exploring.
-In this simulation data, you can strongly see the pattern with the help of simple scatter-plot.
+Let's use a simple built-in data set **sim1** for exploring. In this simulation data, you can strongly see the pattern with the help of simple scatter-plot.
 
 ```{r Using sim1 Data Set}
 p_data(modelr) # display all the built-in data sets of modelr
@@ -835,18 +828,15 @@ ggplot(sim1, aes(x, y)) +
 ```
 
 ## Generating a Random Linear Model
+
 Linear line and quadratic curve are widely used to explore the relation of two variables. Let's take linear model as simple example to grab the essence of model.
 
-A linear model is described as
-`y = a1 + x * a2`
-x and y are the variable from data set
-a1 and a2 are parameters that can vary to capture different patterns.
+A linear model is described as `y = a1 + x * a2` x and y are the variable from data set a1 and a2 are parameters that can vary to capture different patterns.
 
-Let's generate a random value of `a1` as **intercept** and `a2` as **slope**.
-Here, we use `runinf()` to generate random uniform distributed number
+Let's generate a random value of `a1` as **intercept** and `a2` as **slope**. Here, we use `runinf()` to generate random uniform distributed number
 
-**Note**: 
-You might have to repetitively run a few times before you can see the visualized random model represented by a orange straight line.
+**Note**: You might have to repetitively run a few times before you can see the visualized random model represented by a orange straight line.
+
 ```{r}
 model = tibble(
   a1 = runif(1, -20, 40), # random intercept value between -20 to 40
@@ -863,8 +853,10 @@ ggplot(sim1, aes(x,y)) +
 ```
 
 ## Generating 250 Random Models as Candidate Models
-The number of potential models are unlimited.  Let's try to generate 250 random ones as candidate models.  
+
+The number of potential models are unlimited. Let's try to generate 250 random ones as candidate models.\
 Among these 250 models, some are very bad that you can judge even by glancing. Some are not bad but we don't know which one is the best among them.
+
 ```{r}
 models = tibble(
   a1 = runif(250, -20, 40), # 250 random intercept values between -20 to 40
@@ -877,8 +869,8 @@ ggplot(sim1, aes(x,y)) +
   geom_abline(aes(intercept = a1, slope = a2), data=models, alpha=0.2)
 ```
 
-
 ## Selecting the Most Fitting Ten Models
+
 ```{r}
 # this function calculates the modeled y value of each given 'x' value
 modeled_y = function(a, data) {
@@ -913,16 +905,16 @@ ggplot(sim1, aes(x, y)) +
 
 ```
 
-
 ## Using `lm()` function
-If the previous R codes on choosing best 10 among 250 random models are too much digest. It's fine.  It's just for you to feel the process and essence of models and fitting models.
+
+If the previous R codes on choosing best 10 among 250 random models are too much digest. It's fine. It's just for you to feel the process and essence of models and fitting models.
 
 In fact, R makes linear model fitting extremely easy by just one single line of function calling to the `lm()` function (a built-in linear model fitting function)
 
 `lm()` finds the closest model in a single step, using a sophisticated algorithm that involves geometry, calculus, and linear algebra.
 
-**lm()** has a special way to specify the model family: formulas. 
-Formulas look like **y ~ x**, which `lm()` will translate to a function like y = a1 + a2 * x
+**lm()** has a special way to specify the model family: formulas. Formulas look like **y \~ x**, which `lm()` will translate to a function like y = a1 + a2 \* x
+
 ```{r}
 # regular function calling manner
 sim1_auto_model = lm(y ~ x, data = sim1) # finding the optimized linear model
@@ -944,14 +936,16 @@ ggplot(sim1, aes(x, y)) +
 ```
 
 Making Prediction
+
 ```{r}
 new.data = data.frame(x = c(1,2,3,4,5,6,7,8,9,10))
 predict(sim1_auto_model, new.data)
 ```
 
-
 ## Using lm() function with categorical data
+
 Using `lm()` function on a categorical variable will use mean value for each category for prediction.
+
 ```{r}
 p_data(modelr) # shows included data sets with modelr package
 sim2 %>% summary()
@@ -968,13 +962,14 @@ ggplot(sim2, aes(x)) +
   geom_point(data = grid, aes(y = pred), colour = "red", size = 4)
 ```
 
-
 ```{r}
 sim3
 ```
 
 ## Multiple Regression
+
 Multiple regression is an extension of linear regression into relationship between more than two variables.
+
 ```{r}
 ?mtcars
 print(mtcars)
@@ -990,9 +985,8 @@ new.data.2 = data.frame(
 predict(m.r.model, new.data.2)
 ```
 
-
-
 ## Logistic Regression
+
 ```{r}
 print(mtcars)
 bi.model = mtcars %>% glm(am~cyl+hp+wt, ., family=binomial)
@@ -1016,63 +1010,69 @@ predict(bi.model, new.data.3b)
 
 ------------------------------------------------------------------------
 
-
 # VISUALIZATION VS. MODEL
-Visualization is usually thought as a tool for hypothesis generation to explore the hidden patterns among data while modelling is usually thought as at tool for hypothesis confirmation (to confirm what are found by data visualization tools).  These two tools are suggested to used in an iterative manner so as to achieve a deeper revealing on data.
 
+Visualization is usually thought as a tool for hypothesis generation to explore the hidden patterns among data while modelling is usually thought as at tool for hypothesis confirmation (to confirm what are found by data visualization tools). These two tools are suggested to used in an iterative manner so as to achieve a deeper revealing on data.
 
 # FURTHER LEARNING RESOURCES
+
 ## More on ggplot2
 
 ### ggplot2 tutorial
+
 ```{r}
 browseURL("https://www.tutorialspoint.com/ggplot2/ggplot2_introduction.htm")
 ```
 
-ggplot2: Elegant Graphics for Data Analysis (Web-based E-book)
-![Elegant Graphics for Data Analysis](https://ggplot2-book.org/cover.jpg)
-###
+ggplot2: Elegant Graphics for Data Analysis (Web-based E-book) ![Elegant Graphics for Data Analysis](https://ggplot2-book.org/cover.jpg) \###
+
 ```{r}
 browseURL("https://ggplot2-book.org/")
 ```
 
-
 ## R Statistical Models
 
 ### more on model building
-An execellent ebook for R Data Science
-* Basic Concept of Model
-* Model Building
-* Example on Model
+
+An excellent e-book for R Data Science
+
+-   Basic Concept of Model
+-   Model Building
+-   Example on Model
 
 A web-based e-book at
 
 ![R for Data Science](https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png)
+
 ```{r}
 browseURL("https://r4ds.had.co.nz/model-intro.html")
 ```
 
 ### examples on more models
-* Linear Regression
-* Multiple Regression
-* Logistic Regression
-* Decision Tree
-* Random Forest
-* And so on
+
+-   Linear Regression
+-   Multiple Regression
+-   Logistic Regression
+-   Decision Tree
+-   Random Forest
+-   And so on
+
 ```{r}
 browseURL("https://www.tutorialspoint.com/r/r_linear_regression.htm")
 ```
 
 ## R Studio Cheat Sheets
-Many quick syntax reference for R programming and 3-rd packages
-![R Studio Cheatsheets](https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/data-visualization.png)
+
+Many quick syntax reference for R programming and 3-rd packages ![R Studio Cheatsheets](https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/data-visualization.png)
+
 ```{r}
 browseURL("https://www.rstudio.com/resources/cheatsheets/")
 ```
 
 ## Advanced R
+
 ![Advanced R](https://d33wubrfki0l68.cloudfront.net/565916198b0be51bf88b36f94b80c7ea67cafe7c/7f70b/cover.png)
+
 ```{r}
 browseURL("https://adv-r.hadley.nz/index.html")
 ```
-
