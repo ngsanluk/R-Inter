@@ -222,7 +222,7 @@ allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1)) +
 ## Use `geom_smooth()` to smooth out the line
 
 ```{r}
-allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
+allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1)) +
   geom_smooth() +
   geom_point(size=5)
 ```
