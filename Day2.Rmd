@@ -210,13 +210,13 @@ allowance %>% ggplot() +
 
 ```{r}
 allowance %>% ggplot() +
-  geom_line(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
-  geom_point(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Orange"))
+  geom_line(mapping = aes(x=Assessment_Year, y=Basic, group=1), color="blue") +
+  geom_point(mapping = aes(x=Assessment_Year, y=Basic, group=1), color="blue")
 
 # As both geom use the same data mapping, the above statements can be simplified as
-allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1, color="Orange")) +
-  geom_line() +
-  geom_point(size=5)
+allowance %>% ggplot(aes(x=Assessment_Year, y=Basic, group=1)) +
+  geom_line(color="blue") +
+  geom_point(color="orange", size=5)
 ```
 
 ## Use `geom_smooth()` to smooth out the line
