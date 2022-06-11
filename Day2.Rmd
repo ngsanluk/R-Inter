@@ -203,7 +203,7 @@ allowance %>% ggplot() +
 # In this case, all points should be connected, so group=1. 
 # When more variables are used and multiple lines are drawn, the grouping for lines is usually done by variable.
 allowance %>% ggplot() +
-  geom_line(mapping = aes(x=Assessment_Year, y=Basic, group=1, color="Blue"))
+  geom_line(mapping = aes(x=Assessment_Year, y=Basic), group=1, color="Orange")
 ```
 
 ## Adding Multiple Layers of Geometry
@@ -350,7 +350,9 @@ Use line plots to compare female undergraduate students headcount trending in "P
 
 Use `filter()` to extract required records
 
-You can use multiple `filter()` call OrUse &, \| or multiple conditions
+You can use multiple `filter()` call
+
+Or Use `&` or `|` for multiple conditions
 
 ```{r Previewing ProgramCategory}
 graduates %>% 
@@ -504,9 +506,9 @@ ggplot() +
 
 ## box plot
 
-The boxplot compactly displays the distribution of a continuous variable.
+The box plot compactly displays the distribution of a continuous variable.
 
-It visualises five summary statistics (the median, two hinges and two whiskers), and all "outlying" points individually.
+It visualizes five summary statistics (the median, two hinges and two whiskers), and all "outlying" points individually.
 
 ```{r}
 graduates %>% 
