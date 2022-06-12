@@ -8,23 +8,23 @@ output: html_notebook
 # WHAT IS R-MARKDOWN / R-NOTEBOOK?
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook.
-When you execute code within the notebook, the results appear beneath the codes. It's an experience of coding environment and descriptive notes TWO-in-ONE.
+When you execute code within the notebook, the results appear beneath the codes. It's an unified experience of coding environment and descriptive notes TWO-in-ONE.
 
 ## To Run a Chunk of R Codes
 
 Try executing the following chunk by
 clicking the **Run** button within the chunk
 
-or place your cursor inside a chunk of codes and press
+Or place your cursor inside a chunk of codes and press
 **Cmd+Shift+Enter** (Mac) or **Ctrl+Shift+Enter** (Windows).
 
-```{r print range of numbers}
+```{r print a range of numbers}
 r = 10:19
 print(r)
 ```
 
 ```{r plot car datasets}
-plot(cars)
+plot(cars) # cars is a built-in data set
 ```
 
 ## To Add a New Code Chunk
@@ -54,7 +54,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 HTML is a very powerful presentation language. But it's quite complex.
 
-R Markdown is an easy-to-write rich text format for creating dynamic documents and reports.
+R Markdown is an easy-to-write rich text formatting for creating dynamic documents and reports.
 
 ## italic text:
 
@@ -127,6 +127,7 @@ Press the **Down** arrow next to **Preview** button to choose a file format to k
 ## Use Notebook or Markdown?
 
 They are pretty much equivalent or at least convertible.
+
 Only different by automatic-added mark-down options at the beginning of document.
 
 If you are primarily doing analysis in the Notebook environment, choose **Notebook**.
@@ -187,7 +188,7 @@ browseURL("https://www.tidyverse.org/")
 
 Run the following statements to install **pacman** and use `pacman::p_load()` to download and activate required 3rd-party packages. 
 
-With pacman, packages **downloading** and **activating** becomes ONE STEP.
+With **pacman**, packages **downloading** and **activating** becomes ONE STEP.
 
 ```{r}
 if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
@@ -237,9 +238,13 @@ round(sqrt(as.double(text)),2)
 # nested function calling starts at inner most function call. as.double() is called first. sqrt() is called second. round() is called last.
 ```
 
-Using piping operator `%>%` makes the codes a lot easier to understand.
+Using piping operator `%>%` makes the codes a lot easier to understand. 
 
-Each previous expression will be used as *the first parameter* for the next function call
+The execution flow matches our natural reading order.  From left to right, top to bottom.  
+
+Each previous expression will be used as *the first parameter* for the next function call.
+
+If you put your codes in multiple lines, the piping operator must be placed at the end of each line.
 
 ```{r}
 text %>% 
@@ -258,10 +263,14 @@ subset(iris,
 ```
 
 Avoid using the coding pattern of nested functions call.  
+
 Instead, use piping like below to improve the readability.
+
 You can use `filter()` function to include selective rows in your result data set.
+
 You can use `select()` function to make a selective subset of columns.  
 `select()` is also widely use for re-arranging the column orders.
+
 ```{r piping the functions call}
 iris %>%
   filter(Sepal.Length>5.0) %>%
