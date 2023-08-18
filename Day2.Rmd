@@ -5,7 +5,27 @@ output: html_notebook
 
 ------------------------------------------------------------------------
 
+# TODAY'S TOPICS
+
+------------------------------------------------------------------------
+
+-   Data Visualization in R
+-   Installing/Loading Required Packages
+-   Basic ggplot2 grammar
+-   Plotting with our own data
+-   Data Visualization with More Complex Data
+-   Grouping & Aggregation
+-   Make Charts Pretty
+-   More Resources on ggplot2
+-   Models
+-   Visualization vs. Model
+-   Further Learning Resources
+
+------------------------------------------------------------------------
+
 # R DATA VISUALIZATION
+
+------------------------------------------------------------------------
 
 ## Why Data Visualization?
 
@@ -52,6 +72,8 @@ ggplot2 is an open-source data visualization package for R. ggplot2 breaks up gr
 
 # INSTALL / LOAD PACKAGES
 
+------------------------------------------------------------------------
+
 ```{r}
 if (!require("pacman")) install.packages("pacman") # check if pacman already installed. If not, install it.
 pacman::p_load(
@@ -64,7 +86,11 @@ pacman::p_load(
 ) # Load required packages.  If they are NOT already downloaded, download them automatically.
 ```
 
-# BASIC GRAMMAR
+------------------------------------------------------------------------
+
+# BASIC ggplot2 GRAMMAR
+
+------------------------------------------------------------------------
 
 ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components below:
 
@@ -155,6 +181,8 @@ cars %>% ggplot() +
 ------------------------------------------------------------------------
 
 # PLOT WITH OUR OWN DATA
+
+------------------------------------------------------------------------
 
 ## Loading Data: allowance
 
@@ -268,6 +296,8 @@ allowance %>%
 
 # CHALLENGE
 
+------------------------------------------------------------------------
+
 ## Multiple Layers of Lines
 
 add line plot for column of 'Child' in the same plot, add another line plot for 'Dependent_Parent_60'
@@ -281,6 +311,8 @@ allowance %>% ggplot() +
 ------------------------------------------------------------------------
 
 # WORK WITH MORE COMPLEX DATA
+
+------------------------------------------------------------------------
 
 ## Loading Data: graduates.csv
 
@@ -344,6 +376,8 @@ ggplot() +
 
 # CHALLENGE
 
+------------------------------------------------------------------------
+
 ## Comparison with Line Plots
 
 Use line plots to compare female undergraduate students headcount trending in "ProgrammeCategory" of "Business and Management" and "Engineering and Technology"
@@ -385,6 +419,8 @@ graduates %>%
 
 # CHALLENGE: line plot for hibor_fixing_1m
 
+------------------------------------------------------------------------
+
 ```{r}
 library(jsonlite) # load package
 
@@ -411,6 +447,8 @@ ggplot() +
 ------------------------------------------------------------------------
 
 # GROUPING AND AGGREGATION
+
+------------------------------------------------------------------------
 
 ## Using `group_by()` and `summarise()`
 
@@ -548,7 +586,9 @@ graduates %>% ggplot() +
 
 ------------------------------------------------------------------------
 
-# MAKE IT PRETTY
+# MAKE CHARTS PRETTY
+
+------------------------------------------------------------------------
 
 Use of title, label, background color and themes
 
@@ -776,6 +816,8 @@ level.bar.plot +
 
 # MORE RESOURCES ON ggplot2
 
+------------------------------------------------------------------------
+
 ## official website
 
 ```{r}
@@ -791,6 +833,8 @@ browseURL("https://exts.ggplot2.tidyverse.org/gallery")
 ------------------------------------------------------------------------
 
 # MODELS
+
+------------------------------------------------------------------------
 
 ![Work Follow of Data Science](https://d33wubrfki0l68.cloudfront.net/e5bf2a8f4c787a12facbc0b4191fc82bd192f4c5/4e5d2/diagrams/data-science-model.png)
 
@@ -1014,9 +1058,15 @@ predict(bi.model, new.data.3b)
 
 # VISUALIZATION VS. MODEL
 
+------------------------------------------------------------------------
+
 Visualization is usually thought as a tool for hypothesis generation to explore the hidden patterns among data while modelling is usually thought as at tool for hypothesis confirmation (to confirm what are found by data visualization tools). These two tools are suggested to used in an iterative manner so as to achieve a deeper revealing on data.
 
+------------------------------------------------------------------------
+
 # FURTHER LEARNING RESOURCES
+
+------------------------------------------------------------------------
 
 ## More on ggplot2
 
