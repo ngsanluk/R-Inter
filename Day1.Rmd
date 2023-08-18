@@ -49,6 +49,8 @@ plot(cars) # cars is a built-in data set
 
 Click the **Insert Chunk** button on the toolbar
 
+![](./images/InsertChunk.png){width="100"}
+
 or
 
 Press **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
