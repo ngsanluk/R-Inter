@@ -13,7 +13,7 @@ output: html_notebook
 -   Markdown Syntax
 -   Practicing R-Markdown
 -   Installing/Loading Required Packages
--   Piping Opeartor - make codes easy to read/maintain
+-   Piping Operator - make codes easy to read/maintain
 -   Helps in R-Studio
 -   Keyboard Shortcuts
 -   Data Science Workflow
@@ -160,7 +160,7 @@ If you are primarily aiming to create a PDF or Word document, choose **R Markdow
 
 Reach out to: **Help : Markdown Quick Reference**
 
-Or browse the following page [rstudio lession 1](https://rmarkdown.rstudio.com/lesson-1.html)
+Or browse the following page [rstudio lesson 1](https://rmarkdown.rstudio.com/lesson-1.html)
 
 ```{r browse rmarkdown lesson}
 browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
@@ -468,7 +468,7 @@ When you do wrangling, you usually want to replace the old data set to save up m
 
 Assignment piping makes this easier.
 
-Note that the previous statement DOESN'T do any changes to the original allowance data set.
+Note that the previous statement DOESN'T do any changes to the original `allowance` data set.
 
 **magrittr** library is required for Assignment Piping
 
