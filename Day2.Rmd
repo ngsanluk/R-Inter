@@ -434,8 +434,11 @@ interbank.liquidity$result
 str(interbank.liquidity$result)
 interbank.records = interbank.liquidity$result$records %>% as_tibble()
 interbank.records
+interbank.records %>% arrange(end_of_date) # order the records by ascending end_of_date order
+
 
 interbank.records %>% 
+  arrange(end_of_date) %>% 
 ggplot() +
   geom_line(
     mapping=aes(x=end_of_date, y=hibor_fixing_1m, group=1),
