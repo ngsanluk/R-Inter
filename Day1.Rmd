@@ -347,7 +347,7 @@ Choose: **Reference : Packages** to explore built-in data sets
 
 ## Duplicate line(s) of code:
 
-**Cmd+Option+Up/Down** (Mac) or **Ctr+Alt+Up/Down** (Windows)
+**Cmd+Option+Up/Down** (Mac) or **Shift+Alt+Up/Down** (Windows)
 
 ## Move a line(s) up/down:
 
