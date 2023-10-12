@@ -347,7 +347,7 @@ Choose: **Reference : Packages** to explore built-in data sets
 
 ## Duplicate line(s) of code:
 
-**Cmd+Option+Up/Down** (Mac) or **Ctr+Option+Up/Down** (Windows)
+**Cmd+Option+Up/Down** (Mac) or **Ctr+Alt+Up/Down** (Windows)
 
 ## Move a line(s) up/down:
 
@@ -359,11 +359,11 @@ Choose: **Reference : Packages** to explore built-in data sets
 
 ## Insert Pipe Operator:
 
-**Shift+Ctrl+M** (Mac) or **Shift+Ctrl+M** (Windows)
+**Shift+Cmd+M** (Mac) or **Shift+Ctrl+M** (Windows)
 
 ## Comment/Un-comment:
 
-**Shift+Ctrl+C** (Mac) or **Shift+Ctrl+C** (Windows)
+**Shift+Cmd+C** (Mac) or **Shift+Ctrl+C** (Windows)
 
 ------------------------------------------------------------------------
 
