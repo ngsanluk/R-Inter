@@ -10,12 +10,12 @@ output: html_notebook
 ------------------------------------------------------------------------
 
 -   Data Visualization in R
--   Installing/Loading Required Packages
+-   Installing/Loading Required Packages with pacman
 -   Basic ggplot2 grammar
--   Plotting with our own data
+-   Plotting with own data
 -   Data Visualization with More Complex Data
 -   Grouping & Aggregation
--   Make Charts Pretty
+-   Making Charts Pretty
 -   More Resources on ggplot2
 -   Models
 -   Visualization vs. Model
@@ -31,10 +31,10 @@ output: html_notebook
 
 A whole bunch of raw data points don't provide much insight.
 
-Data Visualization is brilliant in
+Data Visualization is brilliant in two distinct use cases
 
 -   exploring the pattern of data briefly at the early stage
--   in the conclusion, enhance the story telling of data analysis
+-   in the conclusion stage, enhance the story telling of data analysis
 
 ## Reminder on Workflow
 
@@ -60,7 +60,7 @@ For built-in R data visualization, go to the **R Intro** project on Github to re
 
 ## Grammar of Graphics: ggplot2
 
-If the built-in plotting tools are not enough for you, go for **ggplot2**. It is the most popular data visualization for R.
+If the built-in plotting tools are not enough for you, go for **ggplot2**. It is the most popular data visualization tool for R.
 
 ggplot2 is an open-source data visualization package for R. ggplot2 breaks up graphs into semantic components such as **scales** and **layers**. Since 2005, ggplot2 has grown in use to become one of the most popular R packages.
 
@@ -94,7 +94,7 @@ pacman::p_load(
 
 ggplot2 is based on the grammar of graphics, the idea that you can build every graph from the same components below:
 
-**a data set** + **a coordinate system** + **and geom---visual that represent data points**
+**a data set** + **a coordinate system** + **and geom**(visual that represent data points)
 
 ![Grammar of Graphics](https://jules32.github.io/r-for-excel-users/img/rstudio-cheatsheet-ggplot.png)
 
@@ -114,15 +114,17 @@ cars %>% ggplot()
 
 ## `geom_point()` function
 
-It's easy to add geometry layer to the base co-ordinate Let's ADD a layer of data points using `geom_point()` function.
+It's easy to add geometry layer to the base co-ordinate.
 
-And Yes, you can ADD a layer by using the + operator We use `geom_point()` function that requires x and y value for each geom point. In 2D co-ordinate, a point is described by its x and y value.
+Let's ADD a layer of data points using `geom_point()` function. And Yes, you can ADD a layer by using the `+` operator.
+
+We use `geom_point()` function that requires `x` and `y` value for each geom point. In 2D co-ordinate, a point is described by its `x` and `y` value.
 
 We need to provide a mapping that specifies the data columns' name to map to a point's x and y value
 
 That mapping is defined by an aesthetics function: `aes()`
 
-We usually name the plot by the type of geom that we use to represent data. In this case, it's widely called Scatter Plot. It is useful to explore the relation of two variables.
+We usually name the plot by the **type of geom** that we use to represent data. In this case, it's widely called Scatter Plot (as it contains scattered points). Scatter plot is useful to explore the relation of two variables.
 
 ```{r}
 cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
@@ -131,7 +133,11 @@ cars %>% ggplot() + # NOTE: '+' operator must be placed at the end of a line
 
 ## Use `geom_line()` to replace geom_point()
 
-`geom_point()` and `geom_line()` require very similar parameters. `geom_line()` is simply an enhanced visualization that automatically connect all the points. Line chart are used to explore/emphasize trending.
+`geom_point()` and `geom_line()` require very similar parameters.
+
+`geom_line()` is simply an enhanced visualization that automatically connect all the points.
+
+Line chart are used to explore/emphasize trending.
 
 ```{r}
 # just change geom_point to geom_line without change anything else
@@ -151,7 +157,7 @@ cars %>% ggplot() +
 
 ## Geometric Objects Comparison
 
-a geom is the geometrical object that a plot use to represent data. We used points, lines and smooth above on the same data set and they provide very different message.
+a geom is a geometrical object that a plot uses to represent data. We used points, lines and smooth above on the same data set and they provide very different message.
 
 We usually name the plot by the name of geom that we use to represent data.
 
@@ -166,7 +172,7 @@ cars %>% ggplot() +
 
 ## Adding Aesthetics to your Plots
 
-Un-comment the extra parameters to add more aesthetics to your plot
+Un-comment the extra parameters to add more aesthetics (size, color, transparency) to your plot
 
 ```{r}
 cars %>% ggplot() +
@@ -284,7 +290,7 @@ allowance %>%
 
 ## `geom_bar()`
 
-geom_bar() is used for counting the frequency of each occurrence of observed value. It's usually for counting a limit set of values
+`geom_bar()` is used for counting the frequency of each occurrence of observed value. It's usually for counting a limit set of values
 
 ```{r}
 allowance %>% 
@@ -344,8 +350,7 @@ ggplot(data=graduates) +
 graduates %>% 
 filter(LevelOfStudy=="Undergraduate", ProgrammeCategory=="Business and Management") %>%
 ggplot() +
-  geom_point(mapping=aes(x=AcademicYear, y=Headcount, color=Sex)
-)
+  geom_point(mapping=aes(x=AcademicYear, y=Headcount, color=Sex))
 ```
 
 ## Use Line Plot To Explore the Trending
