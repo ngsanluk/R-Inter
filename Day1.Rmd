@@ -9,18 +9,18 @@ output: html_notebook
 
 ------------------------------------------------------------------------
 
--   What is R-Markdown
+-   What is R-Markdown?
 -   Markdown Syntax
 -   Practicing R-Markdown
 -   Installing/Loading Required Packages
--   Piping Operator - make codes easy to read/maintain
+-   Piping Operator - make your codes easy to read/maintain
 -   Helps in R-Studio
--   Keyboard Shortcuts
+-   Keyboard Shortcuts - speeding up your coding
 -   Data Science Workflow
 -   Data Wrangling
--   Using Tibble
+-   Using Tibble - an enhanced data-frame
 -   More on Tibble
--   Open Data
+-   Accessging Open Data
 
 ------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ output: html_notebook
 
 ------------------------------------------------------------------------
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the codes. It's an unified experience of coding environment and descriptive notes TWO-in-ONE.
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the codes. It's an unified experience of coding environment and making descriptive notes TWO-in-ONE.
 
 ## To Run a Chunk of R Codes
 
@@ -47,7 +47,7 @@ plot(cars) # cars is a built-in data set
 
 ## To Add a New Code Chunk
 
-Click the **Insert Chunk** button on the toolbar
+Click the **Insert Chunk** button on the toolbar and choose **R**
 
 ![](./images/InsertChunk.png){width="100"}
 
@@ -57,14 +57,14 @@ Press **Cmd+Option+I** (Mac) or **Ctrl+Alt+I** (Windows)
 
 ```{r simple r variables declaration}
 name <- "Sunny" # assigning "Sunny" to variable 'name'
-address = "Hong Kong" # assigning "Hong Kong" to variable address
+address = "Hong Kong" # assigning "Hong Kong" to variable 'address'
 print(name) # use print() function to show a variable's value
 address # or just directly type the variable name to show it's value
 ```
 
 ## On Saving a Notebook
 
-When you save the notebook, a HTML file containing the code and output will be saved alongside it. Click the **Preview** button or press **Cmd+Shift+K** (Mac) or **Ctrl+Shift+K** (Windows) to preview the HTML.
+When you save the notebook, a HTML file containing the codes and outputs will be saved alongside it. Click the **Preview** button or press **Cmd+Shift+K** (Mac) or **Ctrl+Shift+K** (Windows) to preview the HTML.
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike **Knit**, **Preview** does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 
@@ -74,9 +74,11 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 ------------------------------------------------------------------------
 
-HTML is a very powerful presentation language. But it's quite complex.
+HTML is a very powerful rich-text presentation language. But it's quite complex.
 
 R Markdown is an easy-to-write rich text formatting for creating dynamic documents and reports.
+
+In markdown, you add special symbols around text to emphasize these texts. Such as: `*`, `**`, `#`, `##`, `###`
 
 ## italic text:
 
@@ -150,7 +152,7 @@ Press the **Down** arrow next to **Preview** button to choose a file format to k
 
 They are pretty much equivalent or at least convertible.
 
-Only different by automatic-added mark-down options at the beginning of document.
+Only different by pre-added mark-down options at the beginning of document.
 
 If you are primarily doing analysis in the Notebook environment, choose **Notebook**.
 
@@ -172,11 +174,11 @@ browseURL("https://rmarkdown.rstudio.com/lesson-1.html")
 
 ------------------------------------------------------------------------
 
-Using a 3rd-party library in R will involve TWO steps.
+Using a 3rd-party library in R will involve **TWO** steps.
 
 1.  Install the required package using `install.packages()` function. (This is only required once for each computer.)
 
-2.  Load the library(or libraries) when you need to activate the feature(s) for your R projects/codes. Use `library()` function to activate package. (This is required every time you need the package(s)).
+2.  Load the library(or libraries) when you need to activate the feature(s) for your R projects/codes. Use `library()` function to activate a package. (This is required in every project that you need the package(s)).
 
 ## Install and Load Tidyverse
 
@@ -204,7 +206,7 @@ More about tidyverse, open the following page
 browseURL("https://www.tidyverse.org/")
 ```
 
-## Package Manager: pacman
+## Enhanced Package Manager: pacman
 
 **pacman** is 3rd-party Package Manager makes your packages management easier.
 
@@ -231,7 +233,7 @@ pacman::p_load(
 
 ## Handy Functions of pacman
 
-Use **CMD + ENTER** (Mac) or **CTRL + ENTER** (Windows) to run LINE BY LINE
+Use **CMD+ENTER** (Mac) or **CTRL+ENTER** (Windows) to run codes LINE BY LINE
 
 ```{r}
 ?p_data # shows the built-in data sets in a package
@@ -255,7 +257,7 @@ p_data(dplyr)
 
 Nested function is difficult to read and therefore usually makes the codes difficult to maintain.
 
-The following nested functions call is difficult to read
+The following nested functions call is difficult to read and can easily cause error while editing. (imagine: missing parentheses is difficult to find out)
 
 ```{r}
 text = "1234.56789"
@@ -269,7 +271,7 @@ The execution flow matches our natural reading order. From left to right, top to
 
 Each previous expression will be used as *the first parameter* for the next function call.
 
-If you put your codes in multiple lines, the piping operator must be placed at the end of each line.
+If you put your codes in multiple lines, the **piping operator must be placed at the end of each line**.
 
 ```{r}
 text %>% 
@@ -289,7 +291,7 @@ subset(iris,
 
 Avoid using the coding pattern of nested functions call.
 
-Instead, use piping like below to improve the readability.
+Instead, use piping like below to improve codes readability.
 
 You can use `filter()` function to include selective rows in your result data set.
 
@@ -413,7 +415,7 @@ Garbage In = Garbage Out.
 There are many common problems in raw data:
 
 -   missed values
--   titles/heading in excel
+-   titles/heading rows in excel
 -   image or figures
 -   merged cell
 -   summary values
@@ -425,7 +427,7 @@ In this intermediate workshop, we will massively use features and functions from
 
 One often used function for data wrangling in R is `mutate()`
 
-`mutate()` is used to create a new column or to replace a column.
+`mutate()` is used to **create** a new column or to **replace** a column.
 
 ## Converting Data Type: `mutate()`
 
@@ -433,7 +435,7 @@ One often used function for data wrangling in R is `mutate()`
 
 ```{r}
 print(allowance) # Check 'Personal_Disability_Allowance', it says <chr> characters
-summary(allowance) # numeric columns offers basic statistic information.  'Personal_Disability_Allowance' doesn't.
+summary(allowance) # numeric columns offers basic statistic information.  'Personal_Disability_Allowance' doesn't have it.
 
 allowance.new = allowance %>% 
   mutate(
@@ -442,7 +444,7 @@ allowance.new = allowance %>%
 print(allowance.new) # a new column named 'Personal_Disability_Allowance_New' as double type is added
 summary(allowance.new) # it offers basic statistic information
 
-# we don't have to create new data. we can simply replace the original column and original dataset
+# we don't have to create new data. we can simply replace the original column in the original dataset
 allowance = allowance %>% 
   mutate(
     Personal_Disability_Allowance = as.numeric(Personal_Disability_Allowance)
@@ -452,7 +454,7 @@ summary(allowance)
 
 ## Rename a Column
 
-Quite often the column title from Excel or CSV is good for readers to understand, but NOT good for data scientist to do programming. e.g: `Annual Salary (Before Tax) '0000`
+Quite often the column title from Excel or CSV is good for readers to understand, but NOT good for data scientist to do programming. e.g: you can find column name in excel like this `Annual Salary (Before Tax) '0000`
 
 Using `rename()` function
 
@@ -489,7 +491,7 @@ allowance %<>% # assignment pipe %<>% is used to update the data set
 
 ## What is Tibble?
 
-Instead of using the built-in data-frame, we will use tibble. Tibble is a new data structure from tidyverse to replace built-in data-frame. Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to factors for easier data analysis.
+Instead of using the built-in data-frame, we will use tibble. Tibble is a new data structure from tidyverse to replace R's built-in data-frame type. Consider tibble an enhanced version of data-frame. In tibble, character vectors are converted to **factors** for easier data analysis.
 
 Tibbles are one of the unifying features of the tidyverse. (Most other R packages use regular data frames) You can convert a data frame to a tibble by using `as_tibble()`
 
@@ -501,7 +503,7 @@ print(allowance) # it shows the column names and their types
 
 ## Reading CSV as tibble
 
-Use **read_csv()**
+Use **read_csv()** (a function brought by Tidyverse)
 
 ```{r}
 graduates = read_csv("data/graduates.csv")
@@ -515,7 +517,7 @@ summary(graduates)
 
 Before you start data wrangling, you can use `table()` function to gain some brief insight on character column.
 
-It shows how many rows for each associated value
+It shows how many rows for each associated column value
 
 ```{r}
 graduates %>% 
@@ -526,7 +528,7 @@ graduates %>%
 ## Some Data Wrangling Works
 
 ```{r}
-graduates = graduates %>% 
+graduates %<>% 
   mutate(
     Sex.Converted = as.factor(Sex)
   ) # converting the sex column to factor
@@ -539,6 +541,8 @@ str(graduates) # it shows factor level info
 Use `mutate()` function to convert "LevelOfStudy", "ProgrammeCategory" to factor as well. Make sure you replace the allowance data set (Don't create new variable)
 
 ```{r}
+# put your codes below ...
+
 print(graduates)
 summary(graduates)
 ```
@@ -578,8 +582,8 @@ summary(student.salaries)
 
 # A little bit of data wrangling
 student.salaries = student.salaries %>% 
-  rename(AnnualSalary = "Average Annual Salary (HK$'000)") %>% # rename the column
-  mutate(AnnualSalary = AnnualSalary*1000) %>% # fixing the annual salary value
+  rename(AnnualSalary = "Average Annual Salary (HK$'000)") %>% # rename the column for easier referring while proramming
+  mutate(AnnualSalary = AnnualSalary*1000) %>% # fixing the annual salary value as original value in thousand
   mutate(MonthlySalary = AnnualSalary/12) # create a new column: monthly salary
 print(student.salaries)
 ```
@@ -595,7 +599,7 @@ summary(student.unit.cost)
 
 Data cleansing on previous `student.unit.cost`
 
-Suggestions: change the column name and fixed the number by times to 1000.
+Suggestions: change the column name and fixed the number value by times to 1000.
 
 Put your answer below.
 
@@ -658,7 +662,7 @@ graduates %>%
 ## Extracting Columns
 
 ```{r}
-graduates$AcademicYear # selecting single column.
+graduates$AcademicYear # selecting single column. Use $ sign for column name addressing
 
 graduates %>% 
   select(AcademicYear, Sex, Headcount) # select multiple columns. returns a tibble.
@@ -668,7 +672,7 @@ graduates %>%
 
 ```{r}
 graduates[1,] # extracting the first row
-graduates %>% .[1,] # extracting the first row by piping
+graduates %>% .[1,] # extracting the first row by piping. The dot symbol refers to the argument from previous function call
 
 graduates[,1] # extracting the first column
 graduates %>% .[,1] # extracting the first column by piping
@@ -696,11 +700,11 @@ graduates %>%
 
 graduates %>% 
   filter(LevelOfStudy=="Taught Postgraduate", 
-  ProgrammeCategory=="Business and Management") # filtering based on two conditions
+  ProgrammeCategory=="Business and Management") # filtering by multiple conditions
 
 ```
 
-## Getting Distinct Values: unique()
+## Getting Distinct Values: `unique()`
 
 Use `unique()` function to display a list of distinct values of a column.
 
@@ -723,6 +727,8 @@ ProgrammeCategory = graduates$ProgrammeCategory %>%
 
 ```{r}
 ByLevelOfStudy = graduates %>% group_by(LevelOfStudy)
+class(ByLevelOfStudy)
+typeof(ByLevelOfStudy)
 print(ByLevelOfStudy)
 ByLevelOfStudy %>%  tally() # counting number of row in each group
 ```
