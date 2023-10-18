@@ -20,7 +20,7 @@ output: html_notebook
 -   Data Wrangling
 -   Using Tibble - an enhanced data-frame
 -   More on Tibble
--   Accessging Open Data
+-   Accessing Open Data
 
 ------------------------------------------------------------------------
 
@@ -338,10 +338,6 @@ Choose: **Reference : Packages** to explore built-in data sets
 ## Run a line of code:
 
 **Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows)
-
-## Run and stay at current line:
-
-**Option+Enter** (Mac) or **Alt+Enter** (Windows)
 
 ## Insert a new code chunk:
 
