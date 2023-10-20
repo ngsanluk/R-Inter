@@ -357,7 +357,7 @@ Choose: **Reference : Packages** to explore built-in data sets
 
 ## Insert Pipe Operator:
 
-**Shift+Cmd+M** (Mac) or **Shift+Ctrl+M** (Windows)
+**Cmd+Shift+M** (Mac) or **Ctrl+Shift+M** (Windows)
 
 ## Comment/Un-comment:
 
