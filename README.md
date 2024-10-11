@@ -4,12 +4,12 @@ If you are new to R programming, go to R Intro by the link below
 
 [R-Intro: https://github.com/ngsanluk/R-Intro](https://github.com/ngsanluk/R-Intro)
 
-This intermedia workshop includes the following topics
+This intermediate workshop includes the following topics
 
 - R Markdown
 - More on 3rd Party Packages
 - Piping Operators
-- Keyboard Shortcuts
+- Popular Keyboard Shortcuts
 - Data Science Workflow
 - Data Wrangling
 - Use Tibble
@@ -17,12 +17,12 @@ This intermedia workshop includes the following topics
 - Group by
 - Group Summaries
 - More on open data
-- R Data Visualisation
+- R Data Visualization
 - ggplot2 Introduction
 - ggplot2 Basic Syntax
 - Plot with Grouping and Aggregation
 - Styling your Plots
 - More Resources on ggplot2
 - Model
-- Visulisation vs. Model
+- Visulization vs. Model
 - Further Learning Resources
