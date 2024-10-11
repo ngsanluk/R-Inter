@@ -507,6 +507,8 @@ typeof(graduates) # it says "list"
 class(graduates) # it says multiple class types: "spec_tbl_df", "tbl_df", "tbl", "data.frame" 
 print(graduates)
 summary(graduates)
+head(graduates)
+tail(graduates)
 ```
 
 ## `table()` function for column's insight
