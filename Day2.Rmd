@@ -399,14 +399,14 @@ graduates %>%
   unique() # display the unique names of ProgrammeCategory
 
 graduates %>% 
-  filter(LevelOfStudy=="Undergraduate", Sex=="F") %>%
+  filter(LevelOfStudy=="Undergraduate", Sex=="Female") %>%
   filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
   print() # Test extracting and printing the required records.
 ```
 
 ```{r Business and Management vs. Engineering and Technology}
 graduates %>% 
-  filter(LevelOfStudy=="Undergraduate", Sex=="F") %>%
+  filter(LevelOfStudy=="Undergraduate", Sex=="Female") %>%
   filter(ProgrammeCategory=="Business and Management" | ProgrammeCategory=="Engineering and Technology") %>% 
   ggplot(
     aes(x=AcademicYear, 
@@ -954,7 +954,7 @@ ggplot(sim1, aes(x, y)) +
   geom_point(size = 2, colour = "grey30") + 
   geom_abline(
     aes(intercept = a1, slope = a2, color = -dist) , 
-    data = filter(models, rank(dist) <= 10) # To show only the best 5, change 10 to five
+    data = filter(models, rank(dist) <= 10) # To show only the best-5, change 10 to 5
   )
 
 ```
